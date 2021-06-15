@@ -2,7 +2,7 @@ import { Photographers } from "./Photographers.js";
 import { PhotographerList } from "./PhotographerList.js";
 const photographerList = new PhotographerList();
 
-const linkToData = "sources/data/FishEyeDataFR.json";
+const linkToData = "./sources/data/FishEyeDataFR.json";
 
 fetch(linkToData)
   .then((reponse) => reponse.json())
@@ -102,6 +102,7 @@ function displayPhotographers() {
     cardLocation.textContent = photographer.city + ", " + photographer.country;
     cardTagline.textContent = photographer.tagline;
     cardPrice.textContent = photographer.price + "€/Jour";
+
     main.append(cardLink);
     cardLink.append(cardPhotographer);
     cardPhotographer.append(
