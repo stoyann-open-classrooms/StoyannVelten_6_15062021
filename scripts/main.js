@@ -75,7 +75,9 @@ function displayPhotographers() {
   console.log(filters);
 
   photographerList.getPhotographerList(...filters).forEach((photographer) => {
-    const linkToPage = "photographer.html?id=" + photographer.id;
+    const linkToPage = "photographerPage.html?id=" + photographer.id;
+    const linkToPhoto =
+      "./sources/img/PhotographersID/" + photographer.portrait;
     const cardPhotographer = document.createElement("section");
     const cardLink = document.createElement("a");
     const cardImg = document.createElement("img");
@@ -95,8 +97,11 @@ function displayPhotographers() {
 
     cardLink.href = linkToPage;
     cardLink.setAttribute("role", "link");
+    cardImg.src = linkToPhoto;
     cardTitle.textContent = photographer.name;
-
+    cardLocation.textContent = photographer.city + ", " + photographer.country;
+    cardTagline.textContent = photographer.tagline;
+    cardPrice.textContent = photographer.price + "€/Jour";
     main.append(cardLink);
     cardLink.append(cardPhotographer);
     cardPhotographer.append(
