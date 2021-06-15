@@ -2,7 +2,7 @@ import { Photographers } from "./Photographers.js";
 import { PhotographerList } from "./PhotographerList.js";
 const photographerList = new PhotographerList();
 
-const linkToData = "./sources/data/FishEyeDataFR.json";
+const linkToData = "./data/FishEyeDataFR.json";
 
 fetch(linkToData)
   .then((reponse) => reponse.json())

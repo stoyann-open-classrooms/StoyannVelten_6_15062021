@@ -1,5 +1,5 @@
 import { Photographers } from "./Photographers.js";
-const linkToData = "./sources/data/FishEyeDataFR.json";
+const linkToData = "data/FishEyeDataFR.json";
 const urlParams = new URLSearchParams(window.location.search);
 let currentPhotographer = [];
 fetch(linkToData)
