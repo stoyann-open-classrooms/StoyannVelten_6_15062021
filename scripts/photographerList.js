@@ -43,7 +43,6 @@ export class PhotographerList {
   getPhotographerById(id) {
     for (const photographer of this.photographerList) {
       if (photographer.id === id) {
-        return photographer;
       }
     }
   }

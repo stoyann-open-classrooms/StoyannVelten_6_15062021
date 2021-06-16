@@ -6,16 +6,16 @@
 @import "./animations/animations";
 @import "./modules/btn";
 
-header {
-  display: flex;
-  justify-content: space-between;
-  margin: 5%;
-  align-items: center;
-  h1 {
-    color: $primary;
-  }
-}
-.container-cards {
+// header {
+//   display: flex;
+//   justify-content: space-between;
+//   margin: 5%;
+//   align-items: center;
+//   h1 {
+//     color: $primary;
+//   }
+// }
+main {
   display: flex;
   margin: auto;
   width: 80vw;
@@ -24,7 +24,7 @@ header {
   justify-content: space-around;
   max-width: 1600px;
 }
-.cards {
+.photographer-cards {
   width: 400px;
   margin: 20px;
   padding: 10px;
@@ -37,7 +37,7 @@ header {
     object-fit: cover;
     margin: auto;
   }
-  h1 {
+  h2 {
     margin-top: 20px;
     text-align: center;
     font-size: 2.25em;
@@ -47,5 +47,19 @@ header {
   .cards-body {
     margin-top: 20px;
     text-align: center;
+  }
+}
+
+.banner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  height: 300px;
+  background-color: #fafafa;
+
+  h1 {
+    font-size: 50px;
+    color: $primary;
   }
 }

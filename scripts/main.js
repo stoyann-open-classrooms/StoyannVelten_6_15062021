@@ -7,7 +7,6 @@ const linkToData = "./data/FishEyeDataFR.json";
 fetch(linkToData)
   .then((reponse) => reponse.json())
   .then((data) => {
-    // console.log(data);
     createPhotographerList(data);
     displayPage();
   });
@@ -29,7 +28,7 @@ function createPhotographerList(fetchedData) {
     );
   });
 
-  // console.log(photographerList.getAllTags());
+  console.log(photographerList.getAllTags());
 }
 
 // affiche les elements de la page
@@ -72,7 +71,7 @@ function displayPhotographers() {
   document.querySelectorAll(".tag--selected").forEach((tagselected) => {
     filters.push(tagselected.textContent.replace("#", ""));
   });
-  console.log(filters);
+  // console.log(filters);
 
   photographerList.getPhotographerList(...filters).forEach((photographer) => {
     const linkToPage = "photographerPage.html?id=" + photographer.id;
