@@ -29,13 +29,22 @@ function getCurrentPhoptographer(data) {
         )
       );
 
+      // ajoute le nom du photographe sur le titre de la page
+      document.title += " - " + photographer.name;
+      // création de la banniere
+      const banerBody = document.createElement("div");
       const banerTitle = document.createElement("h1");
       const banerLocation = document.createElement("p");
+      const banerTagline = document.createElement("p");
       banerTitle.textContent = photographer.name;
-      banner.appendChild(banerTitle);
       banerLocation.textContent =
         photographer.city + " ," + photographer.country;
-      banner.appendChild(banerLocation);
+
+      banerTagline.textContent = photographer.tagline;
+      banner.appendChild(banerBody);
+      banerBody.appendChild(banerTitle);
+      banerBody.appendChild(banerLocation);
+      banerBody.appendChild(banerTagline);
     }
   });
 }

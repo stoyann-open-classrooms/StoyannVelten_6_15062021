@@ -45,14 +45,15 @@ function displayTags() {
     const a = document.createElement("a");
     const span = document.createElement("span");
     a.href = "#";
-    a.textContent = "#" + tag;
-    a.setAttribute("aria-labelledby", `${tag}`);
+    // a.textContent = "#" + tag;
+    // a.setAttribute("aria-labelledby", `${tag}`);
 
     span.id = `${tag}`;
     span.classList.add("sr-only");
 
     tagList.append(a);
-    tagList.append(span);
+    a.append(span);
+    span.textContent = "#" + tag;
 
     a.addEventListener("click", (e) => {
       e.preventDefault();
