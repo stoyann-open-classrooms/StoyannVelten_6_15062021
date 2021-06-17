@@ -1,5 +1,5 @@
 import { Photographers } from "./Photographers.js";
-import { PhotographerList } from "./PhotographerList.js";
+import { PhotographerList } from "./photographerList.js";
 const photographerList = new PhotographerList();
 
 const linkToData = "./data/FishEyeDataFR.json";
