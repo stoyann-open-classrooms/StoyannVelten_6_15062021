@@ -74,13 +74,28 @@ main {
 .tag-list {
   a {
     color: $primary;
-    padding: 2px;
+    padding: 3px;
     margin: 3px;
     border: solid 1px $grey;
-    border-radius: 10px;
+    border-radius: 20px;
   }
   .tag--selected {
     color: white;
     background-color: $primary;
+  }
+}
+
+.banner {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+  img {
+    display: block;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin: auto;
   }
 }

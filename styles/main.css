@@ -125,14 +125,37 @@ main {
 
 .tag-list a {
   color: #901c1c;
-  padding: 2px;
+  padding: 3px;
   margin: 3px;
   border: solid 1px #525252;
-  border-radius: 10px;
+  border-radius: 20px;
 }
 
 .tag-list .tag--selected {
   color: white;
   background-color: #901c1c;
+}
+
+.banner {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.banner img {
+  display: block;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  margin: auto;
 }
 /*# sourceMappingURL=main.css.map */
