@@ -49,7 +49,6 @@ function displayTags() {
     // a.setAttribute("aria-labelledby", `${tag}`);
 
     span.id = `${tag}`;
-    span.classList.add("sr-only");
 
     tagList.append(a);
     a.append(span);
