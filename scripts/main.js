@@ -85,6 +85,9 @@ function displayPhotographers() {
     const cardTagline = document.createElement("p");
     const cardPrice = document.createElement("p");
     const cardTags = document.createElement("div");
+    const tagsA = document.createElement("a");
+    const tagsspan = document.createElement("span");
+    const modalBg = document.createElement("form");
 
     cardPhotographer.classList.add("photographer-cards");
     cardImg.classList.add("cards-img");
@@ -93,6 +96,7 @@ function displayPhotographers() {
     cardTagline.classList.add("cards-tagline");
     cardPrice.classList.add("cards-price");
     cardTags.classList.add("cards-tags");
+    modalBg.classList.add("modal");
 
     cardLink.href = linkToPage;
     cardLink.setAttribute("role", "link");
@@ -101,6 +105,7 @@ function displayPhotographers() {
     cardLocation.textContent = photographer.city + ", " + photographer.country;
     cardTagline.textContent = photographer.tagline;
     cardPrice.textContent = photographer.price + "€/Jour";
+    tagsspan.textContent = photographer.tags;
 
     main.append(cardLink);
     cardLink.append(cardPhotographer);
@@ -112,5 +117,6 @@ function displayPhotographers() {
       cardPrice,
       cardTags
     );
+    cardTags.append(tagsA, tagsspan);
   });
 }
