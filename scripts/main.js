@@ -71,7 +71,6 @@ function displayPhotographers() {
   document.querySelectorAll(".tag--selected").forEach((tagselected) => {
     filters.push(tagselected.textContent.replace("#", ""));
   });
-  // console.log(filters);
 
   photographerList.getPhotographerList(...filters).forEach((photographer) => {
     const linkToPage = "photographerPage.html?id=" + photographer.id;

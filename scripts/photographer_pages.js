@@ -3,11 +3,36 @@ const urlParams = new URLSearchParams(window.location.search);
 const banner = document.querySelector(".banner");
 let currentPhotographerId;
 
+const banerBody = document.createElement("div");
+const containerBtnBaner = document.createElement("div");
+const btnBaner = document.createElement("button");
+const banerTitle = document.createElement("h1");
+const banerLocation = document.createElement("p");
+const banerTagline = document.createElement("p");
+const containerTagsBanner = document.createElement("div");
+const tagsLink = document.createElement("a");
+const tagsSpan = document.createElement("span");
+const containerImgBanner = document.createElement("div");
+const bannerImg = document.createElement("img");
+const bannerModal = document.createElement("div");
+const bannerModalHeader = document.createElement("div");
+const modalClose = document.createElement("p");
+const modalTitle = document.createElement("h3");
+const bannerForm = document.createElement("form");
+const formFirstName = document.createElement("label");
+const formFirstNameInp = document.createElement("input");
+const formLastName = document.createElement("label");
+const formLastNameInp = document.createElement("input");
+const formEmail = document.createElement("label");
+const formEmailInp = document.createElement("input");
+const formTxt = document.createElement("label");
+const formTxtInp = document.createElement("textarea");
+const formBtn = document.createElement("button");
+
 fetch(linkToData)
   .then((reponse) => reponse.json())
   .then((data) => {
     displayBanner(data);
-    // createData(data);
   });
 
 // }
@@ -19,9 +44,9 @@ function displayBanner(data) {
         "./sources/img/PhotographersID/" + photographer.portrait;
 
       currentPhotographerId = photographer.id;
-      // ajoute le nom du photographe sur le titre de la page
       document.title += " - " + photographer.name;
-      // création de la banniere
+
+      // création des elements html
       const banerBody = document.createElement("div");
       const containerBtnBaner = document.createElement("div");
       const btnBaner = document.createElement("button");
@@ -29,12 +54,11 @@ function displayBanner(data) {
       const banerLocation = document.createElement("p");
       const banerTagline = document.createElement("p");
       const containerTagsBanner = document.createElement("div");
-      const tagsLink = document.createElement("a");
-      const tagsSpan = document.createElement("span");
+
       const containerImgBanner = document.createElement("div");
       const bannerImg = document.createElement("img");
       const bannerModal = document.createElement("div");
-      const bannerModalHeader = document.createElement;
+      const bannerModalHeader = document.createElement("div");
       const modalClose = document.createElement("p");
       const modalTitle = document.createElement("h3");
       const bannerForm = document.createElement("form");
@@ -46,23 +70,50 @@ function displayBanner(data) {
       const formEmailInp = document.createElement("input");
       const formTxt = document.createElement("label");
       const formTxtInp = document.createElement("textarea");
+      const formBtn = document.createElement("button");
+
+      // ajouts des classes et attributs html
+      bannerModal.classList.add("banner-modal");
+      banerBody.classList.add("banner-body");
+      containerBtnBaner.classList.add("banner-btn");
+      containerImgBanner.classList.add("banner-img");
+      banerTitle.classList.add("banner-body-title");
+      banerLocation.classList.add("banner-body-location");
+      banerTagline.classList.add("banner-body-tagline");
+      banerTagline.classList.add("banner-body-tagline");
+
+      bannerImg.src = linkToPhoto;
+      btnBaner.setAttribute("type", "button");
+
+      // ajout du contenu html
       banerTitle.textContent = photographer.name;
       banerLocation.textContent =
         photographer.city + " ," + photographer.country;
-      bannerModal.classList.add("banner-modal");
       banerTagline.textContent = photographer.tagline;
-      tagsSpan.textContent = photographer.tags;
-      btnBaner.setAttribute("type", "button");
-      bannerImg.src = linkToPhoto;
       btnBaner.textContent = "Contactez-moi";
-      banner.append(banerBody, containerBtnBaner, containerImgBanner);
-      modalTitle.textContent = `Contactez-Moi ${photographer.name}`;
+      modalTitle.innerHTML = `Contactez-Moi <br>${photographer.name}`;
       modalClose.textContent = "X";
       formFirstName.innerHTML = "Prénom";
       formLastName.innerHTML = "Nom";
       formEmail.innerHTML = "Email<br>";
       formTxt.innerHTML = "Votre Message<br>";
+      formBtn.textContent = "Envoyer";
 
+      // ajouts des tags
+
+      photographer.tags.forEach((el) => {
+        const tagsLink = document.createElement("a");
+        const tagsSpan = document.createElement("span");
+        containerTagsBanner.classList.add("banner-tags-container");
+        tagsLink.classList.add("tag-link");
+        tagsSpan.classList.add("tag");
+        containerTagsBanner.appendChild(tagsLink);
+        tagsSpan.textContent = "#" + el;
+        tagsLink.appendChild(tagsSpan);
+      });
+
+      // ajout des elements dans le DOM
+      banner.append(banerBody, containerBtnBaner, containerImgBanner);
       banerBody.append(
         banerTitle,
         banerLocation,
@@ -70,33 +121,46 @@ function displayBanner(data) {
         containerTagsBanner
       );
 
-      containerTagsBanner.appendChild(tagsLink);
-      tagsLink.appendChild(tagsSpan);
       containerBtnBaner.appendChild(btnBaner);
       containerImgBanner.appendChild(bannerImg);
       banerBody.append(bannerModal);
-      bannerModal.append(modalTitle, modalClose);
-      bannerModal.append(bannerForm);
-      bannerForm.appendChild(formFirstName);
-      bannerForm.appendChild(formFirstNameInp);
-      bannerForm.appendChild(formLastName);
+      bannerModal.append(bannerModalHeader, bannerForm);
+      bannerModalHeader.append(modalTitle, modalClose);
+      bannerForm.append(
+        formFirstName,
+        formFirstNameInp,
+        formLastName,
+        formLastNameInp,
+        formEmailInp,
+        formEmail,
+        formTxt,
+        formTxtInp,
+        formBtn
+      );
 
-      bannerForm.appendChild(formLastNameInp);
-      bannerForm.appendChild(formEmailInp);
-      bannerForm.appendChild(formEmail);
-      bannerForm.appendChild(formTxt);
-      bannerForm.appendChild(formTxtInp);
-      // bannerForm.append(formLastName, formLastNameInp);
+      //  ouvrir la modal de la banniere
 
-      //  ouvrir la modal de la bannieres
-      btnBaner.addEventListener("click", () => {
-        bannerModal.style.opacity = "1";
-        console.log("hello");
+      function openModalForm() {
+        btnBaner.addEventListener("click", () => {
+          bannerModal.style.opacity = "1";
+          console.log("hello");
+        });
+      }
+      //  fermer la modal de la banniere
+
+      function closeModalForm() {
+        modalClose.addEventListener("click", () => {
+          bannerModal.style.opacity = "0";
+        });
+      }
+      //soumission du formulaire
+      bannerForm.addEventListener("submit", (e) => {
+        e.preventDefault();
+        console.log("formulaire envoyé");
       });
 
-      modalClose.addEventListener("click", () => {
-        bannerModal.style.opacity = "0";
-      });
+      openModalForm();
+      closeModalForm();
     }
   });
   console.log(currentPhotographerId);

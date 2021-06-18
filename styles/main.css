@@ -172,49 +172,6 @@ main {
   cursor: pointer;
 }
 
-.boutonmenuprincipal {
-  background-color: #901c1c;
-  color: white;
-  border: none;
-  cursor: pointer;
-  padding: 20px;
-  margin-top: 20px;
-  font-size: 30px;
-  border-radius: 5px;
-}
-
-.boutonmenuprincipal:hover {
-  background-color: #901c1c;
-}
-
-.dropdown {
-  position: relative;
-  display: inline-block;
-}
-
-.dropdown-child {
-  display: none;
-  background-color: #901c1c;
-  min-width: 50px;
-  position: relative;
-  bottom: 3px;
-  font-size: 30px;
-}
-
-.dropdown-child span {
-  color: white;
-  padding: 20px;
-  text-decoration: none;
-  display: block;
-  border-top: 2px solid white;
-  margin-left: 10px;
-  margin-right: 10px;
-}
-
-.dropdown:hover .dropdown-child {
-  display: block;
-}
-
 .cards-media-container {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -269,5 +226,35 @@ main {
   opacity: 0;
   margin: auto;
   height: 300px;
+}
+
+.banner-tags-container {
+  margin-top: 20px;
+}
+
+.tag {
+  color: #901c1c;
+  padding: 10px;
+  margin: 3px;
+  border: solid 1px #525252;
+  border-radius: 20px;
+}
+
+.cards-img-container {
+  border-radius: 5px;
+}
+
+.cards-img-container img {
+  height: 300px;
+  width: 300px;
+  border-radius: 5px;
+}
+
+.heart {
+  cursor: pointer;
+}
+
+.tag-link {
+  cursor: pointer;
 }
 /*# sourceMappingURL=main.css.map */
