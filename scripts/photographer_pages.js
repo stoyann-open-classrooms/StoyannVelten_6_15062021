@@ -1,8 +1,9 @@
 const linkToData = "data/FishEyeDataFR.json";
 const urlParams = new URLSearchParams(window.location.search);
 const banner = document.querySelector(".banner");
+const main = document.querySelector(".main");
+
 let currentPhotographerId;
-let currentPhotographerMedia = [];
 
 const banerBody = document.createElement("div");
 const containerBtnBaner = document.createElement("div");
@@ -34,18 +35,52 @@ fetch(linkToData)
   .then((reponse) => reponse.json())
   .then((data) => {
     displayBanner(data);
-    getMedia(data);
+    displayMedia(data);
   });
 
 // }
-function getMedia(data) {
+function displayMedia(data) {
   data.media.forEach((media) => {
     if (currentPhotographerId === media.photographerId) {
-      currentPhotographerMedia.push(media);
+      const linkToPhoto = `sources/img/${media.image}`;
+      const cardsMedia = document.createElement("div");
+      const cardsMediaImgContainer = document.createElement("div");
+      const cardsMediaImg = document.createElement("img");
+      const cardsMediaFooter = document.createElement("div");
+      const cardsMediaHeaderTitle = document.createElement("h3");
+      const cardsMediaHeaderLike = document.createElement("div");
+      const likeCompteur = document.createElement("div");
+      const likeheart = document.createElement("a");
+      let title = `${media.image}`;
+
+      cardsMedia.classList.add("cards-media");
+      cardsMediaImgContainer.classList.add("cards-media-img");
+      cardsMediaImg.classList.add("cards-Img");
+      cardsMediaFooter.classList.add("cards-media-footer");
+      cardsMediaHeaderTitle.classList.add("cards-media-title");
+      cardsMediaHeaderLike.classList.add("header-like");
+      likeCompteur.classList.add("compteur");
+
+      cardsMediaImg.src = linkToPhoto;
+
+      cardsMediaHeaderTitle.textContent = `${title}`
+        .replace(".jpg", "")
+        .replace("_", "-")
+        .replace("_", "-");
+
+      likeCompteur.textContent = `${media.likes}`;
+
+      main.append(cardsMedia);
+      cardsMedia.append(cardsMediaImgContainer, cardsMediaFooter);
+      cardsMediaImgContainer.append(cardsMediaImg);
+      cardsMediaFooter.append(cardsMediaHeaderTitle, cardsMediaHeaderLike);
+      cardsMediaHeaderLike.append(likeCompteur);
+
+      console.log(media);
     }
   });
 }
-console.log(currentPhotographerMedia);
+
 function displayBanner(data) {
   data.photographers.forEach((photographer) => {
     if (photographer.id === Number(urlParams.get("id"))) {
