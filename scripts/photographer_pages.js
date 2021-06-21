@@ -2,6 +2,7 @@ const linkToData = "data/FishEyeDataFR.json";
 const urlParams = new URLSearchParams(window.location.search);
 const banner = document.querySelector(".banner");
 let currentPhotographerId;
+let currentPhotographerMedia = [];
 
 const banerBody = document.createElement("div");
 const containerBtnBaner = document.createElement("div");
@@ -33,10 +34,18 @@ fetch(linkToData)
   .then((reponse) => reponse.json())
   .then((data) => {
     displayBanner(data);
+    getMedia(data);
   });
 
 // }
-
+function getMedia(data) {
+  data.media.forEach((media) => {
+    if (currentPhotographerId === media.photographerId) {
+      currentPhotographerMedia.push(media);
+    }
+  });
+}
+console.log(currentPhotographerMedia);
 function displayBanner(data) {
   data.photographers.forEach((photographer) => {
     if (photographer.id === Number(urlParams.get("id"))) {
@@ -148,6 +157,7 @@ function displayBanner(data) {
           console.log("hello");
         });
       }
+
       //  fermer la modal de la banniere
 
       function closeModalForm() {
@@ -165,5 +175,5 @@ function displayBanner(data) {
       closeModalForm();
     }
   });
-  console.log(currentPhotographerId);
+  // console.log(currentPhotographerId);
 }
