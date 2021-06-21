@@ -34,24 +34,26 @@ main {
 }
 
 .return-main {
-  display: block;
+  display: none;
   position: fixed;
   top: 0;
   text-align: center;
-  width: 100px;
-  left: 40%;
+  left: 35%;
   background-color: $secondary-light;
   border-radius: $radius;
   padding: 2px;
 }
+
 .banner {
   display: flex;
   background-color: $quadrary;
   // margin: auto;
   padding: 4%;
+  border-radius: $radius;
   position: absolute;
-  width: 100vw;
+  width: 95vw;
   justify-content: space-between;
+
   .banner-body {
     width: 50%;
   }
@@ -73,9 +75,9 @@ main {
   width: auto;
   padding: 5px;
   border-radius: $radius;
+  font-size: 9px;
   position: relative;
-  top: 5%;
-  right: 70%;
+  bottom: 0;
 }
 
 .banner-body-title {

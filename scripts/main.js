@@ -1,8 +1,17 @@
 import { Photographers } from "./Photographers.js";
 import { PhotographerList } from "./photographerList.js";
 const photographerList = new PhotographerList();
+const returnMain = document.querySelector(".return-main ");
 
 const linkToData = "./data/FishEyeDataFR.json";
+
+window.addEventListener("scroll", () => {
+  if (window.scrollY > 40) {
+    returnMain.style.display = "block";
+  } else {
+    returnMain.style.display = "none";
+  }
+});
 
 fetch(linkToData)
   .then((reponse) => reponse.json())

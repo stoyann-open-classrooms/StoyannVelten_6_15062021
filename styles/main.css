@@ -223,12 +223,11 @@ main {
 }
 
 .return-main {
-  display: block;
+  display: none;
   position: fixed;
   top: 0;
   text-align: center;
-  width: 100px;
-  left: 40%;
+  left: 35%;
   background-color: #db8876;
   border-radius: 5px;
   padding: 2px;
@@ -240,8 +239,9 @@ main {
   display: flex;
   background-color: #fafafa;
   padding: 4%;
+  border-radius: 5px;
   position: absolute;
-  width: 100vw;
+  width: 95vw;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
@@ -267,9 +267,9 @@ main {
   width: auto;
   padding: 5px;
   border-radius: 5px;
+  font-size: 9px;
   position: relative;
-  top: 5%;
-  right: 70%;
+  bottom: 0;
 }
 
 .banner-body-title {
