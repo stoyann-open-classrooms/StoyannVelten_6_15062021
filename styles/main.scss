@@ -18,6 +18,7 @@ main {
   margin: auto;
   justify-content: center;
   max-width: 1000px;
+  margin-bottom: 30px;
 }
 
 .contact-modal {
@@ -50,12 +51,12 @@ main {
   // margin: auto;
   padding: 4%;
   border-radius: $radius;
-  position: absolute;
+  // position: absolute;
   width: 95vw;
   justify-content: space-between;
 
   .banner-body {
-    width: 50%;
+    width: 60%;
   }
 }
 .banner-img {
@@ -68,6 +69,7 @@ main {
 }
 
 .btn-banner {
+  display: none;
   background-color: $primary;
   border: none;
   color: white;
@@ -86,7 +88,22 @@ main {
 .banner-body-location {
   color: $primary;
 }
+
 .banner-tags-container {
   margin-top: 10px;
   width: 60%;
+}
+.btn-modal-mobile {
+  display: block;
+  background-color: $primary;
+  border: none;
+  color: white;
+  font-size: 10px;
+  width: auto;
+  padding: 7px 10px;
+  border-radius: $radius;
+  font-size: 9px;
+  position: fixed;
+  bottom: 20px;
+  left: 38%;
 }

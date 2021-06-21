@@ -69,7 +69,7 @@ function displayTags() {
       e.preventDefault();
       a.classList.toggle("tag--selected");
       displayPhotographers();
-      console.log(tag);
+      // console.log(tag);
     });
   });
 }

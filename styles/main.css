@@ -88,8 +88,6 @@ header .tag-list {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  position: absolute;
-  top: 4rem;
 }
 
 .photographer-cards {
@@ -179,8 +177,8 @@ header .tag-list {
   border: 0.5px solid #c4c4c4;
   margin-top: 5px;
   margin-right: 5px;
-  padding: 2px;
-  font-size: 1rem;
+  padding: 3px 5px;
+  font-size: 0.8rem;
   border-radius: 9999px;
 }
 
@@ -204,6 +202,7 @@ main {
       -ms-flex-pack: center;
           justify-content: center;
   max-width: 1000px;
+  margin-bottom: 30px;
 }
 
 .contact-modal {
@@ -240,7 +239,6 @@ main {
   background-color: #fafafa;
   padding: 4%;
   border-radius: 5px;
-  position: absolute;
   width: 95vw;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
@@ -248,7 +246,7 @@ main {
 }
 
 .banner .banner-body {
-  width: 50%;
+  width: 60%;
 }
 
 .banner-img img {
@@ -260,6 +258,7 @@ main {
 }
 
 .btn-banner {
+  display: none;
   background-color: #901c1c;
   border: none;
   color: white;
@@ -283,5 +282,20 @@ main {
 .banner-tags-container {
   margin-top: 10px;
   width: 60%;
+}
+
+.btn-modal-mobile {
+  display: block;
+  background-color: #901c1c;
+  border: none;
+  color: white;
+  font-size: 10px;
+  width: auto;
+  padding: 7px 10px;
+  border-radius: 5px;
+  font-size: 9px;
+  position: fixed;
+  bottom: 20px;
+  left: 38%;
 }
 /*# sourceMappingURL=main.css.map */
