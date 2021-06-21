@@ -17,4 +17,74 @@ main {
   flex-wrap: wrap;
   margin: auto;
   justify-content: center;
+  max-width: 1000px;
+}
+
+.contact-modal {
+  display: none;
+  flex-direction: column;
+  position: fixed;
+  z-index: 9999;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100%;
+  background: rgba($color: black, $alpha: 0.7);
+  overflow: auto;
+}
+
+.return-main {
+  display: block;
+  position: fixed;
+  top: 0;
+  text-align: center;
+  width: 100px;
+  left: 40%;
+  background-color: $secondary-light;
+  border-radius: $radius;
+  padding: 2px;
+}
+.banner {
+  display: flex;
+  background-color: $quadrary;
+  // margin: auto;
+  padding: 4%;
+  position: absolute;
+  width: 100vw;
+  justify-content: space-between;
+  .banner-body {
+    width: 50%;
+  }
+}
+.banner-img {
+  img {
+    height: 70px;
+    width: 70px;
+    object-fit: cover;
+    border-radius: 50%;
+  }
+}
+
+.btn-banner {
+  background-color: $primary;
+  border: none;
+  color: white;
+  font-size: 10px;
+  width: auto;
+  padding: 5px;
+  border-radius: $radius;
+  position: relative;
+  top: 5%;
+  right: 70%;
+}
+
+.banner-body-title {
+  color: $secondary;
+}
+.banner-body-location {
+  color: $primary;
+}
+.banner-tags-container {
+  margin-top: 10px;
+  width: 60%;
 }

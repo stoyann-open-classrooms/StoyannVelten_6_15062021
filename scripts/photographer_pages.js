@@ -81,6 +81,8 @@ function displayBanner(data) {
       banerLocation.classList.add("banner-body-location");
       banerTagline.classList.add("banner-body-tagline");
       banerTagline.classList.add("banner-body-tagline");
+      bannerModal.classList.add("contact-modal");
+      btnBaner.classList.add("btn-banner");
 
       bannerImg.src = linkToPhoto;
       btnBaner.setAttribute("type", "button");
@@ -105,8 +107,8 @@ function displayBanner(data) {
         const tagsLink = document.createElement("a");
         const tagsSpan = document.createElement("span");
         containerTagsBanner.classList.add("banner-tags-container");
-        tagsLink.classList.add("tag-link");
-        tagsSpan.classList.add("tag");
+        tagsLink.classList.add("tags-link");
+        tagsSpan.classList.add("tags");
         containerTagsBanner.appendChild(tagsLink);
         tagsSpan.textContent = "#" + el;
         tagsLink.appendChild(tagsSpan);
