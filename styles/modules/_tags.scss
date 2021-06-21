@@ -1,0 +1,11 @@
+.tags-link {
+  color: $primary;
+  border: 0.5px solid #c4c4c4;
+  margin-top: 5px;
+  margin-right: 5px;
+  padding: 1px;
+}
+.tag--selected {
+  background-color: $primary;
+  color: white;
+}

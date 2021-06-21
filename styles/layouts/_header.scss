@@ -1,0 +1,28 @@
+header {
+  .header-top {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding: 10px;
+
+    align-items: center;
+    width: 100%;
+
+    img {
+      width: 50%;
+      display: block;
+    }
+    h1 {
+      font-size: 1rem;
+    }
+  }
+  .tag-list {
+    display: flex;
+    width: 100%;
+    margin: auto;
+    flex-wrap: wrap;
+    justify-content: center;
+    position: absolute;
+    top: 4rem;
+  }
+}
