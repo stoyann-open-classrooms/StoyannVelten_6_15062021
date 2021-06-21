@@ -1,9 +1,13 @@
 .tags-link {
+  height: 20px;
+  width: auto;
   color: $primary;
   border: 0.5px solid #c4c4c4;
   margin-top: 5px;
   margin-right: 5px;
-  padding: 1px;
+  padding: 2px;
+  font-size: 1rem;
+  border-radius: 9999px;
 }
 .tag--selected {
   background-color: $primary;
