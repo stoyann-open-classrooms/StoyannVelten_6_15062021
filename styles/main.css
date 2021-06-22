@@ -186,8 +186,9 @@ header .tag-list {
 }
 
 .modal-content .fa-times {
-  font-size: 20px;
+  font-size: 30px;
   margin-top: 5px;
+  color: white;
   cursor: pointer;
 }
 
@@ -245,6 +246,51 @@ header .tag-list {
   -ms-flex-item-align: center;
       -ms-grid-row-align: center;
       align-self: center;
+}
+
+.boutonmenuprincipal {
+  background-color: #901c1c;
+  color: white;
+  border: none;
+  cursor: pointer;
+  padding: 5px;
+  margin-top: 10px;
+  font-size: 10px;
+  border-radius: 5px;
+}
+
+.boutonmenuprincipal:hover {
+  background-color: #901c1c;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+  right: 30%;
+}
+
+.dropdown-child {
+  display: none;
+  background-color: #901c1c;
+  min-width: 50px;
+  position: relative;
+  bottom: 3px;
+  font-size: 10px;
+  border-radius: 0 0 5px 5px;
+}
+
+.dropdown-child span {
+  color: white;
+  padding: 5px;
+  text-decoration: none;
+  display: block;
+  border-top: 2px solid white;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.dropdown:hover .dropdown-child {
+  display: block;
 }
 
 .cards-media {
