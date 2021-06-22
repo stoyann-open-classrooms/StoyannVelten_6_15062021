@@ -4,7 +4,7 @@ const banner = document.querySelector(".banner");
 const main = document.querySelector(".main");
 
 let currentPhotographerId;
-
+const btnModalMobile = document.querySelector(".btn-modal-mobile");
 const banerBody = document.createElement("div");
 const containerBtnBaner = document.createElement("div");
 const btnBaner = document.createElement("button");
@@ -49,8 +49,9 @@ function displayMedia(data) {
       const cardsMediaFooter = document.createElement("div");
       const cardsMediaHeaderTitle = document.createElement("h3");
       const cardsMediaHeaderLike = document.createElement("div");
+      const heartLink = document.createElement("a");
       const likeCompteur = document.createElement("div");
-      const likeheart = document.createElement("a");
+      const likeheart = document.createElement("i");
       let title = `${media.image}`;
 
       cardsMedia.classList.add("cards-media");
@@ -60,6 +61,10 @@ function displayMedia(data) {
       cardsMediaHeaderTitle.classList.add("cards-media-title");
       cardsMediaHeaderLike.classList.add("header-like");
       likeCompteur.classList.add("compteur");
+      heartLink.classList.add("heart-link");
+      likeheart.classList.add(`far`);
+      likeheart.classList.add(`fa-heart`);
+      likeheart.classList.add(`heart`);
 
       cardsMediaImg.src = linkToPhoto;
 
@@ -74,8 +79,9 @@ function displayMedia(data) {
       cardsMedia.append(cardsMediaImgContainer, cardsMediaFooter);
       cardsMediaImgContainer.append(cardsMediaImg);
       cardsMediaFooter.append(cardsMediaHeaderTitle, cardsMediaHeaderLike);
-      cardsMediaHeaderLike.append(likeCompteur);
 
+      cardsMediaHeaderLike.append(likeCompteur, heartLink);
+      heartLink.append(likeheart);
       console.log(media);
     }
   });
@@ -183,32 +189,9 @@ function displayBanner(data) {
         formTxtInp,
         formBtn
       );
-
-      //  ouvrir la modal de la banniere
-
-      function openModalForm() {
-        btnBaner.addEventListener("click", () => {
-          bannerModal.style.opacity = "1";
-          console.log("hello");
-        });
-      }
-
-      //  fermer la modal de la banniere
-
-      function closeModalForm() {
-        modalClose.addEventListener("click", () => {
-          bannerModal.style.opacity = "0";
-        });
-      }
-      //soumission du formulaire
-      bannerForm.addEventListener("submit", (e) => {
-        e.preventDefault();
-        console.log("formulaire envoyé");
-      });
-
-      openModalForm();
-      closeModalForm();
     }
   });
   // console.log(currentPhotographerId);
 }
+
+console.log(btnModalMobile);

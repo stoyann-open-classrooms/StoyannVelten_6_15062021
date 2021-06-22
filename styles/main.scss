@@ -5,6 +5,9 @@
 @import "./mixins/mixins";
 @import "./animations/animations";
 @import "./layouts/header";
+@import "./layouts/banner";
+@import "./modules/modale";
+@import "./modules/cards-medias";
 @import "./modules/photographer-cards";
 @import "./modules/tags";
 
@@ -21,19 +24,6 @@ main {
   margin-bottom: 30px;
 }
 
-.contact-modal {
-  display: none;
-  flex-direction: column;
-  position: fixed;
-  z-index: 9999;
-  left: 0;
-  top: 0;
-  width: 100vw;
-  height: 100%;
-  background: rgba($color: black, $alpha: 0.7);
-  overflow: auto;
-}
-
 .return-main {
   display: none;
   position: fixed;
@@ -43,96 +33,4 @@ main {
   background-color: $secondary-light;
   border-radius: $radius;
   padding: 2px;
-}
-
-.banner {
-  display: flex;
-  background-color: $quadrary;
-  // margin: auto;
-  padding: 4%;
-
-  border-radius: $radius;
-  // position: absolute;
-  width: 98vw;
-  justify-content: space-between;
-
-  .banner-body {
-    width: 60%;
-  }
-}
-.banner-img {
-  img {
-    height: 70px;
-    width: 70px;
-    object-fit: cover;
-    border-radius: 50%;
-  }
-}
-
-.btn-banner {
-  display: none;
-  background-color: $primary;
-  border: none;
-  color: white;
-  font-size: 10px;
-  width: auto;
-  padding: 5px;
-  border-radius: $radius;
-  font-size: 9px;
-  position: relative;
-  bottom: 0;
-}
-
-.banner-body-title {
-  color: $secondary;
-}
-.banner-body-location {
-  color: $primary;
-}
-
-.banner-tags-container {
-  margin-top: 10px;
-  width: 60%;
-}
-.btn-modal-mobile {
-  display: block;
-  background-color: $primary;
-  border: none;
-  color: white;
-  font-size: 10px;
-  width: auto;
-  padding: 7px 10px;
-  border-radius: $radius;
-  font-size: 9px;
-  position: fixed;
-  bottom: 20px;
-  left: 38%;
-}
-
-.cards-media {
-  width: 95vw;
-  height: 190px;
-  margin-top: 10px;
-  color: $primary;
-}
-.cards-media-footer {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-.cards-media-img {
-  background-color: #d3d3d3;
-  height: 80%;
-  border-radius: $radius;
-}
-
-.cards-media-title {
-  margin-top: 7px;
-  font-weight: 400;
-}
-.cards-Img {
-  object-fit: cover;
-  width: 100%;
-  height: 100%;
-  border-radius: $radius;
 }

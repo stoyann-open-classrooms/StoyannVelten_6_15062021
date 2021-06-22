@@ -2,6 +2,7 @@ import { Photographers } from "./Photographers.js";
 import { PhotographerList } from "./photographerList.js";
 const photographerList = new PhotographerList();
 const returnMain = document.querySelector(".return-main ");
+const btnModalMobile = document.querySelector(".btn-modal-mobile");
 
 const linkToData = "./data/FishEyeDataFR.json";
 
@@ -18,6 +19,7 @@ fetch(linkToData)
   .then((data) => {
     createPhotographerList(data);
     displayPage();
+    openModalForm();
   });
 
 // console.log(PhotographerList);

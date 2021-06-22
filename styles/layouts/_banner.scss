@@ -1,0 +1,45 @@
+.banner {
+  display: flex;
+  padding: 4%;
+  border-radius: $radius;
+  width: 98vw;
+  justify-content: space-between;
+  .banner-body {
+    width: 60%;
+  }
+}
+.banner-img {
+  margin-right: 50px;
+  img {
+    height: 50px;
+    width: 50px;
+    object-fit: cover;
+    border-radius: 50%;
+  }
+}
+
+.btn-banner {
+  display: none;
+  background-color: $primary;
+  border: none;
+  color: white;
+  font-size: 10px;
+  width: auto;
+  padding: 5px;
+  border-radius: $radius;
+  font-size: 9px;
+  position: relative;
+  bottom: 0;
+}
+
+.banner-body-title {
+  color: $secondary;
+}
+.banner-body-location {
+  color: $primary;
+}
+
+.banner-tags-container {
+  margin-top: 10px;
+  width: 60%;
+}
