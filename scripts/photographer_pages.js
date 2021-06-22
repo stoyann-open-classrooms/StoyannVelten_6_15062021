@@ -83,6 +83,21 @@ function displayMedia(data) {
       cardsMediaHeaderLike.append(likeCompteur, heartLink);
       heartLink.append(likeheart);
       console.log(media);
+      console.log(media.likes);
+
+      heartLink.addEventListener("click", () => {
+        if (likeheart.classList.contains("fas")) {
+          media.likes--;
+          likeheart.classList.remove("fas");
+          likeheart.classList.add("far");
+          console.log(media.likes);
+        } else {
+          media.likes++;
+          likeheart.classList.remove("far");
+          likeheart.classList.add("fas");
+          console.log(media.likes);
+        }
+      });
     }
   });
 }
