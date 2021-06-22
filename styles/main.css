@@ -224,12 +224,27 @@ header .tag-list {
   border-radius: 5px;
   border: none;
   height: 30px;
+  outline: none;
 }
 
 .modal-content textarea {
   border-radius: 5px;
   border: none;
   height: 150px;
+  outline: none;
+}
+
+.modal-content button {
+  background-color: #901c1c;
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  margin-top: 20px;
+  width: 40%;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
 }
 
 .cards-media {
@@ -282,6 +297,10 @@ header .tag-list {
 
 .heart {
   text-align: center;
+}
+
+.compteur {
+  margin-right: 5px;
 }
 
 .photographer-cards {

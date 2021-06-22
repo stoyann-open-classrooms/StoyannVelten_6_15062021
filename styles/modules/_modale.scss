@@ -60,10 +60,22 @@
     border-radius: $radius;
     border: none;
     height: 30px;
+    outline: none;
   }
   textarea {
     border-radius: $radius;
     border: none;
     height: 150px;
+    outline: none;
+  }
+  button {
+    background-color: $primary;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: $radius;
+    margin-top: 20px;
+    width: 40%;
+    align-self: center;
   }
 }
