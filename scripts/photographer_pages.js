@@ -43,6 +43,7 @@ function displayMedia(data) {
   data.media.forEach((media) => {
     if (currentPhotographerId === media.photographerId) {
       const linkToPhoto = `sources/img/${media.image}`;
+      const cardsMediaLink = document.createElement("a");
       const cardsMedia = document.createElement("div");
       const cardsMediaImgContainer = document.createElement("div");
       const cardsMediaImg = document.createElement("img");
@@ -53,7 +54,7 @@ function displayMedia(data) {
       const likeCompteur = document.createElement("div");
       const likeheart = document.createElement("i");
       let title = `${media.title}`;
-
+      cardsMediaLink.classList.add("cards-media-link");
       cardsMedia.classList.add("cards-media");
       cardsMediaImgContainer.classList.add("cards-media-img");
       cardsMediaImg.classList.add("cards-Img");
@@ -68,15 +69,14 @@ function displayMedia(data) {
 
       cardsMediaImg.src = linkToPhoto;
 
-      cardsMediaHeaderTitle.textContent = `${title}`
-        .replace(".jpg", "")
-        .replace("_", "-")
-        .replace("_", "-");
+      cardsMediaHeaderTitle.textContent = `${title}`;
 
       likeCompteur.textContent = `${media.likes}`;
 
       main.append(cardsMedia);
-      cardsMedia.append(cardsMediaImgContainer, cardsMediaFooter);
+      cardsMedia.append(cardsMediaLink);
+      cardsMediaLink.append(cardsMediaImgContainer);
+      cardsMedia.append(cardsMediaLink, cardsMediaFooter);
       cardsMediaImgContainer.append(cardsMediaImg);
       cardsMediaFooter.append(cardsMediaHeaderTitle, cardsMediaHeaderLike);
 
