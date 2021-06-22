@@ -84,18 +84,18 @@ function displayMedia(data) {
       heartLink.append(likeheart);
       console.log(media);
       console.log(media.likes);
-
+      // compteur de likes
       heartLink.addEventListener("click", () => {
         if (likeheart.classList.contains("fas")) {
           media.likes--;
           likeheart.classList.remove("fas");
           likeheart.classList.add("far");
-          console.log(media.likes);
+          likeCompteur.textContent = `${media.likes}`;
         } else {
           media.likes++;
           likeheart.classList.remove("far");
           likeheart.classList.add("fas");
-          console.log(media.likes);
+          likeCompteur.textContent = `${media.likes}`;
         }
       });
     }
@@ -165,9 +165,13 @@ function displayBanner(data) {
       formEmail.innerHTML = "Email<br>";
       formTxt.innerHTML = "Votre Message<br>";
       formBtn.textContent = "Envoyer";
+      // open modal
+      btnModalMobile.addEventListener("click", () => {
+        bannerModal.style.display = "flex";
+        console.log("hello");
+      });
 
       // ajouts des tags
-
       photographer.tags.forEach((el) => {
         const tagsLink = document.createElement("a");
         const tagsSpan = document.createElement("span");
