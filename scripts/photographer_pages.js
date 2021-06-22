@@ -52,7 +52,7 @@ function displayMedia(data) {
       const heartLink = document.createElement("a");
       const likeCompteur = document.createElement("div");
       const likeheart = document.createElement("i");
-      let title = `${media.image}`;
+      let title = `${media.title}`;
 
       cardsMedia.classList.add("cards-media");
       cardsMediaImgContainer.classList.add("cards-media-img");
