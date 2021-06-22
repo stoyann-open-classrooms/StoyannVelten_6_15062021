@@ -176,6 +176,36 @@ header .tag-list {
   overflow: auto;
 }
 
+.modal-content {
+  background-color: #db8876;
+  margin: 0;
+  border: 1px solid #888;
+  padding: 20px;
+  height: 100%;
+  border-radius: 5px;
+}
+
+.modal-content div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.modal-content form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  height: 100%;
+}
+
 .cards-media {
   width: 95vw;
   height: 190px;

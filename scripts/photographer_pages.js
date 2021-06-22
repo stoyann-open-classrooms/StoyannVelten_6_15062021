@@ -123,6 +123,7 @@ function displayBanner(data) {
       const containerImgBanner = document.createElement("div");
       const bannerImg = document.createElement("img");
       const bannerModal = document.createElement("div");
+      const bannerModalContent = document.createElement("div");
       const bannerModalHeader = document.createElement("div");
       const modalClose = document.createElement("i");
       const modalTitle = document.createElement("h3");
@@ -150,6 +151,7 @@ function displayBanner(data) {
       btnBaner.classList.add("btn-banner");
       modalClose.classList.add("fas");
       modalClose.classList.add("fa-times");
+      bannerModalContent.classList.add("modal-content");
 
       bannerImg.src = linkToPhoto;
       btnBaner.setAttribute("type", "button");
@@ -198,15 +200,16 @@ function displayBanner(data) {
       containerBtnBaner.appendChild(btnBaner);
       containerImgBanner.appendChild(bannerImg);
       banerBody.append(bannerModal);
-      bannerModal.append(bannerModalHeader, bannerForm);
+      bannerModal.append(bannerModalContent);
+      bannerModalContent.append(bannerModalHeader, bannerForm);
       bannerModalHeader.append(modalTitle, modalClose);
       bannerForm.append(
         formFirstName,
         formFirstNameInp,
         formLastName,
         formLastNameInp,
-        formEmailInp,
         formEmail,
+        formEmailInp,
         formTxt,
         formTxtInp,
         formBtn

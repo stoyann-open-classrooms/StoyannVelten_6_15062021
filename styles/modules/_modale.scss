@@ -25,3 +25,22 @@
   background: rgba($color: black, $alpha: 0.7);
   overflow: auto;
 }
+
+.modal-content {
+  background-color: $secondary-light;
+  margin: 0;
+  border: 1px solid #888;
+  padding: 20px;
+  height: 100%;
+  border-radius: $radius;
+  div {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+  }
+  form {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+}
