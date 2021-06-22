@@ -185,6 +185,12 @@ header .tag-list {
   border-radius: 5px;
 }
 
+.modal-content .fa-times {
+  font-size: 20px;
+  margin-top: 5px;
+  cursor: pointer;
+}
+
 .modal-content div {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -193,6 +199,11 @@ header .tag-list {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+}
+
+.modal-content div h3 {
+  font-size: 30px;
+  font-weight: 400;
 }
 
 .modal-content form {
@@ -204,6 +215,21 @@ header .tag-list {
       -ms-flex-direction: column;
           flex-direction: column;
   height: 100%;
+  font-size: 20px;
+  font-weight: 400;
+  margin-top: 30px;
+}
+
+.modal-content input {
+  border-radius: 5px;
+  border: none;
+  height: 30px;
+}
+
+.modal-content textarea {
+  border-radius: 5px;
+  border: none;
+  height: 150px;
 }
 
 .cards-media {

@@ -173,7 +173,10 @@ function displayBanner(data) {
       // open modal
       btnModalMobile.addEventListener("click", () => {
         bannerModal.style.display = "flex";
-        console.log("hello");
+      });
+      // close modal
+      modalClose.addEventListener("click", () => {
+        bannerModal.style.display = "none";
       });
 
       // ajouts des tags

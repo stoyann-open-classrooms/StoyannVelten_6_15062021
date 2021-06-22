@@ -33,14 +33,37 @@
   padding: 20px;
   height: 100%;
   border-radius: $radius;
+  .fa-times {
+    font-size: 20px;
+    margin-top: 5px;
+    cursor: pointer;
+  }
+
   div {
     display: flex;
     width: 100%;
     justify-content: space-between;
+    h3 {
+      font-size: 30px;
+      font-weight: 400;
+    }
   }
   form {
     display: flex;
     flex-direction: column;
     height: 100%;
+    font-size: 20px;
+    font-weight: 400;
+    margin-top: 30px;
+  }
+  input {
+    border-radius: $radius;
+    border: none;
+    height: 30px;
+  }
+  textarea {
+    border-radius: $radius;
+    border: none;
+    height: 150px;
   }
 }
