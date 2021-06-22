@@ -124,7 +124,7 @@ function displayBanner(data) {
       const bannerImg = document.createElement("img");
       const bannerModal = document.createElement("div");
       const bannerModalHeader = document.createElement("div");
-      const modalClose = document.createElement("p");
+      const modalClose = document.createElement("i");
       const modalTitle = document.createElement("h3");
       const bannerForm = document.createElement("form");
       const formFirstName = document.createElement("label");
@@ -148,9 +148,12 @@ function displayBanner(data) {
       banerTagline.classList.add("banner-body-tagline");
       bannerModal.classList.add("contact-modal");
       btnBaner.classList.add("btn-banner");
+      modalClose.classList.add("fas");
+      modalClose.classList.add("fa-times");
 
       bannerImg.src = linkToPhoto;
       btnBaner.setAttribute("type", "button");
+      btnModalMobile.setAttribute("type", "button");
 
       // ajout du contenu html
       banerTitle.textContent = photographer.name;
@@ -159,7 +162,7 @@ function displayBanner(data) {
       banerTagline.textContent = photographer.tagline;
       btnBaner.textContent = "Contactez-moi";
       modalTitle.innerHTML = `Contactez-Moi <br>${photographer.name}`;
-      modalClose.textContent = "X";
+
       formFirstName.innerHTML = "Prénom";
       formLastName.innerHTML = "Nom";
       formEmail.innerHTML = "Email<br>";
