@@ -9,14 +9,4 @@ export class Photographers {
     this.price = price;
     this.portrait = portrait;
   }
-
-  getFolderName() {
-    return this.name.toLowerCase().replace(" ", "");
-  }
-
-  getPhotographerId() {
-    console.log(this.id);
-  }
-
-  // faire une fonctions qui remplie automatiquement la balises alt des images
 }
