@@ -4,19 +4,25 @@ import { MediumList } from "./MediumList.js";
 import { Medium } from "./Medium.js";
 const linkToData = "data/FishEyeDataFR.json";
 const urlParams = new URLSearchParams(window.location.search);
+const mediaList = new MediumList();
+let currentPhotographer;
 const banner = document.querySelector(".banner");
 const main = document.querySelector(".main");
 
-const mediaList = new MediumList();
+function createContent() {
+  fetch(linkToData)
+    .then((response) => {
+      if (response.ok) {
+        return response.json();
+      } else {
+        console.log("erreur");
+      }
+    })
 
-let currentPhotographer;
+    .then((data) => createData(data))
 
-fetch(linkToData)
-  .then((reponse) => reponse.json())
-  .then((data) => {
-    createData(data);
-    displayPage();
-  });
+    .then(displayPage);
+}
 
 function createData(data) {
   data.photographers.forEach((photographer) => {
@@ -33,43 +39,28 @@ function createData(data) {
       );
     }
   });
-  // console.log(currentPhotographer);
-  const mediaFactory = new Medium();
 
   data.media.forEach((media) => {
-    if (media.photographerId === currentPhotographer.id) {
-      mediaList.addMedia(
-        mediaFactory.createMedia(
-          media.alt,
-          media.date,
-          media.id,
-          media.image?.split(".").pop() || media.video?.split(".").pop(),
-          media.image || media.video,
-          media.likes,
-          media.photographerId,
-          media.tags,
-          media.title,
-          "./sources/img/1_small/"
-        )
-      );
+    if (currentPhotographer.id === media.photographerId) {
+      mediaList.addMedia(media);
+      console.log(media);
     }
   });
+  console.log(currentPhotographer);
+  console.log(mediaList);
 }
 
-mediaList.forEach((el) => {
-  console.log(el);
-});
-console.log(mediaList.mediaList);
-console.log();
 function displayPage() {
   document.title += " - " + currentPhotographer.name;
   displayBanner();
+  openModalForm();
+  closeModalForm();
 }
 
 function displayBanner() {
   const linkToPhoto =
     "./sources/img/1_small/PhotographersID/" + currentPhotographer.portrait;
-  console.log(linkToPhoto);
+  // console.log(linkToPhoto);
   //  création des elements html
   const banerBody = document.createElement("div");
   const banerTitle = document.createElement("h1");
@@ -117,7 +108,70 @@ function displayBanner() {
 
   containerImgBanner.appendChild(bannerImg);
 }
-console.log(mediaList);
+
+function openModalForm() {
+  const banerBody = document.querySelector(".banner-body");
+  const btnModalMobile = document.querySelector(".btn-modal-mobile");
+  const bannerModal = document.createElement("div");
+  const bannerModalContent = document.createElement("div");
+  const bannerModalHeader = document.createElement("div");
+  const modalClose = document.createElement("i");
+  const modalTitle = document.createElement("h3");
+  const bannerForm = document.createElement("form");
+  const formFirstName = document.createElement("label");
+  const formFirstNameInp = document.createElement("input");
+  const formLastName = document.createElement("label");
+  const formLastNameInp = document.createElement("input");
+  const formEmail = document.createElement("label");
+  const formEmailInp = document.createElement("input");
+  const formTxt = document.createElement("label");
+  const formTxtInp = document.createElement("textarea");
+  const formBtn = document.createElement("button");
+
+  bannerModal.classList.add("contact-modal");
+  modalClose.classList.add("fas");
+  modalClose.classList.add("fa-times");
+  bannerModalContent.classList.add("modal-content");
+  btnModalMobile.setAttribute("type", "button");
+
+  modalTitle.innerHTML = `Contactez-Moi <br>${currentPhotographer.name}`;
+
+  formFirstName.innerHTML = "Prénom";
+  formLastName.innerHTML = "Nom";
+  formEmail.innerHTML = "Email<br>";
+  formTxt.innerHTML = "Votre Message<br>";
+  formBtn.textContent = "Envoyer";
+
+  banerBody.append(bannerModal);
+  bannerModal.append(bannerModalContent);
+  bannerModalContent.append(bannerModalHeader, bannerForm);
+  bannerModalHeader.append(modalTitle, modalClose);
+  bannerForm.append(
+    formFirstName,
+    formFirstNameInp,
+    formLastName,
+    formLastNameInp,
+    formEmail,
+    formEmailInp,
+    formTxt,
+    formTxtInp,
+    formBtn
+  );
+  //open modal
+  btnModalMobile.addEventListener("click", () => {
+    bannerModal.style.display = "flex";
+  });
+}
+function closeModalForm() {
+  const modalClose = document.querySelector(".fa-times");
+  const bannerModal = document.querySelector(".contact-modal");
+
+  modalClose.addEventListener("click", () => {
+    bannerModal.style.display = "none";
+  });
+}
+createContent();
+
 // mediaList.forEach((el) => {
 //   const cardsMediaLink = document.createElement("a");
 //   const cardsMedia = document.createElement("div");
@@ -195,21 +249,21 @@ console.log(mediaList);
 //       cardsMediaHeaderLike.append(likeCompteur, heartLink);
 //       heartLink.append(likeheart);
 
-//       // compteur de likes
-//       heartLink.addEventListener("click", () => {
-//         if (likeheart.classList.contains("fas")) {
-//           media.likes--;
-//           likeheart.classList.remove("fas");
-//           likeheart.classList.add("far");
-//           likeCompteur.textContent = `${media.likes}`;
-//         } else {
-//           media.likes++;
-//           likeheart.classList.remove("far");
-//           likeheart.classList.add("fas");
-//           likeCompteur.textContent = `${media.likes}`;
-//         }
-//       });
+// compteur de likes
+//   heartLink.addEventListener("click", () => {
+//     if (likeheart.classList.contains("fas")) {
+//       media.likes--;
+//       likeheart.classList.remove("fas");
+//       likeheart.classList.add("far");
+//       likeCompteur.textContent = `${media.likes}`;
+//     } else {
+//       media.likes++;
+//       likeheart.classList.remove("far");
+//       likeheart.classList.add("fas");
+//       likeCompteur.textContent = `${media.likes}`;
 //     }
+//   });
+// }
 //   });
 // }
 
@@ -250,7 +304,6 @@ console.log(mediaList);
 //       const formBtn = document.createElement("button");
 
 //       // ajouts des classes et attributs html
-//       bannerModal.classList.add("banner-modal");
 //       banerBody.classList.add("banner-body");
 //       containerBtnBaner.classList.add("banner-btn");
 //       containerImgBanner.classList.add("banner-img");
@@ -258,15 +311,16 @@ console.log(mediaList);
 //       banerLocation.classList.add("banner-body-location");
 //       banerTagline.classList.add("banner-body-tagline");
 //       banerTagline.classList.add("banner-body-tagline");
-//       bannerModal.classList.add("contact-modal");
+//       bannerModal.classList.add("banner-modal");
 //       btnBaner.classList.add("btn-banner");
+//       bannerModal.classList.add("contact-modal");
 //       modalClose.classList.add("fas");
 //       modalClose.classList.add("fa-times");
 //       bannerModalContent.classList.add("modal-content");
+//       btnModalMobile.setAttribute("type", "button");
 
 //       bannerImg.src = linkToPhoto;
 //       btnBaner.setAttribute("type", "button");
-//       btnModalMobile.setAttribute("type", "button");
 
 //       // ajout du contenu html
 //       banerTitle.textContent = photographer.name;

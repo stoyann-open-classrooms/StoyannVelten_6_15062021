@@ -1,14 +1,14 @@
 export class Medium {
-  createMedia(
+  constructor(
+    type,
+    title,
     alt,
     date,
     id,
-    type,
     link,
     likes,
     photographerId,
     tags,
-    title,
     path
   ) {
     if (type === "jpg") {
@@ -37,8 +37,9 @@ export class Medium {
     }
   }
 }
+
 export class Photo extends Medium {
-  getDomComposant() {
+  createImg() {
     const linkToSmalPhoto = `./sources/img/1_small/`;
 
     const cardsMediaImgContainer = document.createElement("div");
@@ -47,12 +48,11 @@ export class Photo extends Medium {
     cardsMediaImg.src = linkToSmalPhoto + this.link;
     cardsMediaImg.alt = this.alt;
     cardsMediaImgContainer.append(cardsMediaImg);
-    return cardsMediaImgContainer;
   }
 }
 
 export class Video extends Medium {
-  getDomComposant(controls = false) {
+  createVideo(controls = false) {
     const linkToSmalPhoto = `./sources/img/1_small/`;
 
     const cardsMediaVideoContainer = document.createElement("div");
@@ -63,7 +63,5 @@ export class Video extends Medium {
     cardsMediaVideo.src = linkToSmalPhoto + this.link;
     cardsMediaVideo.alt = this.alt;
     cardsMediaVideoContainer.append(cardsMediaImg);
-
-    return cardsMediaVideoContainer;
   }
 }
