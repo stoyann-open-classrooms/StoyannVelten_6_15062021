@@ -120,31 +120,45 @@ function openModalForm() {
   const bannerForm = document.createElement("form");
   const formFirstName = document.createElement("label");
   const formFirstNameInp = document.createElement("input");
+  const messageAlertFirst = document.createElement("span");
+
   const formLastName = document.createElement("label");
   const formLastNameInp = document.createElement("input");
+  const messageAlertLast = document.createElement("span");
+
   const formEmail = document.createElement("label");
   const formEmailInp = document.createElement("input");
+  const messageAlertMail = document.createElement("span");
+
   const formTxt = document.createElement("label");
   const formTxtInp = document.createElement("textarea");
+  const messageAlertMsg = document.createElement("span");
+
   const formBtn = document.createElement("button");
 
   bannerModal.classList.add("contact-modal");
   modalClose.classList.add("fas");
   modalClose.classList.add("fa-times");
+  messageAlertFirst.classList.add("message-alert");
+  messageAlertLast.classList.add("message-alert");
+  messageAlertMail.classList.add("message-alert");
+  messageAlertMsg.classList.add("message-alert");
 
   formFirstNameInp.id = "prenom";
   formFirstName.setAttribute("for", "prenom");
   formFirstNameInp.setAttribute("type", "text");
   formFirstNameInp.setAttribute("placeholder", "Jean");
+  formFirstNameInp.setAttribute("maxlenght", "24");
 
   formLastNameInp.id = "nom";
   formLastName.setAttribute("for", "nom");
   formLastNameInp.setAttribute("type", "text");
   formLastNameInp.setAttribute("placeholder", "Dupont");
+  formLastNameInp.setAttribute("maxlenght", "24");
 
   formEmailInp.id = "email";
   formEmail.setAttribute("for", "email");
-  formEmailInp.setAttribute("type", "text");
+  formEmailInp.setAttribute("type", "email");
   formEmailInp.setAttribute("placeholder", "jean-dupont@hotmail.com");
 
   formTxtInp.id = "msg";
@@ -158,6 +172,10 @@ function openModalForm() {
   modalTitle.innerHTML = `Contactez-Moi <br>${currentPhotographer.name}`;
 
   formFirstName.innerHTML = "Prénom";
+  messageAlertFirst.textContent = "Vous devez entrer votre prénom !";
+  messageAlertLast.textContent = "Vous devez entrer votre nom !";
+  messageAlertMail.textContent = "Vous devez entrer un Email valide ! ";
+  messageAlertMsg.textContent = "Votre devez entrer un message ! ";
   formLastName.innerHTML = "Nom";
   formEmail.innerHTML = "Email<br>";
   formTxt.innerHTML = "Votre Message<br>";
@@ -170,12 +188,17 @@ function openModalForm() {
   bannerForm.append(
     formFirstName,
     formFirstNameInp,
+    messageAlertFirst,
     formLastName,
     formLastNameInp,
+    messageAlertLast,
     formEmail,
     formEmailInp,
+    messageAlertMail,
     formTxt,
     formTxtInp,
+    messageAlertMsg,
+
     formBtn
   );
   //open modal

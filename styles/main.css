@@ -282,6 +282,12 @@ header .tag-list {
       align-self: center;
 }
 
+.message-alert {
+  color: #901c1c;
+  font-size: 13px;
+  margin-top: 5px;
+}
+
 .boutonmenuprincipal {
   background-color: #901c1c;
   color: white;
