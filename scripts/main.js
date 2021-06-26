@@ -22,8 +22,8 @@ fetch(linkToData)
   });
 
 // console.log(PhotographerList);
-function createPhotographerList(fetchedData) {
-  fetchedData.photographers.forEach((photographer) => {
+function createPhotographerList(data) {
+  data.photographers.forEach((photographer) => {
     photographerList.addPhotographer(
       new Photographers(
         photographer.name,
@@ -38,7 +38,7 @@ function createPhotographerList(fetchedData) {
     );
   });
 
-  // console.log(photographerList.getAllTags());
+  console.log(photographerList);
 }
 
 // affiche les elements de la page

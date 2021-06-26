@@ -43,12 +43,11 @@ function createData(data) {
   data.media.forEach((media) => {
     if (currentPhotographer.id === media.photographerId) {
       mediaList.addMedia(media);
-      console.log(media);
     }
   });
   console.log(currentPhotographer);
-  console.log(mediaList);
 }
+console.log(mediaList);
 
 function displayPage() {
   document.title += " - " + currentPhotographer.name;
