@@ -169,6 +169,8 @@ header .tag-list {
 .banner-tags-container {
   margin-top: 10px;
   width: 60%;
+  -webkit-animation: apparition 0.8s ease-in-out;
+          animation: apparition 0.8s ease-in-out;
 }
 
 .btn-modal-mobile {
@@ -247,6 +249,10 @@ header .tag-list {
   font-size: 20px;
   font-weight: 400;
   margin-top: 30px;
+}
+
+.modal-content label {
+  margin: 10px 0;
 }
 
 .modal-content input {

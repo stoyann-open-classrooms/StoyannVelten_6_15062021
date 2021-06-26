@@ -1,7 +1,7 @@
 // import { Medium } from "./Medium";
 import { Photographers } from "./Photographers.js";
 import { MediumList } from "./MediumList.js";
-import { Medium } from "./Medium.js";
+// import { Medium } from "./Medium.js";
 const linkToData = "data/FishEyeDataFR.json";
 const urlParams = new URLSearchParams(window.location.search);
 const mediaList = new MediumList();
@@ -54,6 +54,7 @@ function displayPage() {
   displayBanner();
   openModalForm();
   closeModalForm();
+  validForm();
 }
 
 function displayBanner() {
@@ -130,6 +131,27 @@ function openModalForm() {
   bannerModal.classList.add("contact-modal");
   modalClose.classList.add("fas");
   modalClose.classList.add("fa-times");
+
+  formFirstNameInp.id = "prenom";
+  formFirstName.setAttribute("for", "prenom");
+  formFirstNameInp.setAttribute("type", "text");
+  formFirstNameInp.setAttribute("placeholder", "Jean");
+
+  formLastNameInp.id = "nom";
+  formLastName.setAttribute("for", "nom");
+  formLastNameInp.setAttribute("type", "text");
+  formLastNameInp.setAttribute("placeholder", "Dupont");
+
+  formEmailInp.id = "email";
+  formEmail.setAttribute("for", "email");
+  formEmailInp.setAttribute("type", "text");
+  formEmailInp.setAttribute("placeholder", "jean-dupont@hotmail.com");
+
+  formTxtInp.id = "msg";
+  formEmail.setAttribute("for", "msg");
+  formTxtInp.setAttribute("type", "text");
+  formTxtInp.setAttribute("placeholder", "Votre message");
+
   bannerModalContent.classList.add("modal-content");
   btnModalMobile.setAttribute("type", "button");
 
@@ -168,6 +190,12 @@ function closeModalForm() {
   modalClose.addEventListener("click", () => {
     bannerModal.style.display = "none";
   });
+}
+
+function validForm(event) {
+  // event.prevenDEfault();
+  const formBtn = document.createElement("button");
+  console.log(formBtn);
 }
 createContent();
 
