@@ -11,42 +11,67 @@
   .banner-body {
     width: 60%;
     animation: apparition 0.8s ease-in-out;
+    font-size: 1.2em;
+    @include tablet-and-higher {
+      font-size: 2em;
+    }
+    @include desktop-and-higher {
+      font-size: 3em;
+    }
   }
 }
 .banner-img {
   margin-right: 2%;
   img {
-    height: 80px;
-    width: 80px;
+    height: 7em;
+    width: 7em;
     object-fit: cover;
     border-radius: 50%;
     animation: apparition-right 0.8s ease-in-out;
+    @include tablet-and-higher {
+      height: 11em;
+      width: 11em;
+    }
+    @include desktop-and-higher {
+      height: 17em;
+      width: 17em;
+    }
   }
+}
+.banner-tags-container {
+  margin-top: 10px;
+  width: 60%;
+  animation: apparition 0.8s ease-in-out;
+}
 
-  .btn-banner {
-    display: none;
-    background-color: $primary;
-    border: none;
-    color: white;
-    font-size: 10px;
-    width: auto;
-    padding: 5px;
-    border-radius: $radius;
-    font-size: 9px;
-    position: relative;
-    bottom: 0;
-  }
+.banner-btn {
+  display: none;
+  background-color: $primary;
+  border: none;
+  color: white;
+  font-size: 1.7em;
+  font-weight: bold;
+  width: 20%;
+  height: 60px;
+  padding: 10px 10px;
+  position: relative;
+  right: 8%;
+  text-align: center;
 
-  .banner-body-title {
-    color: $secondary;
-  }
-  .banner-body-location {
-    color: $primary;
-  }
+  border-radius: $radius;
 
-  .banner-tags-container {
-    margin-top: 10px;
-    width: 50%;
-    animation: apparition 0.8s ease-in-out;
+  @include tablet-and-higher {
+    display: block;
   }
+}
+.banner-btn:hover {
+  background-color: $secondary-light;
+  color: black;
+}
+
+.banner-body-title {
+  color: $secondary;
+}
+.banner-body-location {
+  color: $primary;
 }
