@@ -1,9 +1,9 @@
 .total-likes-container {
-  // display: none;
+  display: none;
   justify-content: center;
   margin: auto;
   align-items: center;
-  display: flex;
+
   position: absolute;
   bottom: 0;
   right: 5%;
@@ -12,6 +12,9 @@
   height: auto;
   width: 50px;
   border-radius: $radius $radius 0 0;
+  @include tablet-and-higher {
+    display: flex;
+  }
 }
 .total-likes {
   margin-right: 10px;

@@ -6,3 +6,15 @@
   left: $left;
   transform: translate($x, $y);
 }
+
+@mixin tablet-and-higher {
+  @media screen and (min-width: $tablet) {
+    @content;
+  }
+}
+
+@mixin desktop-and-higher {
+  @media screen and (min-width: $desktop) {
+    @content;
+  }
+}

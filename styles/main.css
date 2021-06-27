@@ -256,6 +256,31 @@ header .tag-list {
   left: 38%;
 }
 
+@media screen and (min-width: 768px) {
+  .btn-modal-mobile {
+    display: none;
+  }
+}
+
+.banner-btn {
+  display: none;
+  background-color: #901c1c;
+  border: none;
+  color: white;
+  font-size: 10px;
+  width: auto;
+  height: 30px;
+  padding: 7px 10px;
+  border-radius: 5px;
+  font-size: 9px;
+}
+
+@media screen and (min-width: 768px) {
+  .banner-btn {
+    display: block;
+  }
+}
+
 .contact-modal {
   display: none;
   -webkit-box-orient: vertical;
@@ -281,6 +306,14 @@ header .tag-list {
   border-radius: 5px;
   -webkit-animation: apparition-down 0.8s ease-in-out;
           animation: apparition-down 0.8s ease-in-out;
+}
+
+@media screen and (min-width: 768px) {
+  .modal-content {
+    width: 350px;
+    height: auto;
+    margin: auto;
+  }
 }
 
 .modal-content .fa-times {
@@ -390,6 +423,7 @@ header .tag-list {
 }
 
 .total-likes-container {
+  display: none;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
@@ -397,9 +431,6 @@ header .tag-list {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
   position: absolute;
   bottom: 0;
   right: 5%;
@@ -408,6 +439,14 @@ header .tag-list {
   height: auto;
   width: 50px;
   border-radius: 5px 5px 0 0;
+}
+
+@media screen and (min-width: 768px) {
+  .total-likes-container {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
 }
 
 .total-likes {

@@ -106,10 +106,12 @@ function displayBanner() {
   const containerTagsBanner = document.createElement("div");
   const containerImgBanner = document.createElement("div");
   const bannerImg = document.createElement("img");
+  const btnModal = document.createElement("button");
 
   // ajouts des classes et attributs html
 
   banerBody.classList.add("banner-body");
+  btnModal.classList.add("banner-btn");
   containerImgBanner.classList.add("banner-img");
   banerTitle.classList.add("banner-body-title");
   banerLocation.classList.add("banner-body-location");
@@ -121,6 +123,7 @@ function displayBanner() {
   banerLocation.textContent =
     currentPhotographer.city + " ," + currentPhotographer.country;
   banerTagline.textContent = currentPhotographer.tagline;
+  btnModal.textContent = "Contacter-moi";
 
   // ajouts des tags
   currentPhotographer.tags.forEach((el) => {
@@ -135,7 +138,7 @@ function displayBanner() {
   });
 
   // ajout des elements dans le DOM
-  banner.append(banerBody, containerImgBanner);
+  banner.append(banerBody, btnModal, containerImgBanner);
   banerBody.append(
     banerTitle,
     banerLocation,
@@ -148,6 +151,7 @@ function displayBanner() {
 
 function openModalForm() {
   const banerBody = document.querySelector(".banner-body");
+  const bannerBtnTablet = document.querySelector(".banner-btn");
   const btnModalMobile = document.querySelector(".btn-modal-mobile");
   const bannerModal = document.createElement("div");
   const bannerModalContent = document.createElement("div");
@@ -260,6 +264,9 @@ function openModalForm() {
   });
   //open modal
   btnModalMobile.addEventListener("click", () => {
+    bannerModal.style.display = "flex";
+  });
+  bannerBtnTablet.addEventListener("click", () => {
     bannerModal.style.display = "flex";
   });
 }

@@ -11,6 +11,26 @@
   position: fixed;
   bottom: 20px;
   left: 38%;
+  @include tablet-and-higher {
+    display: none;
+  }
+}
+.banner-btn {
+  display: none;
+  background-color: $primary;
+  border: none;
+  color: white;
+  font-size: 10px;
+  width: auto;
+  height: 30px;
+  padding: 7px 10px;
+
+  border-radius: $radius;
+  font-size: 9px;
+
+  @include tablet-and-higher {
+    display: block;
+  }
 }
 
 .contact-modal {
@@ -34,6 +54,11 @@
   height: 100%;
   border-radius: $radius;
   animation: apparition-down 0.8s ease-in-out;
+  @include tablet-and-higher {
+    width: 350px;
+    height: auto;
+    margin: auto;
+  }
   .fa-times {
     font-size: 30px;
     margin-top: 5px;
