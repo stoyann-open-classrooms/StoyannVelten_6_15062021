@@ -141,6 +141,17 @@ li {
   }
 }
 
+header {
+  max-width: 1400px;
+  margin: auto;
+}
+
+@media screen and (min-width: 768px) {
+  header {
+    padding: 0 5%;
+  }
+}
+
 header .header-top {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -149,7 +160,7 @@ header .header-top {
       -ms-flex-pack: justify;
           justify-content: space-between;
   width: 100%;
-  padding: 10px;
+  padding: 10px 2.5%;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -162,9 +173,15 @@ header .header-top img {
 }
 
 header .header-top h1 {
-  font-size: 1.1rem;
+  font-size: 1.2rem;
   color: #901c1c;
   font-weight: 400;
+}
+
+@media screen and (min-width: 768px) {
+  header .header-top h1 {
+    font-size: 2rem;
+  }
 }
 
 header .tag-list {
@@ -192,6 +209,12 @@ header .tag-list {
           justify-content: space-between;
 }
 
+@media screen and (min-width: 768px) {
+  .banner {
+    background-color: #fafafa;
+  }
+}
+
 .banner .banner-body {
   width: 60%;
   -webkit-animation: apparition 0.8s ease-in-out;
@@ -199,12 +222,12 @@ header .tag-list {
 }
 
 .banner-img {
-  margin-right: 3%;
+  margin-right: 2%;
 }
 
 .banner-img img {
-  height: 70px;
-  width: 70px;
+  height: 80px;
+  width: 80px;
   -o-object-fit: cover;
      object-fit: cover;
   border-radius: 50%;
@@ -271,6 +294,8 @@ header .tag-list {
   width: auto;
   height: 30px;
   padding: 7px 10px;
+  position: relative;
+  right: 40%;
   border-radius: 5px;
   font-size: 9px;
 }
@@ -433,12 +458,18 @@ header .tag-list {
           align-items: center;
   position: absolute;
   bottom: 0;
-  right: 5%;
+  right: 15%;
   background-color: #db8876;
-  padding: 5px;
+  padding: 15px 20px;
   height: auto;
-  width: 50px;
+  width: auto;
   border-radius: 5px 5px 0 0;
+}
+
+.total-likes-container i {
+  font-weight: bold;
+  font-size: x-large;
+  text-align: center;
 }
 
 @media screen and (min-width: 768px) {
@@ -452,6 +483,7 @@ header .tag-list {
 .total-likes {
   margin-right: 10px;
   font-weight: bold;
+  font-size: x-large;
   text-align: center;
 }
 
@@ -600,6 +632,18 @@ header .tag-list {
   font-weight: 400;
 }
 
+@media screen and (min-width: 768px) {
+  .photographer-cards {
+    width: 300px;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .photographer-cards {
+    width: 400px;
+  }
+}
+
 .cards-img {
   height: 160px;
   width: 160px;
@@ -689,8 +733,8 @@ main {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  max-width: 1000px;
   margin-bottom: 30px;
+  max-width: 1400px;
 }
 
 .return-main {

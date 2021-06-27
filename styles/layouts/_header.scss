@@ -1,9 +1,15 @@
 header {
+  max-width: $page-max-width;
+  margin: auto;
+  @include tablet-and-higher {
+    padding: 0 5%;
+  }
+
   .header-top {
     display: flex;
     justify-content: space-between;
     width: 100%;
-    padding: 10px;
+    padding: 10px 2.5%;
 
     align-items: center;
     width: 100%;
@@ -13,9 +19,12 @@ header {
       display: block;
     }
     h1 {
-      font-size: 1.1rem;
+      font-size: 1.2rem;
       color: $primary;
       font-weight: 400;
+      @include tablet-and-higher {
+        font-size: 2rem;
+      }
     }
   }
   .tag-list {

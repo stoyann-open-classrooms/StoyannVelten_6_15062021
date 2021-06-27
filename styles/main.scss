@@ -22,8 +22,9 @@ main {
   flex-wrap: wrap;
   margin: auto;
   justify-content: center;
-  max-width: 1000px;
+  // max-width: 1000px;
   margin-bottom: 30px;
+  max-width: $page-max-width;
 }
 
 .return-main {

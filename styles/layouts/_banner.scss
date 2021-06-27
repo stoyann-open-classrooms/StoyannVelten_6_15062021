@@ -4,6 +4,9 @@
   border-radius: $radius;
   width: 98vw;
   justify-content: space-between;
+  @include tablet-and-higher {
+    background-color: $quadrary;
+  }
 
   .banner-body {
     width: 60%;
@@ -11,10 +14,10 @@
   }
 }
 .banner-img {
-  margin-right: 3%;
+  margin-right: 2%;
   img {
-    height: 70px;
-    width: 70px;
+    height: 80px;
+    width: 80px;
     object-fit: cover;
     border-radius: 50%;
     animation: apparition-right 0.8s ease-in-out;
