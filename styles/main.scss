@@ -25,6 +25,27 @@ main {
   margin-bottom: 30px;
 }
 
+.total-likes-container {
+  // display: none;
+  justify-content: center;
+  margin: auto;
+  align-items: center;
+  display: flex;
+  position: absolute;
+  bottom: 0;
+  right: 5%;
+  background-color: $secondary-light;
+  padding: 5px;
+  height: auto;
+  width: 50px;
+  border-radius: $radius $radius 0 0;
+}
+.total-likes {
+  margin-right: 10px;
+  font-weight: bold;
+  text-align: center;
+}
+
 .return-main {
   display: none;
   position: fixed;

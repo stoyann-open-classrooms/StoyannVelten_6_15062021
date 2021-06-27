@@ -43,7 +43,7 @@ function createData(data) {
   });
   for (let i of data.media) {
     if (currentPhotographer.id === i.photographerId) {
-      console.log(i);
+      // console.log(i);
       getLikes(i.likes);
       const mediaFactory = new Medium(
         i.image?.split(".").pop() || i.video?.split(".").pop(),
@@ -60,20 +60,8 @@ function createData(data) {
       mediaList.addMedia(mediaFactory);
     }
   }
-  function getLikes(likes) {
-    totalLikes.push(likes);
-    return totalLikes;
-  }
 
-  function getTotalLikes(totalLikes) {
-    let totalLikesPhotographer = 0;
-    for (let i = 0; i < totalLikes.length; i++) {
-      totalLikesPhotographer += totalLikes[i];
-    }
-    console.log(totalLikesPhotographer);
-    return totalLikesPhotographer;
-  }
-  console.log(totalLikes);
+  // console.log(totalLikes);
   getTotalLikes(totalLikes);
   // data.media.forEach((media) => {
   //   if (currentPhotographer.id === media.photographerId) {
@@ -346,6 +334,35 @@ function validForm() {
       errorMessage[3].style.display = "none";
     }
   });
+}
+
+function getLikes(likes) {
+  totalLikes.push(likes);
+  return totalLikes;
+}
+
+function getTotalLikes(totalLikes) {
+  let totalLikesPhotographer = 0;
+  for (let i = 0; i < totalLikes.length; i++) {
+    totalLikesPhotographer += totalLikes[i];
+  }
+  console.log(totalLikesPhotographer);
+  const totalLikesContainer = document.createElement("div");
+  const totalLikesNb = document.createElement("div");
+  const heart = document.createElement("i");
+
+  heart.classList.add(`fas`);
+  heart.classList.add(`fa-heart`);
+  heart.classList.add(`heart`);
+
+  totalLikesContainer.classList.add("total-likes-container");
+  totalLikesNb.classList.add("total-likes");
+  totalLikesNb.textContent = `${totalLikesPhotographer}`;
+
+  main.append(totalLikesContainer);
+  totalLikesContainer.append(totalLikesNb, heart);
+
+  return totalLikesPhotographer;
 }
 createContent();
 
