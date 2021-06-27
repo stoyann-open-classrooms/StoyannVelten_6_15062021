@@ -163,6 +163,7 @@ function openModalForm() {
   const btnModalMobile = document.querySelector(".btn-modal-mobile");
   const bannerModal = document.createElement("div");
   const bannerModalContent = document.createElement("div");
+  const bannerModalValidationMsg = document.createElement("div");
   const bannerModalHeader = document.createElement("div");
   const modalClose = document.createElement("i");
   const modalTitle = document.createElement("h3");
@@ -186,8 +187,11 @@ function openModalForm() {
   const formBtn = document.createElement("button");
 
   bannerModal.classList.add("contact-modal");
+  bannerModalValidationMsg.classList.add("modal-validation-msg");
   modalClose.classList.add("fas");
   modalClose.classList.add("fa-times");
+  bannerModalHeader.classList.add("modal-header");
+  bannerForm.classList.add("modal-form");
   messageAlertFirst.classList.add("message-alert");
   messageAlertLast.classList.add("message-alert");
   messageAlertMail.classList.add("message-alert");
@@ -212,6 +216,8 @@ function openModalForm() {
   formEmail.setAttribute("for", "email");
   formEmailInp.setAttribute("type", "email");
   formEmailInp.setAttribute("placeholder", "jean-dupont@hotmail.com");
+  formBtn.setAttribute("type", "submit");
+  formBtn.setAttribute("value", "Envoyer");
 
   formTxtInp.classList.add("msg-inp");
   formTxtInp.id = "msg";
@@ -233,6 +239,7 @@ function openModalForm() {
   formEmail.innerHTML = "Email<br>";
   formTxt.innerHTML = "Votre Message<br>";
   formBtn.textContent = "Envoyer";
+  // bannerModalValidationMsg.textContent = `Votre message a bien été envoyé à ${currentPhotographer.name} `;
 
   banerBody.append(bannerModal);
   bannerModal.append(bannerModalContent);
@@ -254,6 +261,15 @@ function openModalForm() {
 
     formBtn
   );
+
+  bannerForm.addEventListener("submit", (e) => {
+    e.preventDefault();
+    modalTitle.textContent = `Votre message a bien été envoyé à ${currentPhotographer.name} `;
+    bannerForm.style.display = "none";
+    modalTitle.style.animation = "apparition-down 0.8s ease-in-out";
+    modalTitle.style.margin = "65% 0";
+    modalTitle.style.fontSize = "30px";
+  });
   //open modal
   btnModalMobile.addEventListener("click", () => {
     bannerModal.style.display = "flex";
@@ -276,7 +292,6 @@ function validForm() {
   const formMsgInp = document.querySelector(".msg-inp");
 
   const errorMessage = document.querySelectorAll(".message-alert");
-  const formBtn = document.createElement("button");
 
   formFirstNameInp.addEventListener("input", (e) => {
     if (e.target.value.length <= 3) {
