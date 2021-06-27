@@ -11,7 +11,7 @@
   cursor: pointer;
   padding: 5px;
   margin-top: 10px;
-  font-size: 10px;
+  font-size: 2em;
   border-radius: $radius;
   @include tablet-and-higher {
     display: block;
@@ -30,7 +30,7 @@
   min-width: 50px;
   position: relative;
   bottom: 3px;
-  font-size: 10px;
+  font-size: 2em;
   border-radius: 0 0 $radius $radius;
 }
 .dropdown-child span {
@@ -51,7 +51,8 @@
   position: relative;
   top: 10px;
   margin-right: 10px;
-  font-size: 13px;
+  font-weight: 500;
+  font-size: 2em;
   @include tablet-and-higher {
     display: block;
   }
