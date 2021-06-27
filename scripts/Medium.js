@@ -1,5 +1,5 @@
 export class Medium {
-  constructor(
+  createMedia(
     type,
     alt,
     date,
@@ -11,7 +11,7 @@ export class Medium {
     title,
     path
   ) {
-    if (type === "jpg") {
+    if (type == "jpg") {
       const photo = new Photo();
 
       this.alt = alt;
@@ -23,8 +23,9 @@ export class Medium {
       this.tags = tags;
       this.title = title;
       this.path = path + link;
+
       return photo;
-    } else if (type === "mp4") {
+    } else if (type == "mp4") {
       const video = new Video();
 
       this.alt = alt;
@@ -59,15 +60,15 @@ export class Video extends Medium {
     console.log("videos");
   }
 
-  // createVideo(controls = false) {
-  //   const linkToSmalPhoto = `./sources/img/1_small/`;
-  //   const cardsMediaVideoContainer = document.createElement("div");
-  //   const cardsMediaVideo = document.createElement("video");
-  //   video.controls = controls;
-  //   video.muted = true;
-  //   video.loop = true;
-  //   cardsMediaVideo.src = linkToSmalPhoto + this.link;
-  //   cardsMediaVideo.alt = this.alt;
-  //   cardsMediaVideoContainer.append(cardsMediaImg);
-  // }
+  createVideo(controls = false) {
+    const linkToSmalPhoto = `./sources/img/1_small/`;
+    const cardsMediaVideoContainer = document.createElement("div");
+    const cardsMediaVideo = document.createElement("video");
+    video.controls = controls;
+    video.muted = true;
+    video.loop = true;
+    cardsMediaVideo.src = linkToSmalPhoto + this.link;
+    cardsMediaVideo.alt = this.alt;
+    cardsMediaVideoContainer.append(cardsMediaImg);
+  }
 }

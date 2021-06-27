@@ -1,5 +1,6 @@
 .cards-media-container {
   @include tablet-and-higher {
+    margin-top: 50px;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
