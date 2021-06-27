@@ -320,7 +320,6 @@ header .tag-list {
 .lightbox-modal .fa-times {
   position: absolute;
   font-size: 40px;
-  color: #901c1c;
   -ms-flex-item-align: start;
       align-self: flex-start;
   justify-self: flex-end;
@@ -342,6 +341,7 @@ header .tag-list {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  color: #901c1c;
   margin: auto;
   background-color: #fafafa;
   width: 100vw;
@@ -374,8 +374,18 @@ header .tag-list {
   display: block;
   width: auto;
   margin: 0 10%;
-  color: #901c1c;
   cursor: pointer;
+}
+
+.titre-media-lightbox {
+  justify-self: flex-start;
+  -ms-flex-item-align: start;
+      -ms-grid-row-align: start;
+      align-self: start;
+  position: absolute;
+  bottom: 40px;
+  left: 170px;
+  font-size: large;
 }
 
 .btn-modal-mobile {

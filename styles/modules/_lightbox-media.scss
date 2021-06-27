@@ -14,7 +14,6 @@
   .fa-times {
     position: absolute;
     font-size: 40px;
-    color: $primary;
     align-self: flex-start;
     justify-self: flex-end;
     display: block;
@@ -27,6 +26,7 @@
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
+    color: $primary;
     margin: auto;
     background-color: $quadrary;
     width: 100vw;
@@ -53,8 +53,16 @@
       display: block;
       width: auto;
       margin: 0 10%;
-      color: $primary;
       cursor: pointer;
     }
   }
+}
+
+.titre-media-lightbox {
+  justify-self: flex-start;
+  align-self: start;
+  position: absolute;
+  bottom: 40px;
+  left: 170px;
+  font-size: large;
 }
