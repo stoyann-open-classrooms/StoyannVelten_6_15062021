@@ -389,6 +389,33 @@ header .tag-list {
   border: 2px solid #901c1c;
 }
 
+.total-likes-container {
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin: auto;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: absolute;
+  bottom: 0;
+  right: 5%;
+  background-color: #db8876;
+  padding: 5px;
+  height: auto;
+  width: 50px;
+  border-radius: 5px 5px 0 0;
+}
+
+.total-likes {
+  margin-right: 10px;
+  font-weight: bold;
+  text-align: center;
+}
+
 .boutonmenuprincipal {
   background-color: #901c1c;
   color: white;
@@ -603,33 +630,6 @@ main {
           justify-content: center;
   max-width: 1000px;
   margin-bottom: 30px;
-}
-
-.total-likes-container {
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  margin: auto;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  position: absolute;
-  bottom: 0;
-  right: 5%;
-  background-color: #db8876;
-  padding: 5px;
-  height: auto;
-  width: 50px;
-  border-radius: 5px 5px 0 0;
-}
-
-.total-likes {
-  margin-right: 10px;
-  font-weight: bold;
-  text-align: center;
 }
 
 .return-main {
