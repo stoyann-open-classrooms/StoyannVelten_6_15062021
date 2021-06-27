@@ -22,31 +22,31 @@
     border-radius: 50%;
     animation: apparition-right 0.8s ease-in-out;
   }
-}
 
-.btn-banner {
-  display: none;
-  background-color: $primary;
-  border: none;
-  color: white;
-  font-size: 10px;
-  width: auto;
-  padding: 5px;
-  border-radius: $radius;
-  font-size: 9px;
-  position: relative;
-  bottom: 0;
-}
+  .btn-banner {
+    display: none;
+    background-color: $primary;
+    border: none;
+    color: white;
+    font-size: 10px;
+    width: auto;
+    padding: 5px;
+    border-radius: $radius;
+    font-size: 9px;
+    position: relative;
+    bottom: 0;
+  }
 
-.banner-body-title {
-  color: $secondary;
-}
-.banner-body-location {
-  color: $primary;
-}
+  .banner-body-title {
+    color: $secondary;
+  }
+  .banner-body-location {
+    color: $primary;
+  }
 
-.banner-tags-container {
-  margin-top: 10px;
-  width: 60%;
-  animation: apparition 0.8s ease-in-out;
+  .banner-tags-container {
+    margin-top: 10px;
+    width: 50%;
+    animation: apparition 0.8s ease-in-out;
+  }
 }

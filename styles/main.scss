@@ -6,6 +6,7 @@
 @import "./animations/animations";
 @import "./layouts/header";
 @import "./layouts/banner";
+@import "./modules/lightbox-media";
 @import "./modules/modale";
 @import "./modules/total_likes";
 @import "./modules/dropdown";
@@ -23,7 +24,10 @@ main {
   margin: auto;
   justify-content: center;
   // max-width: 1000px;
-  margin-bottom: 30px;
+  // margin-bottom: 30px;
+  @include tablet-and-higher {
+    padding: 50px 0;
+  }
   max-width: $page-max-width;
 }
 

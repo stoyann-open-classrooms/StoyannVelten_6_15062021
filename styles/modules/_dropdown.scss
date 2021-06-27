@@ -18,7 +18,7 @@
 .dropdown {
   position: relative;
   display: inline-block;
-  right: 40%;
+  right: 0;
 }
 .dropdown-child {
   display: none;
@@ -45,7 +45,7 @@
 .tri {
   display: none;
   position: relative;
-  left: -40%;
+  left: 0;
   top: 10px;
   margin-right: 10px;
   font-size: 13px;

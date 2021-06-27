@@ -1,9 +1,22 @@
+.cards-media-container {
+  @include tablet-and-higher {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    animation: apparition 0.8s ease-in-out;
+  }
+}
 .cards-media {
   width: 95vw;
-
   height: 190px;
   margin-top: 10px;
   color: $primary;
+  animation: apparition-up 0.8s ease-in-out;
+
+  @include tablet-and-higher {
+    width: 300px;
+    margin: 20px;
+  }
 }
 .cards-media-footer {
   display: flex;

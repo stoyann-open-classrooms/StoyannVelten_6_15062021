@@ -1,10 +1,13 @@
 .btn-modal-mobile {
-  display: block;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   background-color: $primary;
   border: none;
   color: white;
   font-size: 10px;
-  width: auto;
+  width: 170px;
+  margin: auto;
   padding: 7px 10px;
   border-radius: $radius;
   font-size: 9px;
@@ -44,11 +47,12 @@
   top: 0;
   width: 100vw;
   height: 100%;
-  background: rgba($color: black, $alpha: 0.7);
+  background: rgba($color: rgb(107, 107, 107), $alpha: 0.7);
   overflow: auto;
 }
 
 .modal-content {
+  display: block;
   background-color: $secondary-light;
   margin: 0;
   border: 1px solid #888;
@@ -117,14 +121,14 @@
 }
 .modal-validation-msg {
   display: none;
-  background-color: $secondary-light;
+  // background-color: $secondary-light;
   margin: 0;
-  border: 1px solid #888;
+
   padding: 20px;
   height: 100%;
-  border-radius: $radius;
-  animation: apparition-down 0.8s ease-in-out;
+
   font-size: 50px;
+
   .fa-times {
     font-size: 30px;
     margin-top: 5px;

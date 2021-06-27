@@ -3,17 +3,18 @@
   justify-content: center;
   margin: auto;
   align-items: center;
-  position: absolute;
+  position: fixed;
   bottom: 0;
   right: 15%;
   background-color: $secondary-light;
-  padding: 15px 20px;
+  padding: 7px 10px;
   height: auto;
   width: auto;
   border-radius: $radius $radius 0 0;
+
   i {
     font-weight: bold;
-    font-size: x-large;
+    font-size: large;
     text-align: center;
   }
   @include tablet-and-higher {
@@ -23,6 +24,6 @@
 .total-likes {
   margin-right: 10px;
   font-weight: bold;
-  font-size: x-large;
+  font-size: large;
   text-align: center;
 }

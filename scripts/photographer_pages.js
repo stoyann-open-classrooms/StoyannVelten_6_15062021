@@ -92,6 +92,7 @@ function displayPage() {
   openModalForm();
   closeModalForm();
   validForm();
+  openLightbox();
 }
 
 function displayBanner() {
@@ -148,6 +149,18 @@ function displayBanner() {
 
   containerImgBanner.appendChild(bannerImg);
 }
+function openLightbox() {
+  const lightboxModal = document.querySelector(".lightbox-modal");
+  const lightboxLink = document.querySelector(".lightbox-link");
+  const closeMediaModal = document.querySelector(".close-media-modal");
+  lightboxLink.addEventListener("click", () => {
+    lightboxModal.style.display = "flex";
+  });
+  closeMediaModal.addEventListener("click", () => {
+    lightboxModal.style.display = "none";
+    console.log("ferme");
+  });
+}
 
 function openModalForm() {
   const banerBody = document.querySelector(".banner-body");
@@ -179,6 +192,7 @@ function openModalForm() {
   const formBtn = document.createElement("button");
 
   bannerModal.classList.add("contact-modal");
+  modalClose.classList.add("modal-close");
   bannerModalValidationMsg.classList.add("modal-validation-msg");
   modalClose.classList.add("fas");
   modalClose.classList.add("fa-times");
@@ -271,7 +285,7 @@ function openModalForm() {
   });
 }
 function closeModalForm() {
-  const modalClose = document.querySelector(".fa-times");
+  const modalClose = document.querySelector(".modal-close");
   const bannerModal = document.querySelector(".contact-modal");
 
   modalClose.addEventListener("click", () => {

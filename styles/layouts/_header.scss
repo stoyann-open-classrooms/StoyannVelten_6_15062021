@@ -1,6 +1,7 @@
 header {
   max-width: $page-max-width;
   margin: auto;
+  padding: 0 2%;
   @include tablet-and-higher {
     padding: 0 5%;
   }
@@ -9,7 +10,7 @@ header {
     display: flex;
     justify-content: space-between;
     width: 100%;
-    padding: 10px 2.5%;
+    padding: 5% 2.5%;
 
     align-items: center;
     width: 100%;
@@ -22,6 +23,7 @@ header {
       font-size: 1.2rem;
       color: $primary;
       font-weight: 400;
+      padding: 5px;
       @include tablet-and-higher {
         font-size: 2rem;
       }
@@ -33,5 +35,11 @@ header {
     margin: auto;
     flex-wrap: wrap;
     justify-content: center;
+    @include desktop-and-higher {
+      position: absolute;
+      top: 5%;
+      left: -3%;
+      margin: auto;
+    }
   }
 }
