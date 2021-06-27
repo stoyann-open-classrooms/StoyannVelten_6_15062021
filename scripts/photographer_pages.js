@@ -1,7 +1,7 @@
 // import { Medium } from "./Medium";
 import { Photographers } from "./Photographers.js";
 import { MediumList } from "./MediumList.js";
-// import { Medium } from "./Medium.js";
+import { Medium } from "./Medium.js";
 const linkToData = "data/FishEyeDataFR.json";
 const urlParams = new URLSearchParams(window.location.search);
 const mediaList = new MediumList();
@@ -47,7 +47,7 @@ function createData(data) {
   });
   console.log(currentPhotographer);
 }
-console.log(mediaList);
+console.log(mediaList.mediaList);
 
 function displayPage() {
   document.title += " - " + currentPhotographer.name;
@@ -144,25 +144,29 @@ function openModalForm() {
   messageAlertMail.classList.add("message-alert");
   messageAlertMsg.classList.add("message-alert");
 
+  formFirstNameInp.classList.add("firstName-inp");
   formFirstNameInp.id = "prenom";
   formFirstName.setAttribute("for", "prenom");
   formFirstNameInp.setAttribute("type", "text");
   formFirstNameInp.setAttribute("placeholder", "Jean");
   formFirstNameInp.setAttribute("maxlenght", "24");
 
+  formLastNameInp.classList.add("lastName-inp");
   formLastNameInp.id = "nom";
   formLastName.setAttribute("for", "nom");
   formLastNameInp.setAttribute("type", "text");
   formLastNameInp.setAttribute("placeholder", "Dupont");
   formLastNameInp.setAttribute("maxlenght", "24");
 
+  formEmailInp.classList.add("email-inp");
   formEmailInp.id = "email";
   formEmail.setAttribute("for", "email");
   formEmailInp.setAttribute("type", "email");
   formEmailInp.setAttribute("placeholder", "jean-dupont@hotmail.com");
 
+  formTxtInp.classList.add("msg-inp");
   formTxtInp.id = "msg";
-  formEmail.setAttribute("for", "msg");
+  formTxt.setAttribute("for", "msg");
   formTxtInp.setAttribute("type", "text");
   formTxtInp.setAttribute("placeholder", "Votre message");
 
@@ -215,10 +219,69 @@ function closeModalForm() {
   });
 }
 
-function validForm(event) {
+function validForm() {
   // event.prevenDEfault();
+  const formFirstNameInp = document.querySelector(".firstName-inp");
+  const formLastNameInp = document.querySelector(".lastName-inp");
+  const formEmailInp = document.querySelector(".email-inp");
+  const formMsgInp = document.querySelector(".msg-inp");
+
+  const errorMessage = document.querySelectorAll(".message-alert");
   const formBtn = document.createElement("button");
-  console.log(formBtn);
+
+  formFirstNameInp.addEventListener("input", (e) => {
+    if (e.target.value.length <= 3) {
+      errorMessage[0].style.display = "inline";
+      formFirstNameInp.classList.add("echec");
+      formFirstNameInp.classList.add("border");
+
+      setTimeout(() => {
+        formFirstNameInp.classList.remove("echec");
+      }, 500);
+    } else {
+      errorMessage[0].style.display = "none";
+    }
+  });
+  formLastNameInp.addEventListener("input", (e) => {
+    if (e.target.value.length <= 3) {
+      errorMessage[1].style.display = "inline";
+      formLastNameInp.classList.add("echec");
+      formLastNameInp.classList.add("border");
+
+      setTimeout(() => {
+        formLastNameInp.classList.remove("echec");
+      }, 500);
+    } else {
+      errorMessage[1].style.display = "none";
+    }
+  });
+  formEmailInp.addEventListener("input", (e) => {
+    const regexMail = /\S+@\S+\.\S+/;
+    if (e.target.value.search(regexMail) === 0) {
+      errorMessage[2].style.display = "none";
+    } else if (e.target.value.search(regexMail) === -1) {
+      errorMessage[2].style.display = "inline";
+      formEmailInp.classList.add("echec");
+      formEmailInp.classList.add("border");
+
+      setTimeout(() => {
+        formEmailInp.classList.remove("echec");
+      }, 500);
+    }
+  });
+  formMsgInp.addEventListener("input", (e) => {
+    if (e.target.value.length <= 3) {
+      errorMessage[3].style.display = "inline";
+      formMsgInp.classList.add("echec");
+      formMsgInp.classList.add("border");
+
+      setTimeout(() => {
+        formMsgInp.classList.remove("echec");
+      }, 500);
+    } else {
+      errorMessage[3].style.display = "none";
+    }
+  });
 }
 createContent();
 

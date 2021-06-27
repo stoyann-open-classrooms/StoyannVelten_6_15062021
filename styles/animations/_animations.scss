@@ -9,6 +9,17 @@
   }
 }
 
+@keyframes apparition-right {
+  from {
+    opacity: 0;
+    transform: translateX(100px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0px);
+  }
+}
+
 @keyframes apparition-down {
   from {
     opacity: 0;
@@ -17,5 +28,23 @@
   to {
     opacity: 1;
     transform: translateY(0px);
+  }
+}
+
+@keyframes echec {
+  0% {
+    transform: translateX(0px);
+  }
+
+  33% {
+    transform: translateX(5px);
+  }
+
+  66% {
+    transform: translateX(-5px);
+  }
+
+  100% {
+    transform: translateX(0px);
   }
 }

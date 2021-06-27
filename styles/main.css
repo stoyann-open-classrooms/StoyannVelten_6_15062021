@@ -51,6 +51,32 @@ li {
   }
 }
 
+@-webkit-keyframes apparition-right {
+  from {
+    opacity: 0;
+    -webkit-transform: translateX(100px);
+            transform: translateX(100px);
+  }
+  to {
+    opacity: 1;
+    -webkit-transform: translateX(0px);
+            transform: translateX(0px);
+  }
+}
+
+@keyframes apparition-right {
+  from {
+    opacity: 0;
+    -webkit-transform: translateX(100px);
+            transform: translateX(100px);
+  }
+  to {
+    opacity: 1;
+    -webkit-transform: translateX(0px);
+            transform: translateX(0px);
+  }
+}
+
 @-webkit-keyframes apparition-down {
   from {
     opacity: 0;
@@ -74,6 +100,44 @@ li {
     opacity: 1;
     -webkit-transform: translateY(0px);
             transform: translateY(0px);
+  }
+}
+
+@-webkit-keyframes echec {
+  0% {
+    -webkit-transform: translateX(0px);
+            transform: translateX(0px);
+  }
+  33% {
+    -webkit-transform: translateX(5px);
+            transform: translateX(5px);
+  }
+  66% {
+    -webkit-transform: translateX(-5px);
+            transform: translateX(-5px);
+  }
+  100% {
+    -webkit-transform: translateX(0px);
+            transform: translateX(0px);
+  }
+}
+
+@keyframes echec {
+  0% {
+    -webkit-transform: translateX(0px);
+            transform: translateX(0px);
+  }
+  33% {
+    -webkit-transform: translateX(5px);
+            transform: translateX(5px);
+  }
+  66% {
+    -webkit-transform: translateX(-5px);
+            transform: translateX(-5px);
+  }
+  100% {
+    -webkit-transform: translateX(0px);
+            transform: translateX(0px);
   }
 }
 
@@ -130,18 +194,22 @@ header .tag-list {
 
 .banner .banner-body {
   width: 60%;
+  -webkit-animation: apparition 0.8s ease-in-out;
+          animation: apparition 0.8s ease-in-out;
 }
 
 .banner-img {
-  margin-right: 50px;
+  margin-right: 3%;
 }
 
 .banner-img img {
-  height: 50px;
-  width: 50px;
+  height: 70px;
+  width: 70px;
   -o-object-fit: cover;
      object-fit: cover;
   border-radius: 50%;
+  -webkit-animation: apparition-right 0.8s ease-in-out;
+          animation: apparition-right 0.8s ease-in-out;
 }
 
 .btn-banner {
@@ -260,6 +328,7 @@ header .tag-list {
   border: none;
   height: 30px;
   outline: none;
+  padding: 5px;
 }
 
 .modal-content textarea {
@@ -267,6 +336,7 @@ header .tag-list {
   border: none;
   height: 150px;
   outline: none;
+  padding: 5px;
 }
 
 .modal-content button {
@@ -280,12 +350,23 @@ header .tag-list {
   -ms-flex-item-align: center;
       -ms-grid-row-align: center;
       align-self: center;
+  cursor: pointer;
 }
 
 .message-alert {
   color: #901c1c;
   font-size: 13px;
   margin-top: 5px;
+  display: none;
+}
+
+.echec {
+  -webkit-animation: echec 0.3s ease-in-out;
+          animation: echec 0.3s ease-in-out;
+}
+
+.border {
+  border: 2px solid #901c1c;
 }
 
 .boutonmenuprincipal {

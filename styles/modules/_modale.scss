@@ -66,12 +66,14 @@
     border: none;
     height: 30px;
     outline: none;
+    padding: 5px;
   }
   textarea {
     border-radius: $radius;
     border: none;
     height: 150px;
     outline: none;
+    padding: 5px;
   }
   button {
     background-color: $primary;
@@ -82,6 +84,7 @@
     margin-top: 20px;
     width: 40%;
     align-self: center;
+    cursor: pointer;
   }
 }
 
@@ -89,4 +92,13 @@
   color: $primary;
   font-size: 13px;
   margin-top: 5px;
+  display: none;
+}
+
+.echec {
+  animation: echec 0.3s ease-in-out;
+}
+
+.border {
+  border: 2px solid $primary;
 }
