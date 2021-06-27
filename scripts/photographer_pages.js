@@ -1,13 +1,15 @@
 // import { Medium } from "./Medium";
 import { Photographers } from "./Photographers.js";
 import { MediumList } from "./MediumList.js";
-import { Medium } from "./Medium.js";
+import { Medium, Video } from "./Medium.js";
 const linkToData = "data/FishEyeDataFR.json";
 const urlParams = new URLSearchParams(window.location.search);
 const mediaList = new MediumList();
 let currentPhotographer;
 const banner = document.querySelector(".banner");
 const main = document.querySelector(".main");
+
+let totalLikes = [];
 
 function createContent() {
   fetch(linkToData)
@@ -39,15 +41,62 @@ function createData(data) {
       );
     }
   });
-
-  data.media.forEach((media) => {
-    if (currentPhotographer.id === media.photographerId) {
-      mediaList.addMedia(media);
+  for (let i of data.media) {
+    if (currentPhotographer.id === i.photographerId) {
+      console.log(i);
+      getLikes(i.likes);
+      const mediaFactory = new Medium(
+        i.image?.split(".").pop() || i.video?.split(".").pop(),
+        i.alt,
+        i.image || i.video,
+        i.likes,
+        i.photographerId,
+        i.tags,
+        i.title,
+        i.id,
+        i.date,
+        currentPhotographer.name.toLowerCase().replace(" ", "") + "/"
+      );
+      mediaList.addMedia(mediaFactory);
     }
-  });
+  }
+  function getLikes(likes) {
+    totalLikes.push(likes);
+    return totalLikes;
+  }
+
+  function getTotalLikes(totalLikes) {
+    let totalLikesPhotographer = 0;
+    for (let i = 0; i < totalLikes.length; i++) {
+      totalLikesPhotographer += totalLikes[i];
+    }
+    console.log(totalLikesPhotographer);
+    return totalLikesPhotographer;
+  }
+  console.log(totalLikes);
+  getTotalLikes(totalLikes);
+  // data.media.forEach((media) => {
+  //   if (currentPhotographer.id === media.photographerId) {
+  //     mediaList.addMedia(
+  //       mediaFactory.createMedia(
+  //         media.image?.split(".").pop() || media.video?.split(".").pop(),
+  //         media.alt,
+  //         media.image || media.video,
+  //         media.likes,
+  //         media.photographerId,
+  //         media.tags,
+  //         media.title,
+  //         media.id,
+  //         media.date,
+
+  //         currentPhotographer.name.toLowerCase().replace(" ", "") + "/"
+  //       )
+  //     );
+  //   }
+  // });
   console.log(currentPhotographer);
 }
-console.log(mediaList.mediaList);
+console.log(mediaList instanceof MediumList);
 
 function displayPage() {
   document.title += " - " + currentPhotographer.name;

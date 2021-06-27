@@ -41,7 +41,7 @@ export class Medium {
 }
 
 export class Photo extends Medium {
-  createImg(photo) {
+  createImg() {
     console.log(photo);
   }
   //  createImg()  {
