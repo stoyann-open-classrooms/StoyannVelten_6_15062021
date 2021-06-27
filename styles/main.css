@@ -308,6 +308,14 @@ header .tag-list {
           animation: apparition-down 0.8s ease-in-out;
 }
 
+.modal-content input {
+  border-radius: 5px;
+  border: none;
+  height: 30px;
+  outline: none;
+  padding: 5px;
+}
+
 @media screen and (min-width: 768px) {
   .modal-content {
     width: 350px;
@@ -354,14 +362,6 @@ header .tag-list {
 
 .modal-content label {
   margin: 10px 0;
-}
-
-.modal-content input {
-  border-radius: 5px;
-  border: none;
-  height: 30px;
-  outline: none;
-  padding: 5px;
 }
 
 .modal-content textarea {
@@ -419,7 +419,7 @@ header .tag-list {
 }
 
 .border {
-  border: 2px solid #901c1c;
+  border: 3px solid #901c1c !important;
 }
 
 .total-likes-container {

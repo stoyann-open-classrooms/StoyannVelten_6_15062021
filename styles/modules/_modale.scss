@@ -54,6 +54,13 @@
   height: 100%;
   border-radius: $radius;
   animation: apparition-down 0.8s ease-in-out;
+  input {
+    border-radius: $radius;
+    border: none;
+    height: 30px;
+    outline: none;
+    padding: 5px;
+  }
   @include tablet-and-higher {
     width: 350px;
     height: auto;
@@ -86,13 +93,7 @@
   label {
     margin: 10px 0;
   }
-  input {
-    border-radius: $radius;
-    border: none;
-    height: 30px;
-    outline: none;
-    padding: 5px;
-  }
+
   textarea {
     border-radius: $radius;
     border: none;
@@ -142,5 +143,5 @@
 }
 
 .border {
-  border: 2px solid $primary;
+  border: 3px solid $primary !important;
 }
