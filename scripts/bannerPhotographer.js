@@ -1,4 +1,6 @@
 function displayBanner(currentPhotographer) {
+  const urlParams = new URLSearchParams(window.location.search);
+
   const linkToPhoto =
     "./sources/img/1_small/PhotographersID/" + currentPhotographer.portrait;
   // console.log(linkToPhoto);
@@ -40,6 +42,15 @@ function displayBanner(currentPhotographer) {
     containerTagsBanner.appendChild(tagsLink);
     tagsSpan.textContent = "#" + el;
     tagsLink.appendChild(tagsSpan);
+    tagsLink.addEventListener("click", (e) => {
+      e.preventDefault();
+      tagsLink.classList.toggle("tag--selected");
+      //   displayMediaList();
+    });
+
+    if (urlParams.get("tag") && urlParams.get("tag") === tag) {
+      tagsLink.classList.toggle("tag--selected");
+    }
   });
 
   // ajout des elements dans le DOM

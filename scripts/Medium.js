@@ -14,28 +14,28 @@ export class Medium {
     if (type == "jpg") {
       const photo = new Photo();
 
-      this.alt = alt;
-      this.date = new Date(date);
-      this.id = id;
-      this.link = link;
-      this.likes = likes;
-      this.photographerId = photographerId;
-      this.tags = tags;
-      this.title = title;
-      this.path = path + link;
+      photo.alt = alt;
+      photo.date = new Date(date);
+      photo.id = id;
+      photo.link = link;
+      photo.likes = likes;
+      photo.photographerId = photographerId;
+      photo.tags = tags;
+      photo.title = title;
+      photo.path = path + link;
 
       return photo;
     } else if (type == "mp4") {
       const video = new Video();
 
-      this.alt = alt;
-      this.date = new Date(date);
-      this.id = id;
-      this.link = path + link;
-      this.likes = likes;
-      this.photographerId = photographerId;
-      this.tags = tags;
-      this.title = title;
+      video.alt = alt;
+      video.date = new Date(date);
+      video.id = id;
+      video.link = path + link;
+      video.likes = likes;
+      video.photographerId = photographerId;
+      video.tags = tags;
+      video.title = title;
       return video;
     }
   }

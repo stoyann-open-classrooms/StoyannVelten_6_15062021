@@ -1,4 +1,3 @@
-// import { Medium } from "./Medium";
 import { Photographers } from "./Photographers.js";
 import { MediumList } from "./MediumList.js";
 import { Medium } from "./Medium.js";
