@@ -44,6 +44,7 @@ export class Medium {
 export class Photo extends Medium {
   createImg() {
     console.log(photo);
+    photo.push(mediaList);
   }
   //  createImg()  {
   //     const linkToSmalPhoto = `./sources/img/1_small/`;
