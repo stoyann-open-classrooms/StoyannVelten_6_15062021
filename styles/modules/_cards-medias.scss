@@ -1,6 +1,6 @@
 .cards-media-container {
   @include tablet-and-higher {
-    margin-top: 50px;
+    margin-top: 5rem;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
@@ -9,8 +9,8 @@
 }
 .cards-media {
   width: 95vw;
-  height: 190px;
-  margin-top: 25px;
+  height: 19rem;
+  margin-top: 2.5rem;
   color: $primary;
   animation: apparition-up 0.8s ease-in-out;
 
@@ -39,7 +39,7 @@
 }
 .cards-media-title {
   font-weight: 400;
-  font-size: 17px;
+  font-size: 1.7rem;
 }
 .cards-Img {
   object-fit: cover;
@@ -59,5 +59,5 @@
   text-align: center;
 }
 .compteur {
-  margin-right: 5px;
+  margin-right: 0.5rem;
 }

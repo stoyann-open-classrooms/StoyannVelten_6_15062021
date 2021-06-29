@@ -5,14 +5,14 @@
   background-color: $primary;
   border: none;
   color: white;
-  font-size: 10px;
-  width: 170px;
+  font-size: 1rem;
+  width: 17rem;
   margin: auto;
-  padding: 7px 10px;
+  padding: 0.7rem 1rem;
   border-radius: $radius;
-  font-size: 9px;
+  font-size: 0.9rem;
   position: fixed;
-  bottom: 20px;
+  bottom: 2rem;
   left: 24%;
   @include tablet-and-higher {
     display: none;
@@ -36,26 +36,26 @@
   display: block;
   background-color: $secondary-light;
   margin: 0;
-  border: 1px solid #888;
-  padding: 20px;
+  border: 0.1rem solid #888;
+  padding: 2rem;
   height: 100%;
   border-radius: $radius;
   animation: apparition-down 0.8s ease-in-out;
   input {
     border-radius: $radius;
     border: none;
-    height: 30px;
+    height: 3rem;
     outline: none;
-    padding: 5px;
+    padding: 0.5rem;
   }
   @include tablet-and-higher {
-    width: 350px;
+    width: 35rem;
     height: auto;
     margin: auto;
   }
   .fa-times {
-    font-size: 30px;
-    margin-top: 5px;
+    font-size: 3rem;
+    margin-top: 0.5rem;
     color: white;
     cursor: pointer;
   }
@@ -65,7 +65,7 @@
     width: 100%;
     justify-content: space-between;
     h3 {
-      font-size: 30px;
+      font-size: 3rem;
       font-weight: 400;
     }
   }
@@ -73,28 +73,28 @@
     display: flex;
     flex-direction: column;
     height: 100%;
-    font-size: 20px;
+    font-size: 2rem;
     font-weight: 400;
-    margin-top: 30px;
+    margin-top: 3rem;
   }
   label {
-    margin: 10px 0;
+    margin: 1rem 0;
   }
 
   textarea {
     border-radius: $radius;
     border: none;
-    height: 150px;
+    height: 15rem;
     outline: none;
-    padding: 5px;
+    padding: 0.5rem;
   }
   button {
     background-color: $primary;
     color: white;
-    padding: 10px;
+    padding: 1rem;
     border: none;
     border-radius: $radius;
-    margin-top: 20px;
+    margin-top: 2rem;
     width: 40%;
     align-self: center;
     cursor: pointer;
@@ -105,14 +105,14 @@
   // background-color: $secondary-light;
   margin: 0;
 
-  padding: 20px;
+  padding: 2rem;
   height: 100%;
 
-  font-size: 50px;
+  font-size: 5rem;
 
   .fa-times {
-    font-size: 30px;
-    margin-top: 5px;
+    font-size: 3rem;
+    margin-top: 0.5rem;
     color: white;
     cursor: pointer;
   }
@@ -120,8 +120,8 @@
 
 .message-alert {
   color: $primary;
-  font-size: 13px;
-  margin-top: 5px;
+  font-size: 1.3rem;
+  margin-top: 0.5rem;
   display: none;
 }
 
@@ -130,5 +130,5 @@
 }
 
 .border {
-  border: 3px solid $primary !important;
+  border: 0.3rem solid $primary !important;
 }

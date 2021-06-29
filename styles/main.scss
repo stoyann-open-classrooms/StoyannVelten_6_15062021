@@ -19,11 +19,7 @@ main {
   flex-wrap: wrap;
   margin: auto;
   justify-content: center;
-  // max-width: 1000px;
-  // margin-bottom: 30px;
-  @include tablet-and-higher {
-    padding: 50px 0;
-  }
+
   max-width: $page-max-width;
 }
 
@@ -35,5 +31,5 @@ main {
   left: 43%;
   background-color: $secondary-light;
   border-radius: 0 0 $radius $radius;
-  padding: 8px 8px;
+  padding: 0.8rem 0.8rem;
 }

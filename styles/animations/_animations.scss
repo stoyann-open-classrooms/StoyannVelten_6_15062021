@@ -1,60 +1,60 @@
 @keyframes apparition {
   from {
     opacity: 0;
-    transform: translateX(-100px);
+    transform: translateX(-10rem);
   }
   to {
     opacity: 1;
-    transform: translateX(0px);
+    transform: translateX(0rem);
   }
 }
 
 @keyframes apparition-right {
   from {
     opacity: 0;
-    transform: translateX(100px);
+    transform: translateX(10rem);
   }
   to {
     opacity: 1;
-    transform: translateX(0px);
+    transform: translateX(0rem);
   }
 }
 
 @keyframes apparition-down {
   from {
     opacity: 0;
-    transform: translateY(-100px);
+    transform: translateY(-10rem);
   }
   to {
     opacity: 1;
-    transform: translateY(0px);
+    transform: translateY(0rem);
   }
 }
 @keyframes apparition-up {
   from {
     opacity: 0;
-    transform: translateY(100px);
+    transform: translateY(10rem);
   }
   to {
     opacity: 1;
-    transform: translateY(0px);
+    transform: translateY(0rem);
   }
 }
 
 @keyframes echec {
   0% {
-    transform: translateX(0px);
+    transform: translateX(0rem);
   }
 
   33% {
-    transform: translateX(5px);
+    transform: translateX(0.5rem);
   }
 
   66% {
-    transform: translateX(-5px);
+    transform: translateX(-0.5rem);
   }
 
   100% {
-    transform: translateX(0px);
+    transform: translateX(0rem);
   }
 }

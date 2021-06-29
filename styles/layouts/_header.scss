@@ -1,23 +1,17 @@
 header {
-  max-width: $page-max-width;
+  // max-width: $page-max-width;
   margin: auto;
-  padding: 0 2%;
-  @include tablet-and-higher {
-    padding: 0 5%;
-  }
+  padding: 4% 2.8%;
 
   .header-top {
     display: flex;
     justify-content: space-between;
-    width: 100%;
-    padding: 5% 2.5%;
 
     align-items: center;
-    width: 100%;
 
     img {
-      width: 60%;
-      display: block;
+      width: 40%;
+
       @include tablet-and-higher {
         width: 100%;
       }
@@ -26,9 +20,14 @@ header {
       font-size: 1.2rem;
       color: $primary;
       font-weight: 400;
-      padding: 5px;
+      // padding: 0.5rem;
+
       @include tablet-and-higher {
-        font-size: 3rem;
+        font-size: 2.4rem;
+      }
+      @include desktop-and-higher {
+        // padding: 0 5%;
+        font-size: 3.2rem;
       }
     }
   }

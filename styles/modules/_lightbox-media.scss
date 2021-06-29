@@ -6,19 +6,19 @@
   left: 0;
   top: 0;
   width: 100vw;
-  height: 100px;
+  height: 10rem;
   background: rgba($color: rgb(34, 34, 34), $alpha: 0.7);
 
   overflow: auto;
 
   .fa-times {
     position: absolute;
-    font-size: 40px;
+    font-size: 4rem;
     align-self: flex-start;
     justify-self: flex-end;
     display: block;
-    padding: 10px;
-    right: -20px;
+    padding: 1rem;
+    right: -2rem;
   }
 
   .lightbox-content {
@@ -62,7 +62,7 @@
   justify-self: flex-start;
   align-self: start;
   position: absolute;
-  bottom: 40px;
-  left: 170px;
+  bottom: 4rem;
+  left: 17rem;
   font-size: large;
 }

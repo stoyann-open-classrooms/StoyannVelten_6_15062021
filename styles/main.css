@@ -28,155 +28,148 @@ li {
 @-webkit-keyframes apparition {
   from {
     opacity: 0;
-    -webkit-transform: translateX(-100px);
-            transform: translateX(-100px);
+    -webkit-transform: translateX(-10rem);
+            transform: translateX(-10rem);
   }
   to {
     opacity: 1;
-    -webkit-transform: translateX(0px);
-            transform: translateX(0px);
+    -webkit-transform: translateX(0rem);
+            transform: translateX(0rem);
   }
 }
 
 @keyframes apparition {
   from {
     opacity: 0;
-    -webkit-transform: translateX(-100px);
-            transform: translateX(-100px);
+    -webkit-transform: translateX(-10rem);
+            transform: translateX(-10rem);
   }
   to {
     opacity: 1;
-    -webkit-transform: translateX(0px);
-            transform: translateX(0px);
+    -webkit-transform: translateX(0rem);
+            transform: translateX(0rem);
   }
 }
 
 @-webkit-keyframes apparition-right {
   from {
     opacity: 0;
-    -webkit-transform: translateX(100px);
-            transform: translateX(100px);
+    -webkit-transform: translateX(10rem);
+            transform: translateX(10rem);
   }
   to {
     opacity: 1;
-    -webkit-transform: translateX(0px);
-            transform: translateX(0px);
+    -webkit-transform: translateX(0rem);
+            transform: translateX(0rem);
   }
 }
 
 @keyframes apparition-right {
   from {
     opacity: 0;
-    -webkit-transform: translateX(100px);
-            transform: translateX(100px);
+    -webkit-transform: translateX(10rem);
+            transform: translateX(10rem);
   }
   to {
     opacity: 1;
-    -webkit-transform: translateX(0px);
-            transform: translateX(0px);
+    -webkit-transform: translateX(0rem);
+            transform: translateX(0rem);
   }
 }
 
 @-webkit-keyframes apparition-down {
   from {
     opacity: 0;
-    -webkit-transform: translateY(-100px);
-            transform: translateY(-100px);
+    -webkit-transform: translateY(-10rem);
+            transform: translateY(-10rem);
   }
   to {
     opacity: 1;
-    -webkit-transform: translateY(0px);
-            transform: translateY(0px);
+    -webkit-transform: translateY(0rem);
+            transform: translateY(0rem);
   }
 }
 
 @keyframes apparition-down {
   from {
     opacity: 0;
-    -webkit-transform: translateY(-100px);
-            transform: translateY(-100px);
+    -webkit-transform: translateY(-10rem);
+            transform: translateY(-10rem);
   }
   to {
     opacity: 1;
-    -webkit-transform: translateY(0px);
-            transform: translateY(0px);
+    -webkit-transform: translateY(0rem);
+            transform: translateY(0rem);
   }
 }
 
 @-webkit-keyframes apparition-up {
   from {
     opacity: 0;
-    -webkit-transform: translateY(100px);
-            transform: translateY(100px);
+    -webkit-transform: translateY(10rem);
+            transform: translateY(10rem);
   }
   to {
     opacity: 1;
-    -webkit-transform: translateY(0px);
-            transform: translateY(0px);
+    -webkit-transform: translateY(0rem);
+            transform: translateY(0rem);
   }
 }
 
 @keyframes apparition-up {
   from {
     opacity: 0;
-    -webkit-transform: translateY(100px);
-            transform: translateY(100px);
+    -webkit-transform: translateY(10rem);
+            transform: translateY(10rem);
   }
   to {
     opacity: 1;
-    -webkit-transform: translateY(0px);
-            transform: translateY(0px);
+    -webkit-transform: translateY(0rem);
+            transform: translateY(0rem);
   }
 }
 
 @-webkit-keyframes echec {
   0% {
-    -webkit-transform: translateX(0px);
-            transform: translateX(0px);
+    -webkit-transform: translateX(0rem);
+            transform: translateX(0rem);
   }
   33% {
-    -webkit-transform: translateX(5px);
-            transform: translateX(5px);
+    -webkit-transform: translateX(0.5rem);
+            transform: translateX(0.5rem);
   }
   66% {
-    -webkit-transform: translateX(-5px);
-            transform: translateX(-5px);
+    -webkit-transform: translateX(-0.5rem);
+            transform: translateX(-0.5rem);
   }
   100% {
-    -webkit-transform: translateX(0px);
-            transform: translateX(0px);
+    -webkit-transform: translateX(0rem);
+            transform: translateX(0rem);
   }
 }
 
 @keyframes echec {
   0% {
-    -webkit-transform: translateX(0px);
-            transform: translateX(0px);
+    -webkit-transform: translateX(0rem);
+            transform: translateX(0rem);
   }
   33% {
-    -webkit-transform: translateX(5px);
-            transform: translateX(5px);
+    -webkit-transform: translateX(0.5rem);
+            transform: translateX(0.5rem);
   }
   66% {
-    -webkit-transform: translateX(-5px);
-            transform: translateX(-5px);
+    -webkit-transform: translateX(-0.5rem);
+            transform: translateX(-0.5rem);
   }
   100% {
-    -webkit-transform: translateX(0px);
-            transform: translateX(0px);
+    -webkit-transform: translateX(0rem);
+            transform: translateX(0rem);
   }
 }
 
 header {
-  max-width: 1400px;
   margin: auto;
-  padding: 0 2%;
-}
-
-@media screen and (min-width: 768px) {
-  header {
-    padding: 0 5%;
-  }
+  padding: 4% 2.8%;
 }
 
 header .header-top {
@@ -186,17 +179,13 @@ header .header-top {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  width: 100%;
-  padding: 5% 2.5%;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  width: 100%;
 }
 
 header .header-top img {
-  width: 60%;
-  display: block;
+  width: 40%;
 }
 
 @media screen and (min-width: 768px) {
@@ -209,12 +198,17 @@ header .header-top h1 {
   font-size: 1.2rem;
   color: #901c1c;
   font-weight: 400;
-  padding: 5px;
 }
 
 @media screen and (min-width: 768px) {
   header .header-top h1 {
-    font-size: 3rem;
+    font-size: 2.4rem;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  header .header-top h1 {
+    font-size: 3.2rem;
   }
 }
 
@@ -245,7 +239,7 @@ header .tag-list {
   display: -ms-flexbox;
   display: flex;
   padding: 4%;
-  border-radius: 5px;
+  border-radius: 0.6rem;
   width: 98vw;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
@@ -262,18 +256,19 @@ header .tag-list {
   width: 60%;
   -webkit-animation: apparition 0.8s ease-in-out;
           animation: apparition 0.8s ease-in-out;
-  font-size: 1.2em;
+  font-size: 1.2rem;
+  margin-top: 1rem;
 }
 
 @media screen and (min-width: 768px) {
   .banner .banner-body {
-    font-size: 2em;
+    font-size: 2rem;
   }
 }
 
 @media screen and (min-width: 1200px) {
   .banner .banner-body {
-    font-size: 3em;
+    font-size: 3rem;
   }
 }
 
@@ -282,8 +277,8 @@ header .tag-list {
 }
 
 .banner-img img {
-  height: 7em;
-  width: 7em;
+  height: 7rem;
+  width: 7rem;
   -o-object-fit: cover;
      object-fit: cover;
   border-radius: 50%;
@@ -293,20 +288,20 @@ header .tag-list {
 
 @media screen and (min-width: 768px) {
   .banner-img img {
-    height: 11em;
-    width: 11em;
+    height: 17rem;
+    width: 17rem;
   }
 }
 
 @media screen and (min-width: 1200px) {
   .banner-img img {
-    height: 17em;
-    width: 17em;
+    height: 22rem;
+    width: 22rem;
   }
 }
 
 .banner-tags-container {
-  margin-top: 10px;
+  margin-top: 2.5rem;
   width: 60%;
   -webkit-animation: apparition 0.8s ease-in-out;
           animation: apparition 0.8s ease-in-out;
@@ -319,13 +314,13 @@ header .tag-list {
   color: white;
   font-size: 1.7em;
   font-weight: bold;
-  width: 20%;
-  height: 60px;
-  padding: 10px 10px;
+  width: 25%;
+  height: 6rem;
+  padding: 1rem 1rem;
   position: relative;
   right: 8%;
   text-align: center;
-  border-radius: 5px;
+  border-radius: 0.6rem;
 }
 
 @media screen and (min-width: 768px) {
@@ -358,20 +353,20 @@ header .tag-list {
   left: 0;
   top: 0;
   width: 100vw;
-  height: 100px;
+  height: 10rem;
   background: rgba(34, 34, 34, 0.7);
   overflow: auto;
 }
 
 .lightbox-modal .fa-times {
   position: absolute;
-  font-size: 40px;
+  font-size: 4rem;
   -ms-flex-item-align: start;
       align-self: flex-start;
   justify-self: flex-end;
   display: block;
-  padding: 10px;
-  right: -20px;
+  padding: 1rem;
+  right: -2rem;
 }
 
 .lightbox-modal .lightbox-content {
@@ -392,7 +387,7 @@ header .tag-list {
   background-color: #fafafa;
   width: 100vw;
   height: 100vh;
-  border-radius: 5px;
+  border-radius: 0.6rem;
   -webkit-animation: apparition-down 0.8s ease-in-out;
           animation: apparition-down 0.8s ease-in-out;
   position: relative;
@@ -412,7 +407,7 @@ header .tag-list {
   -o-object-fit: cover;
      object-fit: cover;
   display: block;
-  border-radius: 5px;
+  border-radius: 0.6rem;
 }
 
 .lightbox-modal .lightbox-content i {
@@ -429,8 +424,8 @@ header .tag-list {
       -ms-grid-row-align: start;
       align-self: start;
   position: absolute;
-  bottom: 40px;
-  left: 170px;
+  bottom: 4rem;
+  left: 17rem;
   font-size: large;
 }
 
@@ -447,14 +442,14 @@ header .tag-list {
   background-color: #901c1c;
   border: none;
   color: white;
-  font-size: 10px;
-  width: 170px;
+  font-size: 1rem;
+  width: 17rem;
   margin: auto;
-  padding: 7px 10px;
-  border-radius: 5px;
-  font-size: 9px;
+  padding: 0.7rem 1rem;
+  border-radius: 0.6rem;
+  font-size: 0.9rem;
   position: fixed;
-  bottom: 20px;
+  bottom: 2rem;
   left: 24%;
 }
 
@@ -484,33 +479,33 @@ header .tag-list {
   display: block;
   background-color: #db8876;
   margin: 0;
-  border: 1px solid #888;
-  padding: 20px;
+  border: 0.1rem solid #888;
+  padding: 2rem;
   height: 100%;
-  border-radius: 5px;
+  border-radius: 0.6rem;
   -webkit-animation: apparition-down 0.8s ease-in-out;
           animation: apparition-down 0.8s ease-in-out;
 }
 
 .modal-content input {
-  border-radius: 5px;
+  border-radius: 0.6rem;
   border: none;
-  height: 30px;
+  height: 3rem;
   outline: none;
-  padding: 5px;
+  padding: 0.5rem;
 }
 
 @media screen and (min-width: 768px) {
   .modal-content {
-    width: 350px;
+    width: 35rem;
     height: auto;
     margin: auto;
   }
 }
 
 .modal-content .fa-times {
-  font-size: 30px;
-  margin-top: 5px;
+  font-size: 3rem;
+  margin-top: 0.5rem;
   color: white;
   cursor: pointer;
 }
@@ -526,7 +521,7 @@ header .tag-list {
 }
 
 .modal-content div h3 {
-  font-size: 30px;
+  font-size: 3rem;
   font-weight: 400;
 }
 
@@ -539,30 +534,30 @@ header .tag-list {
       -ms-flex-direction: column;
           flex-direction: column;
   height: 100%;
-  font-size: 20px;
+  font-size: 2rem;
   font-weight: 400;
-  margin-top: 30px;
+  margin-top: 3rem;
 }
 
 .modal-content label {
-  margin: 10px 0;
+  margin: 1rem 0;
 }
 
 .modal-content textarea {
-  border-radius: 5px;
+  border-radius: 0.6rem;
   border: none;
-  height: 150px;
+  height: 15rem;
   outline: none;
-  padding: 5px;
+  padding: 0.5rem;
 }
 
 .modal-content button {
   background-color: #901c1c;
   color: white;
-  padding: 10px;
+  padding: 1rem;
   border: none;
-  border-radius: 5px;
-  margin-top: 20px;
+  border-radius: 0.6rem;
+  margin-top: 2rem;
   width: 40%;
   -ms-flex-item-align: center;
       -ms-grid-row-align: center;
@@ -573,22 +568,22 @@ header .tag-list {
 .modal-validation-msg {
   display: none;
   margin: 0;
-  padding: 20px;
+  padding: 2rem;
   height: 100%;
-  font-size: 50px;
+  font-size: 5rem;
 }
 
 .modal-validation-msg .fa-times {
-  font-size: 30px;
-  margin-top: 5px;
+  font-size: 3rem;
+  margin-top: 0.5rem;
   color: white;
   cursor: pointer;
 }
 
 .message-alert {
   color: #901c1c;
-  font-size: 13px;
-  margin-top: 5px;
+  font-size: 1.3rem;
+  margin-top: 0.5rem;
   display: none;
 }
 
@@ -598,7 +593,7 @@ header .tag-list {
 }
 
 .border {
-  border: 3px solid #901c1c !important;
+  border: 0.3rem solid #901c1c !important;
 }
 
 .total-likes-container {
@@ -614,10 +609,10 @@ header .tag-list {
   bottom: 0;
   right: 15%;
   background-color: #db8876;
-  padding: 7px 10px;
+  padding: 0.7rem 1rem;
   height: auto;
   width: auto;
-  border-radius: 5px 5px 0 0;
+  border-radius: 0.6rem 0.6rem 0 0;
 }
 
 .total-likes-container i {
@@ -635,7 +630,7 @@ header .tag-list {
 }
 
 .total-likes {
-  margin-right: 10px;
+  margin-right: 1rem;
   font-weight: bold;
   font-size: large;
   text-align: center;
@@ -655,10 +650,10 @@ header .tag-list {
   color: white;
   border: none;
   cursor: pointer;
-  padding: 5px;
-  margin-top: 10px;
+  padding: 0.5rem;
+  margin-top: 1rem;
   font-size: 2em;
-  border-radius: 5px;
+  border-radius: 0.6rem;
   -webkit-transition: all 0.5s ease-in-out;
   transition: all 0.5s ease-in-out;
 }
@@ -681,21 +676,21 @@ header .tag-list {
 .dropdown-child {
   display: none;
   background-color: #901c1c;
-  min-width: 50px;
+  min-width: 5rem;
   position: relative;
-  bottom: 3px;
+  bottom: 0.3rem;
   font-size: 2em;
-  border-radius: 0 0 5px 5px;
+  border-radius: 0 0 0.6rem 0.6rem;
 }
 
 .dropdown-child span {
   color: white;
-  padding: 5px;
+  padding: 0.5rem;
   text-decoration: none;
   display: block;
-  border-top: 2px solid white;
-  margin-left: 10px;
-  margin-right: 10px;
+  border-top: 0.2rem solid white;
+  margin-left: 1rem;
+  margin-right: 1rem;
 }
 
 .dropdown:hover .dropdown-child {
@@ -705,8 +700,8 @@ header .tag-list {
 .tri {
   display: none;
   position: relative;
-  top: 10px;
-  margin-right: 10px;
+  top: 1rem;
+  margin-right: 1rem;
   font-weight: 500;
   font-size: 2em;
 }
@@ -719,7 +714,7 @@ header .tag-list {
 
 @media screen and (min-width: 768px) {
   .cards-media-container {
-    margin-top: 50px;
+    margin-top: 5rem;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -734,8 +729,8 @@ header .tag-list {
 
 .cards-media {
   width: 95vw;
-  height: 190px;
-  margin-top: 25px;
+  height: 19rem;
+  margin-top: 2.5rem;
   color: #901c1c;
   -webkit-animation: apparition-up 0.8s ease-in-out;
           animation: apparition-up 0.8s ease-in-out;
@@ -769,7 +764,7 @@ header .tag-list {
      object-fit: cover;
   width: 100%;
   height: 100%;
-  border-radius: 5px;
+  border-radius: 0.6rem;
   -webkit-transition: -webkit-transform 0.5s ease-in-out;
   transition: -webkit-transform 0.5s ease-in-out;
   transition: transform 0.5s ease-in-out;
@@ -783,7 +778,7 @@ header .tag-list {
 
 .cards-media-title {
   font-weight: 400;
-  font-size: 17px;
+  font-size: 1.7rem;
 }
 
 .cards-Img {
@@ -791,7 +786,7 @@ header .tag-list {
      object-fit: cover;
   width: 100%;
   height: 100%;
-  border-radius: 5px;
+  border-radius: 0.6rem;
 }
 
 .header-like {
@@ -808,7 +803,7 @@ header .tag-list {
 }
 
 .compteur {
-  margin-right: 5px;
+  margin-right: 0.5rem;
 }
 
 .photographer-cards {
@@ -827,20 +822,19 @@ header .tag-list {
       -ms-flex-align: center;
           align-items: center;
   justify-content: center;
-  margin: 20px;
-  margin-top: 50px;
+  margin: 5rem 0;
   font-weight: 400;
 }
 
-@media screen and (min-width: 1200px) {
+@media screen and (min-width: 768px) {
   .photographer-cards {
-    width: 40rem;
+    margin: 5rem;
   }
 }
 
 .cards-img {
-  height: 160px;
-  width: 160px;
+  height: 16rem;
+  width: 16rem;
   -o-object-fit: cover;
      object-fit: cover;
   border-radius: 50%;
@@ -865,7 +859,7 @@ header .tag-list {
 }
 
 .cards-title {
-  margin-top: 5px;
+  margin-top: 0.8rem;
   font-size: 3rem;
   text-align: center;
   color: #d3573c;
@@ -873,7 +867,7 @@ header .tag-list {
 
 .cards-location {
   color: #d3573c;
-  margin-top: 5px;
+  margin-top: 0.5rem;
   font-size: 1.6rem;
   font-weight: 600;
 }
@@ -883,7 +877,7 @@ header .tag-list {
 }
 
 .cards-tags {
-  width: 180px;
+  width: 18rem;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -897,9 +891,9 @@ header .tag-list {
   width: auto;
   color: #901c1c;
   border: 0.5px solid #c4c4c4;
-  margin-top: 10px;
-  margin-right: 5px;
-  padding: 3px 5px;
+  margin-top: 1rem;
+  margin-right: 0.5rem;
+  padding: 0.3rem 0.5rem;
   font-size: 1.2rem;
   border-radius: 9999px;
 }
@@ -922,12 +916,6 @@ main {
   max-width: 1400px;
 }
 
-@media screen and (min-width: 768px) {
-  main {
-    padding: 50px 0;
-  }
-}
-
 .return-main {
   display: none;
   position: fixed;
@@ -935,7 +923,7 @@ main {
   text-align: center;
   left: 43%;
   background-color: #db8876;
-  border-radius: 0 0 5px 5px;
-  padding: 8px 8px;
+  border-radius: 0 0 0.6rem 0.6rem;
+  padding: 0.8rem 0.8rem;
 }
 /*# sourceMappingURL=main.css.map */

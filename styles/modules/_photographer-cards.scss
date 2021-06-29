@@ -5,20 +5,17 @@
   justify-content: center;
   align-items: center;
   justify-content: center;
-  margin: 20px;
-  margin-top: 50px;
+  margin: 5rem 0;
   font-weight: 400;
+  // background-color: red;
   @include tablet-and-higher {
-    // width: 300rem;
-  }
-  @include desktop-and-higher {
-    width: 40rem;
+    margin: 5rem;
   }
 }
 
 .cards-img {
-  height: 160px;
-  width: 160px;
+  height: 16rem;
+  width: 16rem;
   object-fit: cover;
   border-radius: 50%;
 }
@@ -31,14 +28,14 @@
   font-size: 1.3rem;
 }
 .cards-title {
-  margin-top: 5px;
+  margin-top: 0.8rem;
   font-size: 3rem;
   text-align: center;
   color: $secondary;
 }
 .cards-location {
   color: $secondary;
-  margin-top: 5px;
+  margin-top: 0.5rem;
 
   font-size: 1.6rem;
   font-weight: 600;
@@ -48,7 +45,7 @@
 }
 
 .cards-tags {
-  width: 180px;
+  width: 18rem;
   display: flex;
   justify-content: center;
 }
