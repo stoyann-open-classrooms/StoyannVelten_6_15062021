@@ -12,6 +12,7 @@ let mediaFactory = new Medium();
 
 let currentPhotographer;
 let totalLikes = [];
+let totalLikesPhotographer = [];
 
 const main = document.querySelector(".main");
 
@@ -75,13 +76,14 @@ function displaymediaList() {
     filters.push(tagSelected.textContent.replace("#", ""));
   });
   displaymediaList = mediaList.getMediaList(...filters);
+  const totalLikesNb = document.querySelector(".total-likes");
 
   displaymediaList.forEach((media) => {
     console.log(media);
     const mediaElement = media.createImg();
     console.log(mediaElement);
     const cardsMedia = document.createElement("div");
-    const cardsMediaImg = document.createElement("div");
+    const cardsMediaImg = document.createElement("a");
     const cardsMediaFooter = document.createElement("div");
     const cardsMediaTitle = document.createElement("p");
     const cardsMediaHeaderLike = document.createElement("div");
@@ -99,6 +101,7 @@ function displaymediaList() {
     heart.classList.add("heart");
     heart.classList.add("far");
     heart.classList.add("fa-heart");
+    cardsMediaImg.href = "#";
 
     cardsMediaTitle.textContent = `${media.title}`;
     cardsMediaCompteurLike.textContent = `${media.likes}`;
@@ -118,11 +121,16 @@ function displaymediaList() {
         heart.classList.remove("fas");
         heart.classList.add("far");
         cardsMediaCompteurLike.textContent = `${media.likes}`;
+        totalLikesPhotographer--;
+        totalLikesNb.textContent = `${totalLikesPhotographer} `;
       } else {
         media.likes++;
         heart.classList.remove("far");
         heart.classList.add("fas");
         cardsMediaCompteurLike.textContent = `${media.likes}`;
+        totalLikesPhotographer++;
+
+        totalLikesNb.textContent = `${totalLikesPhotographer} `;
       }
     });
   });

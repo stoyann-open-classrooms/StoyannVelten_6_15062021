@@ -13,6 +13,7 @@
   margin-top: 10px;
   font-size: 2em;
   border-radius: $radius;
+  transition: all 0.5s ease-in-out;
   @include tablet-and-higher {
     display: block;
   }

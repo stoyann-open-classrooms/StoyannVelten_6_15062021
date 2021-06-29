@@ -10,21 +10,21 @@
 .cards-media {
   width: 95vw;
   height: 190px;
-  margin-top: 10px;
+  margin-top: 25px;
   color: $primary;
   animation: apparition-up 0.8s ease-in-out;
 
   @include tablet-and-higher {
     width: 300px;
-    margin: 20px;
+    margin: 30px;
   }
 }
 .cards-media-footer {
   display: flex;
   justify-content: space-between;
+  align-content: center;
   padding: 1% 2%;
   font-size: 1.5em;
-
   align-items: center;
 }
 .cards-media-img {
@@ -32,11 +32,14 @@
   width: 100%;
   height: 100%;
   border-radius: $radius;
+  transition: transform 0.5s ease-in-out;
 }
-
+.cards-media-img:hover {
+  transform: scale(1.1);
+}
 .cards-media-title {
-  margin-top: 7px;
   font-weight: 400;
+  font-size: 17px;
 }
 .cards-Img {
   object-fit: cover;

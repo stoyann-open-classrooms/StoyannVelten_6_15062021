@@ -36,8 +36,8 @@ main {
   position: fixed;
   top: 0;
   text-align: center;
-  left: 35%;
+  left: 43%;
   background-color: $secondary-light;
-  border-radius: $radius;
-  padding: 2px;
+  border-radius: 0 0 $radius $radius;
+  padding: 8px 8px;
 }

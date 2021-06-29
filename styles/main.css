@@ -659,6 +659,8 @@ header .tag-list {
   margin-top: 10px;
   font-size: 2em;
   border-radius: 5px;
+  -webkit-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
 }
 
 @media screen and (min-width: 768px) {
@@ -733,7 +735,7 @@ header .tag-list {
 .cards-media {
   width: 95vw;
   height: 190px;
-  margin-top: 10px;
+  margin-top: 25px;
   color: #901c1c;
   -webkit-animation: apparition-up 0.8s ease-in-out;
           animation: apparition-up 0.8s ease-in-out;
@@ -742,7 +744,7 @@ header .tag-list {
 @media screen and (min-width: 768px) {
   .cards-media {
     width: 300px;
-    margin: 20px;
+    margin: 30px;
   }
 }
 
@@ -753,6 +755,8 @@ header .tag-list {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+  -ms-flex-line-pack: center;
+      align-content: center;
   padding: 1% 2%;
   font-size: 1.5em;
   -webkit-box-align: center;
@@ -766,11 +770,20 @@ header .tag-list {
   width: 100%;
   height: 100%;
   border-radius: 5px;
+  -webkit-transition: -webkit-transform 0.5s ease-in-out;
+  transition: -webkit-transform 0.5s ease-in-out;
+  transition: transform 0.5s ease-in-out;
+  transition: transform 0.5s ease-in-out, -webkit-transform 0.5s ease-in-out;
+}
+
+.cards-media-img:hover {
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
 }
 
 .cards-media-title {
-  margin-top: 7px;
   font-weight: 400;
+  font-size: 17px;
 }
 
 .cards-Img {
@@ -935,9 +948,9 @@ main {
   position: fixed;
   top: 0;
   text-align: center;
-  left: 35%;
+  left: 43%;
   background-color: #db8876;
-  border-radius: 5px;
-  padding: 2px;
+  border-radius: 0 0 5px 5px;
+  padding: 8px 8px;
 }
 /*# sourceMappingURL=main.css.map */
