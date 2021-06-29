@@ -4,8 +4,8 @@ function openLightbox() {
 
   lightboxLink.addEventListener("click", () => {
     // e.preventDefault();
-    // lightboxModal.style.display = "flex";
-    console.log("ok");
+    lightboxModal.style.display = "flex";
+    // console.log("ok");
   });
   // closeMediaModal.addEventListener("click", () => {
   //   lightboxModal.style.display = "none";

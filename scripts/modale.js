@@ -116,6 +116,11 @@ function openModalForm(currentPhotographer) {
     modalTitle.style.animation = "apparition-down 0.8s ease-in-out";
     modalTitle.style.margin = "65% 0";
     modalTitle.style.fontSize = "30px";
+    // log des entres de l'uttilisateur
+    let datas = new FormData(bannerForm);
+    for (let i of datas.entries()) {
+      console.log(i[0], ":", i[1]);
+    }
   });
   //open modal
   btnModalMobile.addEventListener("click", () => {

@@ -353,7 +353,7 @@ header .tag-list {
   left: 0;
   top: 0;
   width: 100vw;
-  height: 10rem;
+  height: 100vh;
   background: rgba(34, 34, 34, 0.7);
   overflow: auto;
 }

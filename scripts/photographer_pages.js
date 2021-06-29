@@ -110,7 +110,10 @@ function displaymediaList() {
     cardsMediaFooter.append(cardsMediaTitle, cardsMediaHeaderLike);
     cardsMediaHeaderLike.append(cardsMediaCompteurLike, heartLink);
     heartLink.append(heart);
-    openLightbox();
+
+    cardsMediaImg.addEventListener("click", () => {
+      openLightbox();
+    });
 
     // compteur de likes
     heartLink.addEventListener("click", () => {
