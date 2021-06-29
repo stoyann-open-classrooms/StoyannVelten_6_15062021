@@ -45,6 +45,7 @@ function openModalForm(currentPhotographer) {
   formFirstNameInp.setAttribute("type", "text");
   formFirstNameInp.setAttribute("placeholder", "Jean");
   formFirstNameInp.setAttribute("maxlenght", "24");
+  formFirstNameInp.setAttribute("name", "first-Name");
 
   formLastNameInp.classList.add("lastName-inp");
   formLastNameInp.id = "nom";
@@ -52,6 +53,7 @@ function openModalForm(currentPhotographer) {
   formLastNameInp.setAttribute("type", "text");
   formLastNameInp.setAttribute("placeholder", "Dupont");
   formLastNameInp.setAttribute("maxlenght", "24");
+  formLastNameInp.setAttribute("name", "last-Name");
 
   formEmailInp.classList.add("email-inp");
   formEmailInp.id = "email";
@@ -60,15 +62,18 @@ function openModalForm(currentPhotographer) {
   formEmailInp.setAttribute("placeholder", "jean-dupont@hotmail.com");
   formBtn.setAttribute("type", "submit");
   formBtn.setAttribute("value", "Envoyer");
+  formBtn.setAttribute("name", "Email");
 
   formTxtInp.classList.add("msg-inp");
   formTxtInp.id = "msg";
   formTxt.setAttribute("for", "msg");
   formTxtInp.setAttribute("type", "text");
   formTxtInp.setAttribute("placeholder", "Votre message");
+  formTxtInp.setAttribute("name", "message");
 
   bannerModalContent.classList.add("modal-content");
   btnModalMobile.setAttribute("type", "button");
+  bannerBtnTablet.setAttribute("type", "button");
 
   modalTitle.innerHTML = `Contactez-Moi <br>${currentPhotographer.name}`;
 

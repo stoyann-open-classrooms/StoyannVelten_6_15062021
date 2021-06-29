@@ -1,13 +1,15 @@
-// function openLightbox() {
-//   const lightboxModal = document.querySelector(".lightbox-modal");
-//   const lightboxLink = document.querySelector(".lightbox-link");
-//   const closeMediaModal = document.querySelector(".close-media-modal");
-//   lightboxLink.addEventListener("click", () => {
-//     lightboxModal.style.display = "flex";
-//   });
-//   closeMediaModal.addEventListener("click", () => {
-//     lightboxModal.style.display = "none";
-//   });
-// }
+function openLightbox() {
+  const lightboxModal = document.querySelector(".lightbox-modal");
+  const lightboxLink = document.querySelector(".media-img");
 
-// export { openLightbox };
+  lightboxLink.addEventListener("click", () => {
+    // e.preventDefault();
+    // lightboxModal.style.display = "flex";
+    console.log("ok");
+  });
+  // closeMediaModal.addEventListener("click", () => {
+  //   lightboxModal.style.display = "none";
+  // });
+}
+
+export { openLightbox };

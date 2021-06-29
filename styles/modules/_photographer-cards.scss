@@ -1,8 +1,6 @@
 .photographer-cards {
   display: flex;
   font-size: 1rem;
-  width: 80%;
-
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -11,10 +9,10 @@
   margin-top: 50px;
   font-weight: 400;
   @include tablet-and-higher {
-    width: 300px;
+    // width: 300rem;
   }
   @include desktop-and-higher {
-    width: 400px;
+    width: 40rem;
   }
 }
 
@@ -25,15 +23,16 @@
   border-radius: 50%;
 }
 .cards-body {
-  width: 180px;
+  width: 30rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  font-size: 1.3rem;
 }
 .cards-title {
   margin-top: 5px;
-  font-size: 19px;
+  font-size: 3rem;
   text-align: center;
   color: $secondary;
 }
@@ -41,16 +40,13 @@
   color: $secondary;
   margin-top: 5px;
 
-  size: 1.1rem;
+  font-size: 1.6rem;
+  font-weight: 600;
 }
 .cards-tagline {
   text-align: center;
 }
-.cards-price {
-  font-size: 0.8rem;
-  color: #757575;
-  margin-top: 5px;
-}
+
 .cards-tags {
   width: 180px;
   display: flex;

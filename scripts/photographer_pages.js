@@ -3,7 +3,7 @@ import { MediumList } from "./MediumList.js";
 import { Medium } from "./Medium.js";
 import { displayBanner } from "./bannerPhotographer.js";
 import { openModalForm, closeModalForm, validForm } from "./modale.js";
-// import { openLightbox } from "./lightbox.js";
+import { openLightbox } from "./lightbox.js";
 
 const linkToData = "data/FishEyeDataFR.json";
 const urlParams = new URLSearchParams(window.location.search);
@@ -79,9 +79,7 @@ function displaymediaList() {
   const totalLikesNb = document.querySelector(".total-likes");
 
   displaymediaList.forEach((media) => {
-    console.log(media);
     const mediaElement = media.createImg();
-    console.log(mediaElement);
     const cardsMedia = document.createElement("div");
     const cardsMediaImg = document.createElement("a");
     const cardsMediaFooter = document.createElement("div");
@@ -112,7 +110,7 @@ function displaymediaList() {
     cardsMediaFooter.append(cardsMediaTitle, cardsMediaHeaderLike);
     cardsMediaHeaderLike.append(cardsMediaCompteurLike, heartLink);
     heartLink.append(heart);
-    console.log(cardsMedia);
+    openLightbox();
 
     // compteur de likes
     heartLink.addEventListener("click", () => {
@@ -134,7 +132,7 @@ function displaymediaList() {
       }
     });
   });
-  console.log(displaymediaList);
+  // console.log(displaymediaList);
 }
 
 function displayPage() {
@@ -143,7 +141,6 @@ function displayPage() {
   openModalForm(currentPhotographer);
   closeModalForm();
   validForm();
-  // openLightbox();
   getTotalLikes(totalLikes);
   displaymediaList();
 }

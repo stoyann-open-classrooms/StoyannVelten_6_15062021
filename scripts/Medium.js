@@ -51,7 +51,7 @@ export class Photo extends Medium {
     const cardsMediaImg = document.createElement("img");
     cardsMediaImg.src = linkToSmalPhoto + this.link;
     cardsMediaImg.alt = this.alt;
-    cardsMediaImg.classList.add("cards-media-img");
+    cardsMediaImg.classList.add("media-img");
     // cardsMediaImgContainer.append(cardsMediaImg);
     return cardsMediaImg;
   }
@@ -66,7 +66,7 @@ export class Video extends Medium {
     cardsMediaVideo.muted = true;
     cardsMediaVideo.src = linkToSmalPhoto + this.link;
     cardsMediaVideo.alt = this.alt;
-    cardsMediaVideo.classList.add("cards-media-img");
+    cardsMediaVideo.classList.add("media-img");
     return cardsMediaVideo;
 
     // cardsMediaVideoContainer.append(cardsMediaImg);
