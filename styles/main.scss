@@ -32,4 +32,11 @@ main {
   background-color: $secondary-light;
   border-radius: 0 0 $radius $radius;
   padding: 0.8rem 0.8rem;
+
+  transition: all 0.5s ease-in-out;
+
+  &:hover {
+    background-color: $primary;
+    color: white;
+  }
 }

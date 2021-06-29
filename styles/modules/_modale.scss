@@ -1,19 +1,17 @@
 .btn-modal-mobile {
+  @extend %btn;
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: $primary;
-  border: none;
-  color: white;
-  font-size: 1rem;
-  width: 17rem;
+  width: 60%;
   margin: auto;
-  padding: 0.7rem 1rem;
-  border-radius: $radius;
-  font-size: 0.9rem;
+  padding: 1rem;
+  font-size: 1.5rem;
   position: fixed;
   bottom: 2rem;
-  left: 24%;
+  left: 20%;
+  animation: apparition-up 1.5s ease-in-out;
+
   @include tablet-and-higher {
     display: none;
   }
@@ -98,6 +96,10 @@
     width: 40%;
     align-self: center;
     cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    &:hover {
+      transform: scale(1.1);
+    }
   }
 }
 .modal-validation-msg {

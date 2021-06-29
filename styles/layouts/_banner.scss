@@ -47,10 +47,8 @@
 }
 
 .banner-btn {
+  @extend %btn;
   display: none;
-  background-color: $primary;
-  border: none;
-  color: white;
   font-size: 1.7em;
   font-weight: bold;
   width: 25%;
@@ -58,7 +56,6 @@
   padding: 1rem 1rem;
   position: relative;
   right: 8%;
-  text-align: center;
 
   border-radius: $radius;
 

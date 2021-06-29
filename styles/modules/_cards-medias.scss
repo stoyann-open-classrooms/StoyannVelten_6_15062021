@@ -1,6 +1,8 @@
 .cards-media-container {
+  margin-bottom: 10rem;
   @include tablet-and-higher {
     margin-top: 5rem;
+
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
@@ -10,7 +12,7 @@
 .cards-media {
   width: 95vw;
   height: 19rem;
-  margin-top: 2.5rem;
+  margin-top: 5rem;
   color: $primary;
   animation: apparition-up 0.8s ease-in-out;
 
