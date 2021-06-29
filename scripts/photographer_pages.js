@@ -78,6 +78,8 @@ function displaymediaList() {
 
   displaymediaList.forEach((media) => {
     console.log(media);
+    const mediaElement = media.createImg();
+    console.log(mediaElement);
     const cardsMedia = document.createElement("div");
     const cardsMediaImg = document.createElement("div");
     const cardsMediaFooter = document.createElement("div");
@@ -103,6 +105,7 @@ function displaymediaList() {
 
     cardsMediaContainer.append(cardsMedia);
     cardsMedia.append(cardsMediaImg, cardsMediaFooter);
+    cardsMediaImg.append(mediaElement);
     cardsMediaFooter.append(cardsMediaTitle, cardsMediaHeaderLike);
     cardsMediaHeaderLike.append(cardsMediaCompteurLike, heartLink);
     heartLink.append(heart);

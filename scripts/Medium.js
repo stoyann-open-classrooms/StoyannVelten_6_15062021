@@ -42,34 +42,32 @@ export class Medium {
 }
 
 export class Photo extends Medium {
+  // createImg() {
+  //   console.log(photo);
+  //   photo.push(mediaList);
+  // }
   createImg() {
-    console.log(photo);
-    photo.push(mediaList);
+    const linkToSmalPhoto = `./sources/img/1_small/`;
+    const cardsMediaImg = document.createElement("img");
+    cardsMediaImg.src = linkToSmalPhoto + this.link;
+    cardsMediaImg.alt = this.alt;
+    cardsMediaImg.classList.add("cards-media-img");
+    // cardsMediaImgContainer.append(cardsMediaImg);
+    return cardsMediaImg;
   }
-  //  createImg()  {
-  //     const linkToSmalPhoto = `./sources/img/1_small/`;
-  //     const cardsMediaImgContainer = document.createElement("div");
-  //     const cardsMediaImg = document.createElement("img");
-  //     cardsMediaImg.src = linkToSmalPhoto + this.link;
-  //     cardsMediaImg.alt = this.alt;
-  //     cardsMediaImgContainer.append(cardsMediaImg);
-  //   }
 }
 
 export class Video extends Medium {
-  createVideo() {
-    console.log("videos");
-  }
-
-  createVideo(controls = false) {
+  createImg(controls = false) {
     const linkToSmalPhoto = `./sources/img/1_small/`;
-    const cardsMediaVideoContainer = document.createElement("div");
     const cardsMediaVideo = document.createElement("video");
-    video.controls = controls;
-    video.muted = true;
-    video.loop = true;
+    cardsMediaVideo.controls = controls;
+    cardsMediaVideo.loop = true;
     cardsMediaVideo.src = linkToSmalPhoto + this.link;
     cardsMediaVideo.alt = this.alt;
-    cardsMediaVideoContainer.append(cardsMediaImg);
+    cardsMediaVideo.classList.add("cards-media-img");
+    return cardsMediaVideo;
+
+    // cardsMediaVideoContainer.append(cardsMediaImg);
   }
 }
