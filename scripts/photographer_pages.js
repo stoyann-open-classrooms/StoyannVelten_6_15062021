@@ -111,10 +111,6 @@ function displaymediaList() {
     cardsMediaHeaderLike.append(cardsMediaCompteurLike, heartLink);
     heartLink.append(heart);
 
-    cardsMediaImg.addEventListener("click", () => {
-      openLightbox();
-    });
-
     // compteur de likes
     heartLink.addEventListener("click", () => {
       if (heart.classList.contains("fas")) {
@@ -134,6 +130,7 @@ function displaymediaList() {
         totalLikesNb.textContent = `${totalLikesPhotographer} `;
       }
     });
+    cardsMediaImg.addEventListener("click", openLightbox);
   });
   // console.log(displaymediaList);
 }
