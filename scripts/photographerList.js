@@ -1,5 +1,3 @@
-// import { Photographers } from "./Photographers.js";
-
 export class PhotographerList {
   constructor() {
     this.photographerList = [];
@@ -36,7 +34,6 @@ export class PhotographerList {
         tags.push(tag);
       });
     });
-    // console.log(tags);
 
     return new Set(tags);
   }

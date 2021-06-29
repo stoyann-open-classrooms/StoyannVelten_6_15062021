@@ -42,10 +42,11 @@ function displayBanner(currentPhotographer) {
     containerTagsBanner.appendChild(tagsLink);
     tagsSpan.textContent = "#" + el;
     tagsLink.appendChild(tagsSpan);
+
     tagsLink.addEventListener("click", (e) => {
       e.preventDefault();
       tagsLink.classList.toggle("tag--selected");
-      //   displayMediaList();
+      // displaymediaList();
     });
 
     if (urlParams.get("tag") && urlParams.get("tag") === tag) {
