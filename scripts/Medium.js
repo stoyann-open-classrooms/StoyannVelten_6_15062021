@@ -31,7 +31,7 @@ export class Medium {
       video.alt = alt;
       video.date = new Date(date);
       video.id = id;
-      video.link = path + link;
+      video.link = link;
       video.likes = likes;
       video.photographerId = photographerId;
       video.tags = tags;
@@ -63,6 +63,7 @@ export class Video extends Medium {
     const cardsMediaVideo = document.createElement("video");
     cardsMediaVideo.controls = controls;
     cardsMediaVideo.loop = true;
+    cardsMediaVideo.muted = true;
     cardsMediaVideo.src = linkToSmalPhoto + this.link;
     cardsMediaVideo.alt = this.alt;
     cardsMediaVideo.classList.add("cards-media-img");
