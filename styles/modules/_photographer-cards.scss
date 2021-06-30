@@ -1,13 +1,18 @@
 .photographer-cards {
-  display: flex;
   font-size: 1rem;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  justify-content: center;
   margin: 5rem 0;
   font-weight: 400;
-  // background-color: red;
+  .cards-photographer-link {
+    @extend %flex-center;
+    flex-direction: column;
+    transition: all 0.3s ease-in-out;
+    cursor: pointer;
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+
   @include tablet-and-higher {
     margin: 5rem;
   }
@@ -26,6 +31,9 @@
   justify-content: center;
   align-items: center;
   font-size: 1.3rem;
+  @include tablet-and-higher {
+    font-size: 1.6rem;
+  }
 }
 .cards-title {
   margin-top: 0.8rem;
@@ -42,6 +50,9 @@
 }
 .cards-tagline {
   text-align: center;
+}
+.cards-price {
+  margin-top: 0.5rem;
 }
 
 .cards-tags {

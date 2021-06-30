@@ -2,7 +2,7 @@ import { Photographers } from "./Photographers.js";
 import { MediumList } from "./MediumList.js";
 import { Medium } from "./Medium.js";
 import { displayBanner } from "./bannerPhotographer.js";
-import { openModalForm, closeModalForm, validForm } from "./modale.js";
+import { openModalForm } from "./modale.js";
 import { openLightbox } from "./lightbox.js";
 
 const linkToData = "data/FishEyeDataFR.json";
@@ -139,8 +139,7 @@ function displayPage() {
   document.title += " - " + currentPhotographer.name;
   displayBanner(currentPhotographer);
   openModalForm(currentPhotographer);
-  closeModalForm();
-  validForm();
+
   getTotalLikes(totalLikes);
   displaymediaList();
 }
@@ -172,4 +171,5 @@ function getTotalLikes(totalLikes) {
 
   return totalLikesPhotographer;
 }
+
 createContent();

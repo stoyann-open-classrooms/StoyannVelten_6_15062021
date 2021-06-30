@@ -100,6 +100,18 @@ function displayPhotographers() {
 
     const modalBg = document.createElement("form");
 
+    // photographer.tags.forEach((el) => {
+    //   const tagsA = document.createElement("a");
+    //   const tagsspan = document.createElement("span");
+    //   cardTags.classList.add("cards-tags");
+    //   tagsspan.textContent = photographer.tags;
+    //   cardTags.append(tagsA);
+    //   tagsA.append(tagsspan);
+    //   tagsspan.textContent = "#" + el;
+    //   tagsA.classList.add("tags-link");
+    //   tagsspan.classList.add("tags");
+    // });$
+
     photographer.tags.forEach((el) => {
       const tagsA = document.createElement("a");
       const tagsspan = document.createElement("span");
@@ -109,12 +121,19 @@ function displayPhotographers() {
       tagsA.append(tagsspan);
       tagsspan.textContent = "#" + el;
       tagsA.classList.add("tags-link");
+      tagsspan.classList.add("tags");
+
+      tagsA.addEventListener("click", (e) => {
+        e.preventDefault();
+        tagsA.classList.toggle("tag--selected");
+      });
     });
 
     cardPhotographer.classList.add("photographer-cards");
     cardImg.classList.add("cards-img");
     cardTitle.classList.add("cards-title");
     cardLocation.classList.add("cards-location");
+    cardLink.classList.add("cards-photographer-link");
     cardTagline.classList.add("cards-tagline");
     cardPrice.classList.add("cards-price");
     modalBg.classList.add("modal");
@@ -129,9 +148,9 @@ function displayPhotographers() {
     cardTagline.textContent = photographer.tagline;
     cardPrice.textContent = photographer.price + "€/Jour";
 
-    main.append(cardLink);
-    cardLink.append(cardPhotographer);
-    cardPhotographer.append(cardImg, cardTitle, cardBody);
+    main.append(cardPhotographer);
+    cardLink.append(cardImg, cardTitle);
+    cardPhotographer.append(cardLink, cardBody);
     cardBody.append(cardLocation, cardTagline, cardPrice, cardTags);
   });
 }

@@ -44,17 +44,24 @@ li {
   color: #901c1c;
   border: 0.1rem solid #c4c4c4;
   margin-top: 1rem;
-  margin-right: 0.5rem;
+  margin-right: 0.6rem;
   padding: 0.3rem 0.5rem;
   font-size: 1.2rem;
   border-radius: 9999px;
   cursor: pointer;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+
+.tags-link:hover {
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
 }
 
 @media screen and (min-width: 768px) {
   .tags-link {
     font-size: 1.6rem;
-    margin-right: 1rem;
+    margin-right: 1.3rem;
   }
 }
 
@@ -67,6 +74,18 @@ li {
 .tag--selected {
   background-color: #901c1c;
   color: white;
+}
+
+header .tag-list, .photographer-cards .cards-photographer-link {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 @-webkit-keyframes apparition {
@@ -257,25 +276,9 @@ header .header-top h1 {
 }
 
 header .tag-list {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
   width: 100%;
-  margin: auto;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-}
-
-@media screen and (min-width: 1200px) {
-  header .tag-list {
-    position: absolute;
-    top: 5%;
-    left: -3%;
-    margin: auto;
-  }
 }
 
 .banner {
@@ -690,6 +693,9 @@ header .tag-list {
   display: flex;
   width: 100%;
   margin-left: 3%;
+  margin-top: 20px;
+  -webkit-animation: apparition 0.8s ease-in-out;
+          animation: apparition 0.8s ease-in-out;
 }
 
 .boutonmenuprincipal {
@@ -698,8 +704,7 @@ header .tag-list {
   color: white;
   border: none;
   cursor: pointer;
-  padding: 0.5rem;
-  margin-top: 1rem;
+  padding: 1.2rem;
   font-size: 2em;
   border-radius: 0.6rem;
   -webkit-transition: all 0.5s ease-in-out;
@@ -722,13 +727,17 @@ header .tag-list {
 }
 
 .dropdown-child {
-  display: none;
+  display: block;
+  opacity: 0;
   background-color: #901c1c;
   min-width: 5rem;
   position: relative;
   bottom: 0.3rem;
   font-size: 2em;
   border-radius: 0 0 0.6rem 0.6rem;
+  cursor: pointer;
+  -webkit-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
 }
 
 .dropdown-child span {
@@ -742,7 +751,7 @@ header .tag-list {
 }
 
 .dropdown:hover .dropdown-child {
-  display: block;
+  opacity: 1;
 }
 
 .tri {
@@ -859,23 +868,28 @@ header .tag-list {
 }
 
 .photographer-cards {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
   font-size: 1rem;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  justify-content: center;
   margin: 5rem 0;
   font-weight: 400;
+}
+
+.photographer-cards .cards-photographer-link {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
+}
+
+.photographer-cards .cards-photographer-link:hover {
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
 }
 
 @media screen and (min-width: 768px) {
@@ -910,6 +924,12 @@ header .tag-list {
   font-size: 1.3rem;
 }
 
+@media screen and (min-width: 768px) {
+  .cards-body {
+    font-size: 1.6rem;
+  }
+}
+
 .cards-title {
   margin-top: 0.8rem;
   font-size: 3rem;
@@ -926,6 +946,10 @@ header .tag-list {
 
 .cards-tagline {
   text-align: center;
+}
+
+.cards-price {
+  margin-top: 0.5rem;
 }
 
 .cards-tags {

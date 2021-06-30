@@ -1,4 +1,8 @@
 function openModalForm(currentPhotographer) {
+  let validFirst;
+  let validLast;
+  let validMail;
+  let validMsg;
   const banerBody = document.querySelector(".banner-body");
   const bannerBtnTablet = document.querySelector(".banner-btn");
   const btnModalMobile = document.querySelector(".btn-modal-mobile");
@@ -109,19 +113,32 @@ function openModalForm(currentPhotographer) {
     formBtn
   );
 
-  bannerForm.addEventListener("submit", (e) => {
+  function isValid(e) {
     e.preventDefault();
-    modalTitle.textContent = `Votre message a bien été envoyé à ${currentPhotographer.name} `;
-    bannerForm.style.display = "none";
-    modalTitle.style.animation = "apparition-down 0.8s ease-in-out";
-    modalTitle.style.margin = "65% 0";
-    modalTitle.style.fontSize = "30px";
-    // log des entres de l'uttilisateur
-    let datas = new FormData(bannerForm);
-    for (let i of datas.entries()) {
-      console.log(i[0], ":", i[1]);
+
+    verifFirst();
+    verifLast();
+    verifMail();
+    verifMsg();
+    if (
+      validFirst === true &&
+      validLast === true &&
+      validMail === true &&
+      validMsg === true
+    ) {
+      modalTitle.textContent = `Votre message a bien été envoyé à ${currentPhotographer.name} `;
+      bannerForm.style.display = "none";
+      modalTitle.style.animation = "apparition-down 0.8s ease-in-out";
+      modalTitle.style.margin = "65% 0";
+      modalTitle.style.fontSize = "30px";
+
+      // log des entres de l'uttilisateur
+      let datas = new FormData(bannerForm);
+      for (let i of datas.entries()) {
+        console.log(i[0], ":", i[1]);
+      }
     }
-  });
+  }
   //open modal
   btnModalMobile.addEventListener("click", () => {
     bannerModal.style.display = "flex";
@@ -129,25 +146,17 @@ function openModalForm(currentPhotographer) {
   bannerBtnTablet.addEventListener("click", () => {
     bannerModal.style.display = "flex";
   });
-}
-function closeModalForm() {
-  const modalClose = document.querySelector(".modal-close");
-  const bannerModal = document.querySelector(".contact-modal");
-
+  // close modal
   modalClose.addEventListener("click", () => {
     bannerModal.style.display = "none";
   });
+  // submit form
+  bannerForm.addEventListener("submit", isValid);
 }
 
-function validForm() {
-  // event.prevenDEfault();
+function verifFirst() {
   const formFirstNameInp = document.querySelector(".firstName-inp");
-  const formLastNameInp = document.querySelector(".lastName-inp");
-  const formEmailInp = document.querySelector(".email-inp");
-  const formMsgInp = document.querySelector(".msg-inp");
-
   const errorMessage = document.querySelectorAll(".message-alert");
-
   formFirstNameInp.addEventListener("input", (e) => {
     if (e.target.value.length <= 3) {
       errorMessage[0].style.display = "inline";
@@ -156,11 +165,19 @@ function validForm() {
 
       setTimeout(() => {
         formFirstNameInp.classList.remove("echec");
+        formFirstNameInp.classList.remove("border");
       }, 500);
+      return (validFirst = false);
     } else {
       errorMessage[0].style.display = "none";
+      return (validFirst = true);
     }
   });
+}
+function verifLast() {
+  const formLastNameInp = document.querySelector(".lastName-inp");
+  const errorMessage = document.querySelectorAll(".message-alert");
+
   formLastNameInp.addEventListener("input", (e) => {
     if (e.target.value.length <= 3) {
       errorMessage[1].style.display = "inline";
@@ -170,14 +187,22 @@ function validForm() {
       setTimeout(() => {
         formLastNameInp.classList.remove("echec");
       }, 500);
+      return (validLast = false);
     } else {
       errorMessage[1].style.display = "none";
+      return (validLast = true);
     }
   });
+}
+function verifMail() {
+  const formEmailInp = document.querySelector(".email-inp");
+  const errorMessage = document.querySelectorAll(".message-alert");
+
   formEmailInp.addEventListener("input", (e) => {
     const regexMail = /\S+@\S+\.\S+/;
     if (e.target.value.search(regexMail) === 0) {
       errorMessage[2].style.display = "none";
+      return (validMail = true);
     } else if (e.target.value.search(regexMail) === -1) {
       errorMessage[2].style.display = "inline";
       formEmailInp.classList.add("echec");
@@ -186,8 +211,14 @@ function validForm() {
       setTimeout(() => {
         formEmailInp.classList.remove("echec");
       }, 500);
+      return (validMail = false);
     }
   });
+}
+function verifMsg() {
+  const formMsgInp = document.querySelector(".msg-inp");
+  const errorMessage = document.querySelectorAll(".message-alert");
+
   formMsgInp.addEventListener("input", (e) => {
     if (e.target.value.length <= 3) {
       errorMessage[3].style.display = "inline";
@@ -197,10 +228,12 @@ function validForm() {
       setTimeout(() => {
         formMsgInp.classList.remove("echec");
       }, 500);
+      return (validMsg = false);
     } else {
       errorMessage[3].style.display = "none";
+      return (validMsg = true);
     }
   });
 }
 
-export { openModalForm, closeModalForm, validForm };
+export { openModalForm, verifFirst, verifLast, verifMail, verifMsg };
