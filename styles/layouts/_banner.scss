@@ -1,11 +1,15 @@
 .banner {
   display: flex;
-  padding: 4%;
-  border-radius: $radius;
-  width: 98vw;
-  justify-content: space-between;
+  justify-content: space-betwewen;
+  padding: 0 4%;
   @include tablet-and-higher {
+    justify-content: center;
+    align-items: center;
     background-color: $quadrary;
+    border-radius: $radius;
+    padding: 1rem;
+    width: 95vw;
+    margin: auto;
   }
 
   .banner-body {
@@ -13,26 +17,61 @@
     animation: apparition 0.8s ease-in-out;
     font-size: 1.4rem;
     margin-top: 1rem;
+    @include bigPhone-and-higher {
+      font-size: 1.8rem;
+    }
     @include tablet-and-higher {
       font-size: 2rem;
+      margin-left: 3rem;
     }
     @include desktop-and-higher {
       font-size: 3rem;
     }
+    .banner-body-title {
+      color: $secondary;
+    }
+    .banner-body-location {
+      color: $primary;
+    }
   }
 }
+.banner-btn {
+  @extend %btn;
+  display: none;
+  font-size: 1em;
+  width: 45%;
+  font-weight: bold;
+  height: 22%;
+
+  margin-right: 10%;
+  border-radius: $radius;
+  padding: 1rem 0;
+
+  @include tablet-and-higher {
+    display: block;
+    margin-top: 1.5rem;
+  }
+  @include desktop-and-higher {
+    font-size: 1.5rem;
+  }
+}
+.banner-btn:hover {
+  background-color: $secondary-light;
+  color: black;
+}
+
 .banner-img {
-  margin-top: 2%;
-  margin-right: 2%;
   img {
-    height: 7rem;
-    width: 7rem;
+    height: 8rem;
+    width: 8rem;
     object-fit: cover;
     border-radius: 50%;
     animation: apparition-right 0.8s ease-in-out;
+    margin-left: 1rem;
     @include bigPhone-and-higher {
-      height: 10rem;
-      width: 10rem;
+      height: 12rem;
+      width: 12rem;
+      margin-top: 2rem;
     }
     @include tablet-and-higher {
       height: 15rem;
@@ -48,35 +87,4 @@
   margin-top: 2.5rem;
   width: 60%;
   animation: apparition 0.8s ease-in-out;
-}
-
-.banner-btn {
-  @extend %btn;
-  display: none;
-  font-size: 1em;
-  width: 45%;
-  font-weight: bold;
-  height: 22%;
-
-  margin-right: 10%;
-  border-radius: $radius;
-  padding: 1rem 0;
-
-  @include tablet-and-higher {
-    display: block;
-  }
-  @include desktop-and-higher {
-    font-size: 1.5rem;
-  }
-}
-.banner-btn:hover {
-  background-color: $secondary-light;
-  color: black;
-}
-
-.banner-body-title {
-  color: $secondary;
-}
-.banner-body-location {
-  color: $primary;
 }

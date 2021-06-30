@@ -1,10 +1,9 @@
 import { Photographers } from "./Photographers.js";
 import { PhotographerList } from "./photographerList.js";
-const photographerList = new PhotographerList();
-const returnMain = document.querySelector(".return-main ");
-// const btnModalMobile = document.querySelector(".btn-modal-mobile");
 
+const photographerList = new PhotographerList();
 const linkToData = "./data/FishEyeDataFR.json";
+const returnMain = document.querySelector(".return-main ");
 
 window.addEventListener("scroll", () => {
   if (window.scrollY > 40) {
@@ -37,8 +36,6 @@ function createPhotographerList(data) {
       )
     );
   });
-
-  console.log(photographerList);
 }
 
 // affiche les elements de la page
@@ -54,10 +51,8 @@ function displayTags() {
   photographerList.getAllTags().forEach((tag) => {
     const a = document.createElement("a");
     const span = document.createElement("span");
-    a.href = "#";
-    // a.textContent = "#" + tag;
-    // a.setAttribute("aria-labelledby", `${tag}`);
 
+    a.href = "#";
     span.id = `${tag}`;
     span.classList.add("tags");
     a.classList.add("tags-link");
@@ -70,7 +65,6 @@ function displayTags() {
       e.preventDefault();
       a.classList.toggle("tag--selected");
       displayPhotographers();
-      // console.log(tag);
     });
   });
 }
@@ -97,20 +91,7 @@ function displayPhotographers() {
     const cardTagline = document.createElement("p");
     const cardPrice = document.createElement("p");
     const cardTags = document.createElement("nav");
-
     const modalBg = document.createElement("form");
-
-    // photographer.tags.forEach((el) => {
-    //   const tagsA = document.createElement("a");
-    //   const tagsspan = document.createElement("span");
-    //   cardTags.classList.add("cards-tags");
-    //   tagsspan.textContent = photographer.tags;
-    //   cardTags.append(tagsA);
-    //   tagsA.append(tagsspan);
-    //   tagsspan.textContent = "#" + el;
-    //   tagsA.classList.add("tags-link");
-    //   tagsspan.classList.add("tags");
-    // });$
 
     photographer.tags.forEach((el) => {
       const tagsA = document.createElement("a");

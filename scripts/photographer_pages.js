@@ -133,7 +133,6 @@ function displaymediaList() {
     });
     cardsMediaImg.addEventListener("click", openLightbox(media));
   });
-  // console.log(displaymediaList);
 }
 
 function displayPage() {

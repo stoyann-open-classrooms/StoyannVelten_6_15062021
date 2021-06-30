@@ -8,10 +8,7 @@
   width: 100vw;
   height: 100vh;
   background: rgba($color: rgb(34, 34, 34), $alpha: 0.7);
-
-  overflow: auto;
-
-  .fa-times {
+  .close-lightbox-media {
     position: absolute;
     font-size: 4rem;
     align-self: flex-start;
@@ -19,8 +16,12 @@
     display: block;
     padding: 1rem;
     right: -2rem;
+    font-size: x-large;
+    display: block;
+    width: auto;
+    margin: 0 10%;
+    cursor: pointer;
   }
-
   .lightbox-content {
     display: flex;
     flex-direction: row;
@@ -38,7 +39,6 @@
       width: 90vw;
       height: 90vh;
     }
-
     img {
       width: 70vw;
       margin: auto;
@@ -48,7 +48,7 @@
 
       border-radius: $radius;
     }
-    i {
+    .lightbox-arrow {
       font-size: x-large;
       display: block;
       width: auto;
@@ -57,12 +57,12 @@
     }
   }
 }
-
 .titre-media-lightbox {
   justify-self: flex-start;
   align-self: start;
   position: absolute;
-  bottom: 4rem;
-  left: 17rem;
-  font-size: large;
+  bottom: 8vh;
+  left: 22%;
+  width: 100%;
+  font-size: 1.5rem;
 }

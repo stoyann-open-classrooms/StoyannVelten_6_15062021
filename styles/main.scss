@@ -14,11 +14,3 @@
 @import "./modules/cards-medias";
 @import "./modules/photographer-cards";
 @import "./modules/tags";
-
-main {
-  display: flex;
-  flex-wrap: wrap;
-  margin: auto;
-  justify-content: center;
-  max-width: $page-max-width;
-}

@@ -11,7 +11,6 @@
   bottom: 2rem;
   left: 20%;
   animation: apparition-up 1.5s ease-in-out;
-
   @include tablet-and-higher {
     display: none;
   }
@@ -57,14 +56,13 @@
     color: white;
     cursor: pointer;
   }
-
   div {
     display: flex;
     width: 100%;
     justify-content: space-between;
     h3 {
       font-size: 3rem;
-      font-weight: 400;
+      font-weight: 500;
     }
   }
   form {
@@ -106,15 +104,11 @@
   }
 }
 .modal-validation-msg {
-  display: nonevari;
-  // background-color: $secondary-light;
+  display: none;
   margin: 0;
-
   padding: 2rem;
   height: 100%;
-
   font-size: 5rem;
-
   .fa-times {
     font-size: 3rem;
     margin-top: 0.5rem;
@@ -122,18 +116,15 @@
     cursor: pointer;
   }
 }
-
 .message-alert {
   color: $primary;
   font-size: 1.3rem;
   margin-top: 0.5rem;
   display: none;
 }
-
 .echec {
   animation: echec 0.3s ease-in-out;
 }
-
 .border {
   border: 0.3rem solid $primary !important;
 }
