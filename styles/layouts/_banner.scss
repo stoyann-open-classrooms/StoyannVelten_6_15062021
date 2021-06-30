@@ -9,9 +9,9 @@
   }
 
   .banner-body {
-    width: 60%;
+    width: 70%;
     animation: apparition 0.8s ease-in-out;
-    font-size: 1.2rem;
+    font-size: 1.4rem;
     margin-top: 1rem;
     @include tablet-and-higher {
       font-size: 2rem;
@@ -22,6 +22,7 @@
   }
 }
 .banner-img {
+  margin-top: 2%;
   margin-right: 2%;
   img {
     height: 7rem;
@@ -29,13 +30,17 @@
     object-fit: cover;
     border-radius: 50%;
     animation: apparition-right 0.8s ease-in-out;
+    @include bigPhone-and-higher {
+      height: 10rem;
+      width: 10rem;
+    }
     @include tablet-and-higher {
-      height: 17rem;
-      width: 17rem;
+      height: 15rem;
+      width: 15rem;
     }
     @include desktop-and-higher {
-      height: 22rem;
-      width: 22rem;
+      height: 25rem;
+      width: 25rem;
     }
   }
 }
@@ -48,18 +53,20 @@
 .banner-btn {
   @extend %btn;
   display: none;
-  font-size: 1.7em;
+  font-size: 1em;
+  width: 45%;
   font-weight: bold;
-  width: 25%;
-  height: 6rem;
-  padding: 1rem 1rem;
-  position: relative;
-  right: 8%;
+  height: 22%;
 
+  margin-right: 10%;
   border-radius: $radius;
+  padding: 1rem 0;
 
   @include tablet-and-higher {
     display: block;
+  }
+  @include desktop-and-higher {
+    font-size: 1.5rem;
   }
 }
 .banner-btn:hover {

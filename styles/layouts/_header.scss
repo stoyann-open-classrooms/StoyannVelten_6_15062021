@@ -11,6 +11,9 @@ header {
 
     img {
       width: 40%;
+      @include bigPhone-and-higher {
+        width: 70%;
+      }
 
       @include tablet-and-higher {
         width: 100%;
@@ -21,6 +24,10 @@ header {
       color: $primary;
       font-weight: 400;
       // padding: 0.5rem;
+
+      @include bigPhone-and-higher {
+        font-size: 2rem;
+      }
 
       @include tablet-and-higher {
         font-size: 2.4rem;
@@ -33,12 +40,9 @@ header {
   }
   .tag-list {
     @extend %flex-center;
-
     width: 100%;
-
     flex-wrap: wrap;
 
-    @include desktop-and-higher {
-    }
+    margin-top: 1.5rem;
   }
 }

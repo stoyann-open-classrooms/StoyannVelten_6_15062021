@@ -251,6 +251,12 @@ header .header-top img {
   width: 40%;
 }
 
+@media screen and (min-width: 425px) {
+  header .header-top img {
+    width: 70%;
+  }
+}
+
 @media screen and (min-width: 768px) {
   header .header-top img {
     width: 100%;
@@ -261,6 +267,12 @@ header .header-top h1 {
   font-size: 1.2rem;
   color: #901c1c;
   font-weight: 400;
+}
+
+@media screen and (min-width: 425px) {
+  header .header-top h1 {
+    font-size: 2rem;
+  }
 }
 
 @media screen and (min-width: 768px) {
@@ -279,6 +291,7 @@ header .tag-list {
   width: 100%;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
+  margin-top: 1.5rem;
 }
 
 .banner {
@@ -300,10 +313,10 @@ header .tag-list {
 }
 
 .banner .banner-body {
-  width: 60%;
+  width: 70%;
   -webkit-animation: apparition 0.8s ease-in-out;
           animation: apparition 0.8s ease-in-out;
-  font-size: 1.2rem;
+  font-size: 1.4rem;
   margin-top: 1rem;
 }
 
@@ -320,6 +333,7 @@ header .tag-list {
 }
 
 .banner-img {
+  margin-top: 2%;
   margin-right: 2%;
 }
 
@@ -333,17 +347,24 @@ header .tag-list {
           animation: apparition-right 0.8s ease-in-out;
 }
 
+@media screen and (min-width: 425px) {
+  .banner-img img {
+    height: 10rem;
+    width: 10rem;
+  }
+}
+
 @media screen and (min-width: 768px) {
   .banner-img img {
-    height: 17rem;
-    width: 17rem;
+    height: 15rem;
+    width: 15rem;
   }
 }
 
 @media screen and (min-width: 1200px) {
   .banner-img img {
-    height: 22rem;
-    width: 22rem;
+    height: 25rem;
+    width: 25rem;
   }
 }
 
@@ -356,19 +377,24 @@ header .tag-list {
 
 .banner-btn {
   display: none;
-  font-size: 1.7em;
+  font-size: 1em;
+  width: 45%;
   font-weight: bold;
-  width: 25%;
-  height: 6rem;
-  padding: 1rem 1rem;
-  position: relative;
-  right: 8%;
+  height: 22%;
+  margin-right: 10%;
   border-radius: 0.6rem;
+  padding: 1rem 0;
 }
 
 @media screen and (min-width: 768px) {
   .banner-btn {
     display: block;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .banner-btn {
+    font-size: 1.5rem;
   }
 }
 
@@ -613,7 +639,7 @@ header .tag-list {
 }
 
 .modal-validation-msg {
-  display: none;
+  display: nonevari;
   margin: 0;
   padding: 2rem;
   height: 100%;
@@ -698,7 +724,7 @@ header .tag-list {
           animation: apparition 0.8s ease-in-out;
 }
 
-.boutonmenuprincipal {
+.dropdown-menu {
   display: none;
   background-color: #901c1c;
   color: white;
@@ -711,13 +737,17 @@ header .tag-list {
   transition: all 0.5s ease-in-out;
 }
 
+.dropdown-menu .fa-chevron-down {
+  margin: 0.5rem;
+}
+
 @media screen and (min-width: 768px) {
-  .boutonmenuprincipal {
+  .dropdown-menu {
     display: block;
   }
 }
 
-.boutonmenuprincipal:hover {
+.dropdown-menu:hover {
   background-color: #901c1c;
 }
 
@@ -727,8 +757,7 @@ header .tag-list {
 }
 
 .dropdown-child {
-  display: block;
-  opacity: 0;
+  display: none;
   background-color: #901c1c;
   min-width: 5rem;
   position: relative;
@@ -751,20 +780,20 @@ header .tag-list {
 }
 
 .dropdown:hover .dropdown-child {
-  opacity: 1;
+  display: block;
 }
 
-.tri {
+.dropdown-title {
   display: none;
   position: relative;
-  top: 1rem;
-  margin-right: 1rem;
+  top: 1.3rem;
+  margin-right: 1.5rem;
   font-weight: 500;
   font-size: 2em;
 }
 
 @media screen and (min-width: 768px) {
-  .tri {
+  .dropdown-title {
     display: block;
   }
 }

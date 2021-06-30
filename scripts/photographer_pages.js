@@ -130,7 +130,7 @@ function displaymediaList() {
         totalLikesNb.textContent = `${totalLikesPhotographer} `;
       }
     });
-    cardsMediaImg.addEventListener("click", openLightbox);
+    cardsMediaImg.addEventListener("click", openLightbox(media));
   });
   // console.log(displaymediaList);
 }

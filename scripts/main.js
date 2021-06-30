@@ -96,7 +96,7 @@ function displayPhotographers() {
     const cardLocation = document.createElement("p");
     const cardTagline = document.createElement("p");
     const cardPrice = document.createElement("p");
-    const cardTags = document.createElement("div");
+    const cardTags = document.createElement("nav");
 
     const modalBg = document.createElement("form");
 
@@ -143,6 +143,8 @@ function displayPhotographers() {
     cardLink.href = linkToPage;
     cardLink.setAttribute("role", "link");
     cardImg.src = linkToPhoto;
+
+    // cardTags.ariaLabel = mediaphotographer;
     cardTitle.textContent = photographer.name;
     cardLocation.textContent = photographer.city + ", " + photographer.country;
     cardTagline.textContent = photographer.tagline;
