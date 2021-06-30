@@ -7,6 +7,7 @@
 @import "./layouts/header";
 @import "./layouts/banner";
 @import "./modules/lightbox-media";
+@import "./modules/returnMain";
 @import "./modules/modale";
 @import "./modules/total_likes";
 @import "./modules/dropdown";
@@ -19,24 +20,5 @@ main {
   flex-wrap: wrap;
   margin: auto;
   justify-content: center;
-
   max-width: $page-max-width;
-}
-
-.return-main {
-  display: none;
-  position: fixed;
-  top: 0;
-  text-align: center;
-  left: 43%;
-  background-color: $secondary-light;
-  border-radius: 0 0 $radius $radius;
-  padding: 0.8rem 0.8rem;
-
-  transition: all 0.5s ease-in-out;
-
-  &:hover {
-    background-color: $primary;
-    color: white;
-  }
 }

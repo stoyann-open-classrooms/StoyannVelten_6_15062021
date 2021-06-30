@@ -498,6 +498,25 @@ header .tag-list {
   font-size: large;
 }
 
+.return-main {
+  display: none;
+  position: fixed;
+  top: 0;
+  text-align: center;
+  left: 43%;
+  background-color: #db8876;
+  border-radius: 0 0 0.6rem 0.6rem;
+  padding: 0.8rem 0.8rem;
+  font-size: 1.2rem;
+  -webkit-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+}
+
+.return-main:hover {
+  background-color: #901c1c;
+  color: white;
+}
+
 .btn-modal-mobile {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -625,9 +644,8 @@ header .tag-list {
   border-radius: 0.6rem;
   margin-top: 2rem;
   width: 40%;
-  -ms-flex-item-align: center;
-      -ms-grid-row-align: center;
-      align-self: center;
+  -ms-flex-item-align: start;
+      align-self: flex-start;
   cursor: pointer;
   -webkit-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
@@ -636,6 +654,14 @@ header .tag-list {
 .modal-content button:hover {
   -webkit-transform: scale(1.1);
           transform: scale(1.1);
+}
+
+@media screen and (min-width: 768px) {
+  .modal-content button {
+    -ms-flex-item-align: center;
+        -ms-grid-row-align: center;
+        align-self: center;
+  }
 }
 
 .modal-validation-msg {
@@ -1002,23 +1028,5 @@ main {
       -ms-flex-pack: center;
           justify-content: center;
   max-width: 1400px;
-}
-
-.return-main {
-  display: none;
-  position: fixed;
-  top: 0;
-  text-align: center;
-  left: 43%;
-  background-color: #db8876;
-  border-radius: 0 0 0.6rem 0.6rem;
-  padding: 0.8rem 0.8rem;
-  -webkit-transition: all 0.5s ease-in-out;
-  transition: all 0.5s ease-in-out;
-}
-
-.return-main:hover {
-  background-color: #901c1c;
-  color: white;
 }
 /*# sourceMappingURL=main.css.map */

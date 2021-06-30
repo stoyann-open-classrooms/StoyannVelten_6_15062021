@@ -122,6 +122,7 @@ function displayPhotographers() {
       tagsspan.textContent = "#" + el;
       tagsA.classList.add("tags-link");
       tagsspan.classList.add("tags");
+      tagsA.setAttribute("role", "link");
 
       tagsA.addEventListener("click", (e) => {
         e.preventDefault();

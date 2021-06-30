@@ -4,6 +4,7 @@ import { Medium } from "./Medium.js";
 import { displayBanner } from "./bannerPhotographer.js";
 import { openModalForm } from "./modale.js";
 import { openLightbox } from "./lightbox.js";
+import { sortByDate, sortByPopularity, sortByTitle } from "./dropdownMenu.js";
 
 const linkToData = "data/FishEyeDataFR.json";
 const urlParams = new URLSearchParams(window.location.search);
@@ -137,9 +138,14 @@ function displaymediaList() {
 
 function displayPage() {
   document.title += " - " + currentPhotographer.name;
+  const filterDate = document.querySelector(".dropdown-child-date");
+  const filterPopularity = document.querySelector(".dropdown-menu");
+  const filterTitle = document.querySelector(".dropdown-child-title");
   displayBanner(currentPhotographer);
   openModalForm(currentPhotographer);
-
+  sortByDate(filterDate);
+  sortByPopularity(filterPopularity);
+  sortByTitle(filterTitle);
   getTotalLikes(totalLikes);
   displaymediaList();
 }
