@@ -52,7 +52,6 @@ export class Photo extends Medium {
     cardsMediaImg.src = linkToSmalPhoto + this.link;
     cardsMediaImg.alt = this.alt;
     cardsMediaImg.classList.add("media-img");
-    // cardsMediaImgContainer.append(cardsMediaImg);
     return cardsMediaImg;
   }
 }

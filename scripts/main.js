@@ -20,7 +20,8 @@ fetch(linkToData)
     displayPage();
   });
 
-// console.log(PhotographerList);
+// creer un objet pour chaque photographe et le met dans le tableau photographer list
+
 function createPhotographerList(data) {
   data.photographers.forEach((photographer) => {
     photographerList.addPhotographer(
@@ -64,6 +65,7 @@ function displayTags() {
     a.addEventListener("click", (e) => {
       e.preventDefault();
       a.classList.toggle("tag--selected");
+
       displayPhotographers();
     });
   });
