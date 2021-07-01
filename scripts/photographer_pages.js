@@ -10,15 +10,55 @@ import { openModalForm } from "./modale.js";
 import { openLightbox } from "./lightbox.js";
 import { sortByDate, sortByPopularity, sortByTitle } from "./dropdownMenu.js";
 
+/**
+ * name linkToData
+ * @type {string}
+ * @description le liens vers les données Json Fisheye
+ *
+ */
 const linkToData = "data/FishEyeDataFR.json";
 const urlParams = new URLSearchParams(window.location.search);
+/**
+ * @name mediaList
+ * @type {array}
+ * @description un tableau contenant les objets media  du photographe courant et les methodes qui lui sont associées
+ *
+ */
 const mediaList = new MediumList();
 const main = document.querySelector(".main");
+/**
+ * @name mediaFactory
+ * @type {object}
+ * @description une instance de la classe mediums image ou videos
+ */
 let mediaFactory = new Medium();
+/**
+ * @name currentPhotographer
+ * @type {object}
+ * @description informations sur le photographe courant
+ *
+ */
 let currentPhotographer;
+/**
+ * @name totalLikes
+ * @type {Array<number>}
+ * @description Nonbres de likes de chaque médias
+ *
+ */
 let totalLikes = [];
-let totalLikesPhotographer = [];
-
+/**
+ * @name totalLikesPhotographer
+ * @type {number}
+ * @description Nonbres de likes total du photographe courant
+ *
+ */
+let totalLikesPhotographer;
+/**
+ *  createContent
+ * @property {function} createContent  recuperation des données Json
+ *
+ * @returns  {createData}
+ */
 function createContent() {
   fetch(linkToData)
     .then((response) => {
@@ -71,7 +111,19 @@ function createData(data) {
     }
   });
 }
+/** display mediaList
+ * @property {function} displaymediaList  créer et affiche les cards medias filtrer selon le ou les tags sélèctioner par l'uttilisateur
+ *
+ * @returns  {filters}
+ */
 function displaymediaList() {
+  /**
+   * @name filters
+   * @type {Array<object>}
+   * @description Liste des medias filtrer selon le ou les tags sélèctioner par l'uttilisateur
+   *
+   */
+
   const filters = [];
   const cardsMediaContainer = document.querySelector(".cards-media-container");
 
@@ -113,27 +165,31 @@ function displaymediaList() {
     cardsMediaFooter.append(cardsMediaTitle, cardsMediaHeaderLike);
     cardsMediaHeaderLike.append(cardsMediaCompteurLike, heartLink);
     heartLink.append(heart);
-
+    compteurLikes();
     // compteur de likes
-    heartLink.addEventListener("click", () => {
-      if (heart.classList.contains("fas")) {
-        media.likes--;
-        heart.classList.remove("fas");
-        heart.classList.add("far");
-        cardsMediaCompteurLike.textContent = `${media.likes}`;
-        totalLikesPhotographer--;
-        totalLikesNb.textContent = `${totalLikesPhotographer} `;
-      } else {
-        media.likes++;
-        heart.classList.remove("far");
-        heart.classList.add("fas");
-        cardsMediaCompteurLike.textContent = `${media.likes}`;
-        totalLikesPhotographer++;
+    function compteurLikes(totalLikesPhotographer) {
+      heartLink.addEventListener("click", () => {
+        if (heart.classList.contains("fas")) {
+          media.likes--;
+          heart.classList.remove("fas");
+          heart.classList.add("far");
+          cardsMediaCompteurLike.textContent = `${media.likes}`;
+          totalLikesPhotographer--;
+          totalLikesNb.textContent = `${totalLikesPhotographer} `;
+        } else {
+          media.likes++;
+          heart.classList.remove("far");
+          heart.classList.add("fas");
+          cardsMediaCompteurLike.textContent = `${media.likes}`;
+          totalLikesPhotographer++;
 
-        totalLikesNb.textContent = `${totalLikesPhotographer} `;
-      }
-    });
+          totalLikesNb.textContent = `${totalLikesPhotographer} `;
+        }
+      });
+    }
+
     cardsMediaImg.addEventListener("click", openLightbox(media));
+    return filters;
   });
 }
 
@@ -150,7 +206,6 @@ function displayPage() {
   getTotalLikes(totalLikes);
   displaymediaList();
 }
-
 function getLikes(likes) {
   totalLikes.push(likes);
   return totalLikes;
@@ -161,6 +216,7 @@ function getTotalLikes(totalLikes) {
   for (let i = 0; i < totalLikes.length; i++) {
     totalLikesPhotographer += totalLikes[i];
   }
+
   const totalLikesContainer = document.createElement("div");
   const totalLikesNb = document.createElement("div");
   const heart = document.createElement("i");

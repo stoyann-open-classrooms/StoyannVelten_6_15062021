@@ -14,15 +14,6 @@ const photographerList = new PhotographerList();
  *
  */
 const linkToData = "./data/FishEyeDataFR.json";
-const returnMain = document.querySelector(".return-main ");
-
-window.addEventListener("scroll", () => {
-  if (window.scrollY > 40) {
-    returnMain.style.display = "block";
-  } else {
-    returnMain.style.display = "none";
-  }
-});
 
 fetch(linkToData)
   .then((reponse) => reponse.json())
@@ -33,7 +24,7 @@ fetch(linkToData)
 /**
  *créer un objet pour chaque photographe et les push dans un nouveaux tableau
  * @param {string} data linkToData
- * @returns {tableau}
+ * @returns {array}
  */
 function createPhotographerList(data) {
   data.photographers.forEach((photographer) => {
@@ -57,6 +48,7 @@ function createPhotographerList(data) {
 function displayPage() {
   displayTags();
   displayPhotographers();
+  displayReturnMain();
 }
 
 // creation et affichages des tags (header) plus ajout toggle au cick
@@ -76,10 +68,10 @@ function displayTags() {
     a.append(span);
     span.textContent = "#" + tag;
 
+    //ajoute la classe tag--selected si le tag est selectionner par l'uttilisateur
     a.addEventListener("click", (e) => {
       e.preventDefault();
       a.classList.toggle("tag--selected");
-
       displayPhotographers();
     });
   });
@@ -135,14 +127,12 @@ function displayPhotographers() {
     cardTagline.classList.add("cards-tagline");
     cardPrice.classList.add("cards-price");
     modalBg.classList.add("modal");
-
     cardBody.classList.add("cards-body");
 
-    cardLink.href = linkToPage;
     cardLink.setAttribute("role", "link");
+    cardLink.href = linkToPage;
     cardImg.src = linkToPhoto;
 
-    // cardTags.ariaLabel = mediaphotographer;
     cardTitle.textContent = photographer.name;
     cardLocation.textContent = photographer.city + ", " + photographer.country;
     cardTagline.textContent = photographer.tagline;
@@ -152,5 +142,16 @@ function displayPhotographers() {
     cardLink.append(cardImg, cardTitle);
     cardPhotographer.append(cardLink, cardBody);
     cardBody.append(cardLocation, cardTagline, cardPrice, cardTags);
+  });
+}
+
+function displayReturnMain() {
+  const returnMain = document.querySelector(".return-main ");
+  window.addEventListener("scroll", () => {
+    if (window.scrollY > 40) {
+      returnMain.style.display = "block";
+    } else {
+      returnMain.style.display = "none";
+    }
   });
 }

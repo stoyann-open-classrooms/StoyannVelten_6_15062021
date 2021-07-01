@@ -10,10 +10,11 @@ export class PhotographerList {
   /**
    *
    * creation du tableau photographer list
+   * @returns {Array}
    */
   constructor() {
     /**
-     * @property {array} name photographer List
+     * @property {Array} name photographer List
      */
     this.photographerList = [];
   }
@@ -26,8 +27,6 @@ export class PhotographerList {
   addPhotographer(photographer) {
     this.photographerList.push(photographer);
   }
-
-  // retourne qui trie les photographes selon les tags
 
   /**
    * @property {function} getPhotographerList  retourne un nouveaux tableau  avec les photographes triés selon le tag selectionner par l'uttilisateur
