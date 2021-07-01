@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Home</title>
+    <title>JSDoc: Source: lightbox.js</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,32 +17,42 @@
 
 <div id="main">
 
-    <h1 class="page-title">Home</h1>
+    <h1 class="page-title">Source: lightbox.js</h1>
 
     
 
 
 
     
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/**
+ * @module lightbox
+ */
 
+/**
+ * @property {function} openLightbox  Ouvre la lightbox au click sur un média
+ *
+ *
+ */
+function openLightbox() {
+  const lightboxModal = document.querySelector(".lightbox-modal");
+  const lightboxLink = document.querySelector(".media-img");
+  const closeMediaModal = document.querySelector(".close-lightbox-media");
 
-    <h3> </h3>
+  lightboxLink.addEventListener("click", (e) => {
+    e.preventDefault();
+    lightboxModal.style.display = "flex";
 
-
-
-
-
-
-
-
-
-
-    
-
-
-
-
-
+    closeMediaModal.addEventListener("click", () => {
+      lightboxModal.style.display = "none";
+    });
+  });
+}
+export { openLightbox };
+</code></pre>
+        </article>
+    </section>
 
 
 

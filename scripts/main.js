@@ -1,3 +1,7 @@
+/**
+ * @module main
+ */
+
 import { Photographers } from "./Photographers.js";
 import { PhotographerList } from "./photographerList.js";
 

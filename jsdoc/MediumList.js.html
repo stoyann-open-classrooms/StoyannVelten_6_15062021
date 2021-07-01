@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Home</title>
+    <title>JSDoc: Source: MediumList.js</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,32 +17,54 @@
 
 <div id="main">
 
-    <h1 class="page-title">Home</h1>
+    <h1 class="page-title">Source: MediumList.js</h1>
 
     
 
 
 
     
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/**
+ * @module MediumList
+ */
+/**
+ * Class pour creer un tableau constructor avec des methodes de tri sur les objets instancié avec la class Medium
+ */
+export class MediumList {
+  constructor() {
+    this.mediaList = [];
+  }
 
+  addMedia(media) {
+    this.mediaList.push(media);
+  }
+  getTags(...tags) {
+    console.log(tags);
+  }
+  getMediaList(...tags) {
+    const localMediaList = this.mediaList.slice();
+    let returnedList = [];
 
-    <h3> </h3>
+    if (tags.length !== 0) {
+      localMediaList.forEach((media) => {
+        media.tags.forEach((tag) => {
+          if (tags.includes(tag) &amp;&amp; !returnedList.includes(media)) {
+            returnedList.push(media);
+          }
+        });
+      });
+    } else {
+      returnedList = localMediaList.slice();
+    }
 
-
-
-
-
-
-
-
-
-
-    
-
-
-
-
-
+    return returnedList;
+  }
+}
+</code></pre>
+        </article>
+    </section>
 
 
 

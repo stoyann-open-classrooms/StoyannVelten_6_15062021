@@ -1,3 +1,7 @@
+/**
+ * @module dropdownMenu
+ */
+
 function sortByDate(filter) {
   filter.addEventListener("click", (e) => {
     console.log("trie par date");

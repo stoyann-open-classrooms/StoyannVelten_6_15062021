@@ -1,3 +1,12 @@
+/**
+ * @module lightbox
+ */
+
+/**
+ * @property {function} openLightbox  Ouvre  la lightbox au click sur un média
+ *
+ *
+ */
 function openLightbox() {
   const lightboxModal = document.querySelector(".lightbox-modal");
   const lightboxLink = document.querySelector(".media-img");

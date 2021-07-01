@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Source: Photographers.js</title>
+    <title>JSDoc: Source: photographerList.js</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Source: Photographers.js</h1>
+    <h1 class="page-title">Source: photographerList.js</h1>
 
     
 
@@ -28,58 +28,77 @@
         <article>
             <pre class="prettyprint source linenums"><code>/**
  * Photographer class module
- * @module Photographer-class
+ * @module Photographer-List
  */
 
 /**
- * Class pour créer un nouveaux photographe
+ *  Class pour créer un nouveaux photographe
  */
-/**
- * Détails concernant le photographe
- * @param {string} name nom du photographe
- * @param {number} id   Id du photographe
- * @param {string} city  Ville du photographe
- * @param {string} country  Pays du photographe
- * @param {array} tags      Tags du photographe
- * @param {string} tagline Tagline du photographe
- * @param {number} price   Prix par impression du photographe
- * @param {string} portrait Lien vers la photo du photographe
- */
+export class PhotographerList {
+  /**
+   *
+   * creation du tableau photographer list
+   */
+  constructor() {
+    /**
+     * @property {array} name photographer List
+     */
+    this.photographerList = [];
+  }
+  /**
+   *
+   * @property {function} addPhotographer ajoute l'objet creer avec la classe Photographer dans le tableau photographerList
+   * @returns {Array}
+   
+   */
+  addPhotographer(photographer) {
+    this.photographerList.push(photographer);
+  }
 
-export class Photographers {
-  constructor(name, id, city, country, tags, tagline, price, portrait) {
-    /**
-     * @property {string} name nom du photographe
-     */
-    this.name = name;
-    /**
-     * @property {number} id Id du photographe
-     */
-    this.id = id;
-    /**
-     * @property {string} city ville du Photographe
-     */
-    this.city = city;
-    /**
-     * @property {string} country Pays du photographe
-     */
-    this.country = country;
-    /**
-     * @property {Array} Tags tags du photographe
-     */
-    this.tags = tags;
-    /**
-     * @property {string} tagline Tagline du photographe
-     */
-    this.tagline = tagline;
-    /**
-     * @property {number} price Prix par impression du photographe
-     */
-    this.price = price;
-    /**
-     * @property {string} portrait lien vers la photo du photographe
-     */
-    this.portrait = portrait;
+  // retourne qui trie les photographes selon les tags
+
+  /**
+   * @property {function} getPhotographerList  retourne un nouveaux tableau  avec les photographes triés selon le tag selectionner par l'uttilisateur
+   }}
+   * @param  {...tags} tags 
+   * @returns {Array}
+   */
+  getPhotographerList(...tags) {
+    let returnedList = [];
+
+    if (tags.length !== 0) {
+      this.photographerList.forEach((photograph) => {
+        photograph.tags.forEach((tag) => {
+          if (tags.includes(tag) &amp;&amp; !returnedList.includes(photograph)) {
+            returnedList.push(photograph);
+          }
+        });
+      });
+    } else {
+      returnedList = this.photographerList.slice();
+    }
+
+    return returnedList;
+  }
+
+  // retourne un tableau qui contient tous les tags
+  getAllTags() {
+    const tags = [];
+
+    this.photographerList.forEach((photographer) => {
+      photographer.tags.forEach((tag) => {
+        tags.push(tag);
+      });
+    });
+
+    return new Set(tags);
+  }
+  // retourne un photographe depuis son ID
+  getPhotographerById(id) {
+    for (const photographer of this.photographerList) {
+      if (photographer.id === id) {
+      }
+    }
   }
 }
 </code></pre>

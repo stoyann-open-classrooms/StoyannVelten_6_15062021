@@ -1,3 +1,9 @@
+/**
+ * @module MediumList
+ */
+/**
+ * Class pour creer un tableau constructor avec des methodes de tri sur les objets instancié avec la class Medium
+ */
 export class MediumList {
   constructor() {
     this.mediaList = [];

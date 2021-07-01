@@ -1,12 +1,40 @@
+/**
+ * Photographer class module
+ * @module Photographer-List
+ */
+
+/**
+ *  Class pour créer un nouveaux photographe
+ */
 export class PhotographerList {
+  /**
+   *
+   * creation du tableau photographer list
+   */
   constructor() {
+    /**
+     * @property {array} name photographer List
+     */
     this.photographerList = [];
   }
-  // ajouter les ojets photographe dans un tableau
+  /**
+   *
+   * @property {function} addPhotographer ajoute l'objet creer avec la classe Photographer dans le tableau photographerList
+   * @returns {Array}
+   
+   */
   addPhotographer(photographer) {
     this.photographerList.push(photographer);
   }
+
   // retourne qui trie les photographes selon les tags
+
+  /**
+   * @property {function} getPhotographerList  retourne un nouveaux tableau  avec les photographes triés selon le tag selectionner par l'uttilisateur
+   }}
+   * @param  {...tags} tags 
+   * @returns {Array}
+   */
   getPhotographerList(...tags) {
     let returnedList = [];
 
