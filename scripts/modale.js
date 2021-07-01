@@ -152,6 +152,7 @@ function openModalForm(currentPhotographer) {
 
 function verifFirst() {
   const formFirstNameInp = document.querySelector(".firstName-inp");
+
   const errorMessage = document.querySelectorAll(".message-alert");
   formFirstNameInp.addEventListener("input", (e) => {
     if (e.target.value.length <= 3) {

@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "Openclassrooms - Parcours développeur Front-end",
   "main": "index.js",
+  "type": "module",
   "dependencies": {
     "i": "^0.3.6"
   },
