@@ -2,17 +2,19 @@
 
 ![Logo de Fisheye](/sources/logo/logo.svg)
 
-## projet #6 : Créez un site accessible pour une plateforme de photographes
+### projet #6 :
+
+#### _Créez un site accessible pour une plateforme de photographes_
 
 ### status du projet:
 
 #### _En cours_
 
-Le projet # 6 de la formation de developpeur front-end que je suis sur OPENCLASROOMS :
+### Le lien vers le deploiment git hub pages : [FISHEYE](https://stoyann-open-classrooms.github.io/Stoyann_Velten_p6_120521/
+
+)
 
 ## Lien vers la page:
-
-https://stoyann-open-classrooms.github.io/Stoyann_Velten_p6_120521/
 
 Sur ce projet je suis chargé de fournir tout le HTML, le CSS et le JavaScript nécessaires au prototype. Bien que le site web soit un prototype, il doit correspondre aux maquettes et fonctionner correctement pas d'erreurs. **La priorité absolue est l'accessibilité.** le site doit etre construit conformément aux exigences d'accessibilité indiquées dans les notes fournie par ex. utiliser les balises ARIA, assurer la navigation au clavier, passer au vérificateur d’accessibilité comme AChecker, etc.\_
 
