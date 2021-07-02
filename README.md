@@ -1,7 +1,8 @@
-#Openclassrooms - Parcours développeur Front-end
-##- projet #6 : Créez un site accessible pour une plateforme de photographes
+# Openclassrooms - Parcours développeur Front-end
 
 ![Logo de Fisheye](/sources/logo/logo.svg)
+
+## projet #6 : Créez un site accessible pour une plateforme de photographes
 
 ###status du projet:
 En cours
