@@ -6,7 +6,7 @@
 
 ### status du projet:
 
-_En cours_
+#### _En cours_
 
 Le projet # 6 de la formation de developpeur front-end que je suis sur OPENCLASROOMS :
 
