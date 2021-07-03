@@ -235,26 +235,24 @@ function displaymediaList() {
     cardsMediaFooter.append(cardsMediaTitle, cardsMediaHeaderLike);
     cardsMediaHeaderLike.append(cardsMediaCompteurLike, heartLink);
     heartLink.append(heart);
-    compteurLikes();
+    compteurLikes(totalLikes);
 
     // compteur de likes
-    function compteurLikes(totalLikesPhotographer) {
+    function compteurLikes(totalLikes) {
       heartLink.addEventListener("click", () => {
         if (heart.classList.contains("fas")) {
           media.likes--;
           heart.classList.remove("fas");
           heart.classList.add("far");
-          cardsMediaCompteurLike.textContent = `${media.likes}`;
-          totalLikesPhotographer--;
-          totalLikesNb.textContent = `${totalLikesPhotographer} `;
+          totalLikes.push(-1);
+          getTotalLikes();
         } else {
           media.likes++;
           heart.classList.remove("far");
           heart.classList.add("fas");
-          cardsMediaCompteurLike.textContent = `${media.likes}`;
-          totalLikesPhotographer++;
+          totalLikes.push(1);
 
-          totalLikesNb.textContent = `${totalLikesPhotographer} `;
+          getTotalLikes();
         }
       });
     }
@@ -282,12 +280,14 @@ function getLikes(likes) {
   return totalLikes;
 }
 
-function getTotalLikes(totalLikes) {
+function getTotalLikes() {
   let totalLikesPhotographer = 0;
   for (let i = 0; i < totalLikes.length; i++) {
     totalLikesPhotographer += totalLikes[i];
   }
-
+  displayTotalLikes(totalLikesPhotographer);
+}
+function displayTotalLikes(totalLikesPhotographer) {
   const totalLikesContainer = document.createElement("div");
   const totalLikesNb = document.createElement("div");
   const heart = document.createElement("i");
@@ -302,8 +302,6 @@ function getTotalLikes(totalLikes) {
 
   main.append(totalLikesContainer);
   totalLikesContainer.append(totalLikesNb, heart);
-
-  return totalLikesPhotographer;
 }
 
 createContent();
