@@ -12,9 +12,7 @@ export class MediumList {
   addMedia(media) {
     this.mediaList.push(media);
   }
-  getTags(...tags) {
-    console.log(tags);
-  }
+
   getMediaList(...tags) {
     const localMediaList = this.mediaList.slice();
     let returnedList = [];
