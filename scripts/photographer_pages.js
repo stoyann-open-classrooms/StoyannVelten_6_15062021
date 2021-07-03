@@ -305,5 +305,3 @@ function displayTotalLikes(totalLikesPhotographer) {
 }
 
 createContent();
-
-export { displaymediaList };
