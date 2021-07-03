@@ -52,31 +52,26 @@ let totalLikes = [];
  * @description Nonbres de likes total du photographe courant
  *
  */
-// let totalLikesPhotographer;
+let totalLikesPhotographer;
 /**
  *  createContent
  * @property {function} createContent  recuperation des données Json
  *
  * @returns  {createData}
  */
-
 function createContent() {
-  const loader = document.querySelector(".loader-container");
-  window.addEventListener("load", () => {
-    fetch(linkToData)
-      .then((response) => {
-        if (response.ok) {
-          return response.json();
-        } else {
-          console.log("erreur");
-        }
-      })
+  fetch(linkToData)
+    .then((response) => {
+      if (response.ok) {
+        return response.json();
+      } else {
+        console.log("erreur");
+      }
+    })
 
-      .then((data) => createData(data))
+    .then((data) => createData(data))
 
-      .then(displayPage);
-    loader.style.display = "none";
-  });
+    .then(displayPage);
 }
 
 function createData(data) {
