@@ -21,4 +21,5 @@ function openLightbox() {
     });
   });
 }
+
 export { openLightbox };
