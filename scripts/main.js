@@ -14,13 +14,17 @@ const photographerList = new PhotographerList();
  *
  */
 const linkToData = "./data/FishEyeDataFR.json";
+const loader = document.querySelector(".loader-container");
+window.addEventListener("load", () => {
+  fetch(linkToData)
+    .then((reponse) => reponse.json())
+    .then((data) => {
+      createPhotographerList(data);
+      displayPage();
+      loader.style.display = "none";
+    });
+});
 
-fetch(linkToData)
-  .then((reponse) => reponse.json())
-  .then((data) => {
-    createPhotographerList(data);
-    displayPage();
-  });
 /**
  *créer un objet pour chaque photographe et les push dans un nouveaux tableau
  * @param {string} data linkToData

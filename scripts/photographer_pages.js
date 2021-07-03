@@ -59,19 +59,24 @@ let totalLikes = [];
  *
  * @returns  {createData}
  */
+
 function createContent() {
-  fetch(linkToData)
-    .then((response) => {
-      if (response.ok) {
-        return response.json();
-      } else {
-        console.log("erreur");
-      }
-    })
+  const loader = document.querySelector(".loader-container");
+  window.addEventListener("load", () => {
+    fetch(linkToData)
+      .then((response) => {
+        if (response.ok) {
+          return response.json();
+        } else {
+          console.log("erreur");
+        }
+      })
 
-    .then((data) => createData(data))
+      .then((data) => createData(data))
 
-    .then(displayPage);
+      .then(displayPage);
+    loader.style.display = "none";
+  });
 }
 
 function createData(data) {
