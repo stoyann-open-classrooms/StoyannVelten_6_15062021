@@ -52,7 +52,7 @@ let totalLikes = [];
  * @description Nonbres de likes total du photographe courant
  *
  */
-let totalLikesPhotographer;
+// let totalLikesPhotographer;
 /**
  *  createContent
  * @property {function} createContent  recuperation des données Json
@@ -236,6 +236,7 @@ function displaymediaList() {
     cardsMediaHeaderLike.append(cardsMediaCompteurLike, heartLink);
     heartLink.append(heart);
     compteurLikes();
+
     // compteur de likes
     function compteurLikes(totalLikesPhotographer) {
       heartLink.addEventListener("click", () => {
