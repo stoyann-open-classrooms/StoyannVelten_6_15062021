@@ -6,7 +6,13 @@ import { Photographers } from "./Photographers.js";
 import { MediumList } from "./MediumList.js";
 import { Medium } from "./Medium.js";
 
-import { openModalForm } from "./modale.js";
+import {
+  openModalForm,
+  isValid,
+  verifFirst,
+  verifLast,
+  verifMail,
+} from "./modale.js";
 import { openLightbox } from "./lightbox.js";
 import { sortByDate, sortByPopularity, sortByTitle } from "./dropdownMenu.js";
 
@@ -59,20 +65,19 @@ let totalLikesPhotographer;
  *
  * @returns  {createData}
  */
-function createContent() {
+
+const loader = document.querySelector(".loader-container");
+window.addEventListener("load", () => {
   fetch(linkToData)
-    .then((response) => {
-      if (response.ok) {
-        return response.json();
-      } else {
-        console.log("erreur");
-      }
-    })
-
-    .then((data) => createData(data))
-
-    .then(displayPage);
-}
+    .then((reponse) => reponse.json())
+    .then((data) => {
+      createData(data);
+      displayPage();
+      setTimeout(function loaderAnim() {
+        loader.className += " hidden";
+      }, 2000);
+    });
+});
 
 function createData(data) {
   data.photographers.forEach((photographer) => {
@@ -303,5 +308,3 @@ function displayTotalLikes(totalLikesPhotographer) {
   main.append(totalLikesContainer);
   totalLikesContainer.append(totalLikesNb, heart);
 }
-
-createContent();

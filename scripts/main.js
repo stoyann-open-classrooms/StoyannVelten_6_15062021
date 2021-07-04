@@ -21,7 +21,10 @@ window.addEventListener("load", () => {
     .then((data) => {
       createPhotographerList(data);
       displayPage();
-      loader.style.display = "none";
+
+      setTimeout(function loaderAnim() {
+        loader.className += " hidden";
+      }, 2000);
     });
 });
 

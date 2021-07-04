@@ -336,6 +336,18 @@ header .tag-list, .photographer-cards .cards-photographer-link {
   }
 }
 
+@-webkit-keyframes disparition {
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes disparition {
+  100% {
+    opacity: 0;
+  }
+}
+
 header {
   margin: auto;
   padding: 4% 2.8%;
@@ -540,14 +552,17 @@ header .tag-list {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  height: 50%;
+  height: 100vh;
   width: 100vw;
   position: absolute;
+  top: 0;
+  z-index: 999999;
+  background: rgba(219, 219, 219, 0.7);
 }
 
 .loader {
-  -webkit-animation: rotate 1s infinite;
-          animation: rotate 1s infinite;
+  -webkit-animation: rotate 1.5s infinite;
+          animation: rotate 1.5s infinite;
   height: 5rem;
   width: 5rem;
 }
@@ -557,13 +572,13 @@ header .tag-list {
   border-radius: 50%;
   content: "";
   display: block;
-  height: 20px;
-  width: 20px;
+  height: 2rem;
+  width: 2rem;
 }
 
 .loader:before {
-  -webkit-animation: ball1 1s infinite;
-          animation: ball1 1s infinite;
+  -webkit-animation: ball1 2s infinite;
+          animation: ball1 2s infinite;
   background-color: #901c1c;
   -webkit-box-shadow: 30px 0 0 #901c1c;
           box-shadow: 30px 0 0 #901c1c;
@@ -571,11 +586,19 @@ header .tag-list {
 }
 
 .loader:after {
-  -webkit-animation: ball2 1s infinite;
-          animation: ball2 1s infinite;
+  -webkit-animation: ball2 2s infinite;
+          animation: ball2 2s infinite;
   background-color: #901c1c;
   -webkit-box-shadow: 30px 0 0 #901c1c;
           box-shadow: 30px 0 0 #901c1c;
+}
+
+.hidden {
+  -webkit-animation: disparition 2s ease-out;
+          animation: disparition 2s ease-out;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+  display: none;
 }
 
 .lightbox-modal {
@@ -706,8 +729,8 @@ header .tag-list {
   position: fixed;
   bottom: 2rem;
   left: 20%;
-  -webkit-animation: apparition-up 1.5s ease-in-out;
-          animation: apparition-up 1.5s ease-in-out;
+  -webkit-animation: apparition-up 1s ease-in-out;
+          animation: apparition-up 1s ease-in-out;
 }
 
 @media screen and (min-width: 768px) {

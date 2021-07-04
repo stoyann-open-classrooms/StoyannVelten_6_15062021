@@ -10,7 +10,7 @@
   position: fixed;
   bottom: 2rem;
   left: 20%;
-  animation: apparition-up 1.5s ease-in-out;
+  animation: apparition-up 1s ease-in-out;
   @include tablet-and-higher {
     display: none;
   }
