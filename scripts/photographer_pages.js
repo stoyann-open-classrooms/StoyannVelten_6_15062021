@@ -162,7 +162,7 @@ function displayBanner(currentPhotographer) {
       displaymediaList();
     });
 
-    if (urlParams.get("tag") && urlParams.get("tag") === tag) {
+    if (urlParams.get("tag") && urlParams.get("tag") === el) {
       tagsLink.classList.toggle("tag--selected");
     }
   });

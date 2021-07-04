@@ -120,10 +120,12 @@ function displayPhotographers() {
       tagsspan.classList.add("tags");
       tagsA.setAttribute("role", "link");
 
-      tagsA.addEventListener("click", (e) => {
-        e.preventDefault();
-        tagsA.classList.toggle("tag--selected");
-      });
+      tagsA.href = linkToPage + "&tag=" + el;
+
+      // tagsA.addEventListener("click", (e) => {
+      //   e.preventDefault();
+      //   tagsA.classList.toggle("tag--selected");
+      // });
     });
 
     cardPhotographer.classList.add("photographer-cards");
