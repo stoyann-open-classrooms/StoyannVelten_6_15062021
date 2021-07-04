@@ -9,17 +9,20 @@
  */
 function openLightbox() {
   const lightboxModal = document.querySelector(".lightbox-modal");
-  const lightboxLink = document.querySelector(".media-img");
-  const closeMediaModal = document.querySelector(".close-lightbox-media");
+  const lightboxLink = document.querySelectorAll(".media-img");
+  const closeMediaModal = document.querySelectorAll(".close-lightbox-media");
 
-  lightboxLink.addEventListener("click", (e) => {
-    e.preventDefault();
+  lightboxLink.forEach((link) =>
+    link.addEventListener("click", openModalMedia)
+  );
+  closeMediaModal.forEach((el) => el.addEventListener("click", closelightbox));
+
+  function openModalMedia() {
     lightboxModal.style.display = "flex";
-
-    closeMediaModal.addEventListener("click", () => {
-      lightboxModal.style.display = "none";
-    });
-  });
+  }
+  function closelightbox() {
+    lightboxModal.style.display = "none";
+  }
 }
 
 export { openLightbox };

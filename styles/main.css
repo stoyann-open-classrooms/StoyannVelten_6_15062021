@@ -864,14 +864,8 @@ header .tag-list {
   margin: 0;
   padding: 2rem;
   height: 100%;
-  font-size: 5rem;
-}
-
-.modal-validation-msg .fa-times {
+  width: 100%;
   font-size: 3rem;
-  margin-top: 0.5rem;
-  color: white;
-  cursor: pointer;
 }
 
 .message-alert {

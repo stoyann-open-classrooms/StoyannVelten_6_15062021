@@ -14,7 +14,7 @@ function openModalForm(currentPhotographer) {
   const formMsgInp = document.querySelector(".msg-inp");
   const errorMessage = document.querySelectorAll(".message-alert");
 
-  modalTitle.innerHTML = `Contactez-Moi <br>${currentPhotographer.name} `;
+  modalTitle.innerHTML = `Contactez-Moi ${currentPhotographer.name} `;
 
   //open modal
   btnModalMobile.addEventListener("click", () => {
@@ -25,7 +25,6 @@ function openModalForm(currentPhotographer) {
   });
   closeModal();
   formFirstNameInp.addEventListener("input", (e) => {
-    verifFirst = false;
     if (e.target.value.length <= 3) {
       errorMessage[0].style.display = "inline";
       formFirstNameInp.classList.add("echec");
@@ -35,10 +34,8 @@ function openModalForm(currentPhotographer) {
         formFirstNameInp.classList.remove("echec");
         formFirstNameInp.classList.remove("border");
       }, 500);
-      return (verifFirst = false);
     } else {
       errorMessage[0].style.display = "none";
-      return (verifFirst = true);
     }
   });
   formLastNameInp.addEventListener("input", (e) => {
@@ -90,11 +87,20 @@ function openModalForm(currentPhotographer) {
 
   bannerModal.addEventListener("submit", (e) => {
     e.preventDefault();
+    const modalValidationMsg = document.createElement("div");
+    const validationTxt = document.createElement("div");
+    const contactModal = document.querySelector(".modal-content");
     const modalTitle = document.querySelector(".modal-title");
+    validationTxt.classList.add("validation-txt");
     const bannerModal = document.querySelector("form");
-    bannerModal.style.opacity = "0";
+    bannerModal.style.display = "none";
+    modalTitle.style.display = "none";
+    modalValidationMsg.classList.add("modal-validation-msg");
+    modalValidationMsg.style.display = "flex";
+    contactModal.append(modalValidationMsg);
+    modalValidationMsg.append(validationTxt);
+    validationTxt.innerHTML = `Votre message a bien étè envoyer a <br> ${currentPhotographer.name} `;
 
-    modalTitle.innerHTML = `Votre message a bien étè envoyer a <br> ${currentPhotographer.name} `;
     let datas = new FormData(bannerModal);
     for (let i of datas.entries()) {
       console.log(i[0], ":", i[1]);
