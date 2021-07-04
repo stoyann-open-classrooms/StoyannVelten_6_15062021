@@ -6,13 +6,7 @@ import { Photographers } from "./Photographers.js";
 import { MediumList } from "./MediumList.js";
 import { Medium } from "./Medium.js";
 
-import {
-  openModalForm,
-  isValid,
-  verifFirst,
-  verifLast,
-  verifMail,
-} from "./modale.js";
+import { openModalForm } from "./modale.js";
 import { openLightbox } from "./lightbox.js";
 import { sortByDate, sortByPopularity, sortByTitle } from "./dropdownMenu.js";
 
