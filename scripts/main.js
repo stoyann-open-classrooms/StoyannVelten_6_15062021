@@ -66,14 +66,15 @@ function displayTags() {
     const a = document.createElement("a");
     const span = document.createElement("span");
 
-    a.href = "#";
     span.id = `${tag}`;
     span.classList.add("tags");
     a.classList.add("tags-link");
 
     tagList.append(a);
     a.append(span);
+    a.href = "#";
     span.textContent = "#" + tag;
+    a.setAttribute("aria-labelledby", `${tag}`);
 
     //ajoute la classe tag--selected si le tag est selectionner par l'uttilisateur
     a.addEventListener("click", (e) => {
@@ -118,14 +119,10 @@ function displayPhotographers() {
       tagsspan.textContent = "#" + el;
       tagsA.classList.add("tags-link");
       tagsspan.classList.add("tags");
-      tagsA.setAttribute("role", "link");
+
+      tagsA.setAttribute("aria-labelledby", `${el}`);
 
       tagsA.href = linkToPage + "&tag=" + el;
-
-      // tagsA.addEventListener("click", (e) => {
-      //   e.preventDefault();
-      //   tagsA.classList.toggle("tag--selected");
-      // });
     });
 
     cardPhotographer.classList.add("photographer-cards");
@@ -141,6 +138,7 @@ function displayPhotographers() {
     cardLink.setAttribute("role", "link");
     cardLink.href = linkToPage;
     cardImg.src = linkToPhoto;
+    cardImg.alt = "";
 
     cardTitle.textContent = photographer.name;
     cardLocation.textContent = photographer.city + ", " + photographer.country;
