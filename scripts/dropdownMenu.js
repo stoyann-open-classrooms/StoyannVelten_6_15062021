@@ -4,19 +4,19 @@
 
 function sortByDate(filter) {
   filter.addEventListener("click", (e) => {
-    console.log("trie par date");
+    filter.classList.add(".sort-option-selected");
   });
 }
 
 function sortByPopularity(filter) {
   filter.addEventListener("click", (e) => {
-    console.log("trie par popularite");
+    filter.classList.add(".sort-option-selected");
   });
 }
 
 function sortByTitle(filter) {
   filter.addEventListener("click", (e) => {
-    console.log("trie par titre");
+    filter.classList.add(".sort-option-selected");
   });
 }
 export { sortByDate, sortByPopularity, sortByTitle };

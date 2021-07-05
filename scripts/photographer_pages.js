@@ -199,8 +199,7 @@ function displaymediaList() {
     filters.push(tagSelected.textContent.replace("#", ""));
   });
   displayedMediaList = mediaList.getMediaList(...filters);
-  console.log(filters);
-  const totalLikesNb = document.querySelector(".total-likes");
+  // console.log(filters);
 
   displayedMediaList.forEach((media) => {
     const mediaElement = media.createImg();

@@ -67,15 +67,15 @@ function displayTags() {
     const span = document.createElement("span");
 
     span.id = `${tag}`;
+    span.textContent = "#" + tag;
     span.classList.add("tags");
+
     a.classList.add("tags-link");
+    a.href = "#";
+    a.setAttribute("aria-labelledby", `${tag}`);
 
     tagList.append(a);
     a.append(span);
-    a.href = "#";
-    span.textContent = "#" + tag;
-    a.setAttribute("aria-labelledby", `${tag}`);
-
     //ajoute la classe tag--selected si le tag est selectionner par l'uttilisateur
     a.addEventListener("click", (e) => {
       e.preventDefault();
