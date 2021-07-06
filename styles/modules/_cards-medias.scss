@@ -64,3 +64,10 @@
   height: 100%;
   border-radius: $radius;
 }
+
+.fa-play-circle {
+  color: red;
+  z-index: 99999;
+  font-size: larger;
+  position: relative;
+}

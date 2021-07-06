@@ -208,6 +208,7 @@ function displaymediaList() {
     const cardsMediaFooter = document.createElement("div");
     const cardsMediaTitle = document.createElement("p");
     const cardsMediaHeaderLike = document.createElement("div");
+
     const cardsMediaCompteurLike = document.createElement("p");
     const heartLink = document.createElement("a");
     const heart = document.createElement("i");

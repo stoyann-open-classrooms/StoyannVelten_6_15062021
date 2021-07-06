@@ -73,15 +73,18 @@ export class Photo extends Medium {
 }
 
 export class Video extends Medium {
-  createImg(controls = true) {
+  createImg(controls = false) {
     const linkToSmalPhoto = `./sources/img/1_small/`;
     const cardsMediaVideo = document.createElement("video");
+
     cardsMediaVideo.controls = controls;
     cardsMediaVideo.loop = true;
     cardsMediaVideo.muted = true;
+
     cardsMediaVideo.src = linkToSmalPhoto + this.link;
     cardsMediaVideo.alt = this.alt;
     cardsMediaVideo.classList.add("media-img");
+
     return cardsMediaVideo;
   }
 }

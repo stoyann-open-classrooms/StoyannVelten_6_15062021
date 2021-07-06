@@ -39,14 +39,20 @@
       width: 90vw;
       height: 90vh;
     }
-    img {
-      width: 70vw;
+    .media-container {
+      width: 90%;
       margin: auto;
       height: 70vh;
-      object-fit: cover;
-      display: block;
-
       border-radius: $radius;
+      background-color: rgb(134, 134, 134);
+      img {
+        margin: auto;
+        height: 70vh;
+        width: 100%;
+        border-radius: $radius;
+        background-color: rgb(134, 134, 134);
+        object-fit: cover;
+      }
     }
     .lightbox-arrow {
       font-size: x-large;
