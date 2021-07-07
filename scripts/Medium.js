@@ -33,7 +33,7 @@ export class Medium {
   ) {
     if (type == "jpg") {
       const photo = new Photo();
-
+      photo.type = type;
       photo.alt = alt;
       photo.date = new Date(date);
       photo.id = id;
@@ -47,7 +47,7 @@ export class Medium {
       return photo;
     } else if (type == "mp4") {
       const video = new Video();
-
+      video.type = type;
       video.alt = alt;
       video.date = new Date(date);
       video.id = id;

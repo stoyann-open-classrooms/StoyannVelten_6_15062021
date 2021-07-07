@@ -17,11 +17,11 @@ export class MediumList {
     const localMediaList = this.mediaList.slice();
     let returnedList = [];
 
-    // if (sort === "popularite") {
+    // if (kindOfSort === "popularite") {
     //   localMediaList.sort((a, b) => b.likes - a.likes);
     // } else if (sort === "date") {
     //   localMediaList.sort((a, b) => b.date - a.date);
-    // } else if (sort === "titre") {
+    // } else if (kindOfS0ort === "titre") {
     //   localMediaList.sort(function (a, b) {
     //     const titleA = a.title.toUpperCase();
     //     const titleB = b.title.toUpperCase();

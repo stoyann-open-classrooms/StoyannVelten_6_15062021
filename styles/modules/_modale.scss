@@ -10,6 +10,7 @@
   position: fixed;
   bottom: 2rem;
   left: 20%;
+  z-index: 77777;
   animation: apparition-up 1s ease-in-out;
   @include tablet-and-higher {
     display: none;

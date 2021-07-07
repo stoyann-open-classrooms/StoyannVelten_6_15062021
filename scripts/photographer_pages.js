@@ -198,8 +198,8 @@ function displaymediaList() {
   document.querySelectorAll(".tag--selected").forEach((tagSelected) => {
     filters.push(tagSelected.textContent.replace("#", ""));
   });
+
   displayedMediaList = mediaList.getMediaList(...filters);
-  // console.log(filters);
 
   displayedMediaList.forEach((media) => {
     const mediaElement = media.createImg();
@@ -209,12 +209,17 @@ function displaymediaList() {
     const cardsMediaTitle = document.createElement("p");
     const cardsMediaHeaderLike = document.createElement("div");
 
+    const playLogo = document.createElement("i");
+    playLogo.classList.add("fas");
+    playLogo.classList.add("fa-play-circle");
+
     const cardsMediaCompteurLike = document.createElement("p");
     const heartLink = document.createElement("a");
     const heart = document.createElement("i");
 
     cardsMedia.classList.add("cards-media");
     cardsMediaImg.classList.add("cards-media-img");
+
     cardsMediaFooter.classList.add("cards-media-footer");
     cardsMediaTitle.classList.add("cards-media-title");
     cardsMediaHeaderLike.classList.add("header-like");
@@ -223,7 +228,12 @@ function displaymediaList() {
     heart.classList.add("heart");
     heart.classList.add("far");
     heart.classList.add("fa-heart");
+
     cardsMediaImg.href = "#";
+    console.log(media.type);
+    if (media.type === "mp4") {
+      cardsMedia.append(playLogo);
+    }
 
     cardsMediaTitle.textContent = `${media.title}`;
     cardsMediaCompteurLike.textContent = `${media.likes}`;
