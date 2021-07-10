@@ -8,6 +8,7 @@
   width: 100vw;
   height: 100vh;
   background: rgba($color: rgb(34, 34, 34), $alpha: 0.7);
+  z-index: 9999999;
   .close-lightbox-media {
     position: absolute;
     font-size: 4rem;
@@ -42,12 +43,21 @@
     .media-container {
       width: 90%;
       margin: auto;
-      height: 70vh;
+      height: 80vh;
       border-radius: $radius;
       background-color: rgb(134, 134, 134);
+      overflow: hidden;
       img {
         margin: auto;
-        height: 70vh;
+        height: 100%;
+        width: 100%;
+        border-radius: $radius;
+        background-color: rgb(134, 134, 134);
+        object-fit: cover;
+      }
+      video {
+        margin: auto;
+        height: 100%;
         width: 100%;
         border-radius: $radius;
         background-color: rgb(134, 134, 134);

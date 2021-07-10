@@ -4,7 +4,7 @@
   justify-content: center;
   margin-bottom: 10rem;
   @include tablet-and-higher {
-    margin-top: 5rem;
+    margin-top: 2rem;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
@@ -14,12 +14,12 @@
 .cards-media {
   width: 95vw;
   height: 19rem;
-  margin-top: 4.5rem;
+  margin-top: 5rem;
   color: $primary;
   animation: apparition-up 0.8s ease-in-out;
   @include tablet-and-higher {
-    width: 300px;
-    margin: 30px;
+    width: 30rem;
+    margin: 3rem;
   }
 }
 .cards-media-footer {
@@ -35,7 +35,7 @@
     font-size: 1.7rem;
     white-space: nowrap;
     overflow: hidden;
-    padding-right: 10px;
+    padding-right: 1rem;
 
     text-overflow: ellipsis;
   }
@@ -73,7 +73,7 @@
 
 .fa-play-circle {
   color: rgba(148, 148, 148, 0.541);
-  z-index: 9999;
+  z-index: 555;
   font-size: 10rem;
   position: absolute;
   display: block;

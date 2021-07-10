@@ -5,10 +5,10 @@
 import { Photographers } from "./Photographers.js";
 import { MediumList } from "./MediumList.js";
 import { Medium } from "./Medium.js";
-
+import { displayFilterMenu } from "./dropdown.js";
 import { openModalForm } from "./modale.js";
-import { openLightbox } from "./lightbox.js";
-import { sortByDate, sortByPopularity, sortByTitle } from "./dropdownMenu.js";
+
+// import { sortByDate, sortByPopularity, sortByTitle } from "./dropdownMenu.js";
 
 /**
  * name linkToData
@@ -61,16 +61,26 @@ let totalLikesPhotographer;
  */
 
 const loader = document.querySelector(".loader-container");
+
 window.addEventListener("load", () => {
   fetch(linkToData)
-    .then((reponse) => reponse.json())
-    .then((data) => {
-      createData(data);
-      displayPage();
-      setTimeout(function loaderAnim() {
-        loader.className += " hidden";
-      }, 2000);
-    });
+    .then((response) => {
+      if (response.ok) {
+        return response.json();
+      } else {
+        setTimeout(function loaderAnim() {
+          console.log(
+            `Une erreur est survenue type d'erreur : ${response.status} `
+          );
+          loader.className += " hidden";
+        }, 2000);
+      }
+    })
+    .then((data) => createData(data))
+    .then(displayPage);
+  setTimeout(function loaderAnim() {
+    loader.className += " hidden";
+  }, 2000);
 });
 
 function createData(data) {
@@ -116,7 +126,7 @@ function displayBanner(currentPhotographer) {
 
   const linkToPhoto =
     "./sources/img/1_small/PhotographersID/" + currentPhotographer.portrait;
-  // console.log(linkToPhoto);
+
   //  création des elements html
   const banerBody = document.createElement("div");
   const banerTitle = document.createElement("h1");
@@ -138,6 +148,8 @@ function displayBanner(currentPhotographer) {
   banerTagline.classList.add("banner-body-tagline");
   banerTagline.classList.add("banner-body-tagline");
   bannerImg.src = linkToPhoto;
+  banerTitle.setAttribute("lang", "en");
+
   // ajout du contenu html
   banerTitle.textContent = currentPhotographer.name;
   banerLocation.textContent =
@@ -159,7 +171,7 @@ function displayBanner(currentPhotographer) {
     tagsLink.addEventListener("click", (e) => {
       e.preventDefault();
       tagsLink.classList.toggle("tag--selected");
-      displaymediaList();
+      displayMediaList();
     });
 
     if (urlParams.get("tag") && urlParams.get("tag") === el) {
@@ -183,25 +195,29 @@ function displayBanner(currentPhotographer) {
  *
  * @returns  {filters}
  */
-function displaymediaList() {
+export function displayMediaList() {
   /**
    * @name filters
    * @type {Array<object>}
    * @description Liste des medias filtrer selon le ou les tags sélèctioner par l'uttilisateur
    *
    */
-  let displayedMediaList = [];
+  let displayMediaList = [];
 
   const filters = [];
   const cardsMediaContainer = document.querySelector(".cards-media-container");
+  const sort = document
+    .querySelector(".custom-option.selected")
+    ?.getAttribute("data-value");
+
   cardsMediaContainer.innerHTML = "";
   document.querySelectorAll(".tag--selected").forEach((tagSelected) => {
     filters.push(tagSelected.textContent.replace("#", ""));
   });
 
-  displayedMediaList = mediaList.getMediaList(...filters);
+  displayMediaList = mediaList.getMediaList(sort, ...filters);
 
-  displayedMediaList.forEach((media) => {
+  displayMediaList.forEach((media) => {
     const mediaElement = media.createImg();
     const cardsMedia = document.createElement("div");
     const cardsMediaImg = document.createElement("a");
@@ -216,6 +232,7 @@ function displaymediaList() {
     const cardsMediaCompteurLike = document.createElement("p");
     const heartLink = document.createElement("a");
     const heart = document.createElement("i");
+    cardsMediaCompteurLike.setAttribute("aria-label", `likes`);
 
     cardsMedia.classList.add("cards-media");
     cardsMediaImg.classList.add("cards-media-img");
@@ -230,7 +247,7 @@ function displaymediaList() {
     heart.classList.add("fa-heart");
 
     cardsMediaImg.href = "#";
-    console.log(media.type);
+
     if (media.type === "mp4") {
       cardsMedia.append(playLogo);
     }
@@ -250,7 +267,7 @@ function displaymediaList() {
     function compteurLikes(totalLikes) {
       heartLink.addEventListener("click", () => {
         if (heart.classList.contains("fas")) {
-          media.likes--;
+          media.like--;
           heart.classList.remove("fas");
           heart.classList.add("far");
           totalLikes.push(-1);
@@ -266,23 +283,22 @@ function displaymediaList() {
       });
     }
 
-    cardsMediaImg.addEventListener("click", openLightbox(media));
+    cardsMediaImg.addEventListener(
+      "click",
+      openLightbox(media, displayMediaList)
+    );
     return filters;
   });
 }
 
 function displayPage() {
   document.title += " - " + currentPhotographer.name;
-  const filterDate = document.querySelector(".dropdown-child-date");
-  const filterPopularity = document.querySelector(".dropdown-menu");
-  const filterTitle = document.querySelector(".dropdown-child-title");
+
   displayBanner(currentPhotographer);
   openModalForm(currentPhotographer);
-  sortByDate(filterDate);
-  sortByPopularity(filterPopularity);
-  sortByTitle(filterTitle);
+  displayFilterMenu(displayMediaList);
   getTotalLikes(totalLikes);
-  displaymediaList();
+  displayMediaList();
 }
 function getLikes(likes) {
   totalLikes.push(likes);
@@ -311,4 +327,84 @@ function displayTotalLikes(totalLikesPhotographer) {
 
   main.append(totalLikesContainer);
   totalLikesContainer.append(totalLikesNb, heart);
+}
+
+function openLightbox(media, displayedMediaList) {
+  let currentMedia = media;
+  const lightboxModal = document.querySelector(".lightbox-modal");
+  const lightboxLink = document.querySelectorAll(".media-img");
+  const closeMediaModal = document.querySelectorAll(".close-lightbox-media");
+  const arrows = document.querySelectorAll(".lightbox-arrow");
+  const titleBox = document.querySelector(".titre-media-lightbox");
+  const leftArrow = arrows[0];
+  const rightArrow = arrows[1];
+  const mediaImg = document.createElement("img");
+  const mediaContainer = document.querySelector(".media-container");
+  const mediaTitle = document.querySelector(".titre-media-lightbox");
+  const mediaLink = "./sources/img/2_big/" + currentMedia.link;
+
+  const mediaVid = document.createElement("video");
+  if (media.type === "mp4") {
+    mediaContainer.append(mediaVid);
+  } else {
+    mediaContainer.append(mediaImg);
+  }
+
+  mediaImg.src = mediaLink;
+
+  lightboxLink.forEach((link) =>
+    link.addEventListener("click", openModalMedia)
+  );
+  closeMediaModal.forEach((el) => el.addEventListener("click", closelightbox));
+
+  function openModalMedia() {
+    lightboxModal.style.display = "flex";
+  }
+  function closelightbox() {
+    lightboxModal.style.display = "none";
+  }
+  lightboxModal.firstElementChild.addEventListener("click", (e) =>
+    e.stopPropagation()
+  );
+  rightArrow.addEventListener("click", (e) => nextMedia(e));
+  leftArrow.addEventListener("click", (e) => previousMedia(e));
+  rightArrow.addEventListener("keydown", (e) => {
+    if (e.code === "Tab" && !e.shiftKey) {
+      e.preventDefault();
+      close.focus();
+    }
+  });
+  showContent();
+
+  function nextMedia(e) {
+    e.preventDefault();
+    if (
+      displayedMediaList.indexOf(currentMedia) + 1 >=
+      displayedMediaList.length
+    ) {
+      currentMedia = displayedMediaList[0];
+    } else {
+      currentMedia =
+        displayedMediaList[displayedMediaList.indexOf(currentMedia) + 1];
+    }
+    showContent();
+  }
+  function previousMedia(e) {
+    e.preventDefault();
+    if (displayedMediaList.indexOf(currentMedia) - 1 < 0) {
+      currentMedia = displayedMediaList[displayedMediaList.length - 1];
+    } else {
+      currentMedia =
+        displayedMediaList[displayedMediaList.indexOf(currentMedia) - 1];
+    }
+    showContent();
+  }
+
+  function showContent() {
+    mediaTitle.textContent = currentMedia.title;
+    mediaVid.controls = true;
+
+    mediaImg.src = "./sources/img/2_big/" + currentMedia.link;
+    mediaVid.src = "./sources/img/2_big/" + currentMedia.link;
+  }
 }

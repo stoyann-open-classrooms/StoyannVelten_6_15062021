@@ -614,6 +614,7 @@ header .tag-list {
   width: 100vw;
   height: 100vh;
   background: rgba(34, 34, 34, 0.7);
+  z-index: 9999999;
 }
 
 .lightbox-modal .close-lightbox-media {
@@ -666,14 +667,25 @@ header .tag-list {
 .lightbox-modal .lightbox-content .media-container {
   width: 90%;
   margin: auto;
-  height: 70vh;
+  height: 80vh;
   border-radius: 0.6rem;
   background-color: #868686;
+  overflow: hidden;
 }
 
 .lightbox-modal .lightbox-content .media-container img {
   margin: auto;
-  height: 70vh;
+  height: 100%;
+  width: 100%;
+  border-radius: 0.6rem;
+  background-color: #868686;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.lightbox-modal .lightbox-content .media-container video {
+  margin: auto;
+  height: 100%;
   width: 100%;
   border-radius: 0.6rem;
   background-color: #868686;
@@ -937,89 +949,166 @@ header .tag-list {
   cursor: pointer;
 }
 
-.dropdown-container {
+.filter {
+  display: none;
+}
+
+@media screen and (min-width: 768px) {
+  .filter {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: start;
+    margin: 2rem 3%;
+    font-weight: 500;
+  }
+  .filter span {
+    margin-right: 2rem;
+    font-size: 2rem;
+  }
+}
+
+.dropdownMenu {
+  width: 18rem;
+}
+
+.filter-select {
+  position: relative;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  width: 100%;
-  margin-left: 3%;
-  margin-top: 20px;
-  -webkit-animation: apparition 0.8s ease-in-out;
-          animation: apparition 0.8s ease-in-out;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
 
-.dropdown-menu {
-  display: none;
-  background-color: #901c1c;
+.filter-select__trigger {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 0 2.2rem;
+  font-size: 2rem;
+  font-weight: 300;
   color: white;
-  border: none;
+  height: 6rem;
+  line-height: 6rem;
+  background: #901c1c;
   cursor: pointer;
-  padding: 1.2rem;
-  font-size: 2em;
   border-radius: 0.6rem;
-  -webkit-transition: all 0.5s ease-in-out;
-  transition: all 0.5s ease-in-out;
 }
 
-.dropdown-menu .fa-chevron-down {
-  margin: 0.5rem;
+.filter-options-container {
+  position: absolute;
+  display: block;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: #901c1c;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+  opacity: 0;
+  visibility: hidden;
+  z-index: 2;
+  border-bottom-left-radius: 0.6rem;
+  border-bottom-right-radius: 0.6rem;
 }
 
-@media screen and (min-width: 768px) {
-  .dropdown-menu {
-    display: block;
-  }
+.filter-select.open .filter-options-container {
+  opacity: 1;
+  visibility: visible;
 }
 
-.dropdown-menu:hover {
-  background-color: #901c1c;
+.filter-select.open .filter-select__trigger {
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
 }
 
-.dropdown {
+.filter-option {
   position: relative;
-  display: inline-block;
-}
-
-.dropdown-child {
-  display: none;
-  background-color: #901c1c;
-  min-width: 5rem;
-  position: relative;
-  bottom: 0.3rem;
-  font-size: 2em;
-  border-radius: 0 0 0.6rem 0.6rem;
-  cursor: pointer;
-  -webkit-transition: all 0.5s ease-in-out;
-  transition: all 0.5s ease-in-out;
-}
-
-.dropdown-child span {
+  display: block;
+  margin: 0 2rem 0;
+  font-size: 2rem;
+  font-weight: 400;
   color: white;
-  padding: 0.5rem;
-  text-decoration: none;
-  display: block;
-  border-top: 0.2rem solid white;
-  margin-left: 1rem;
-  margin-right: 1rem;
+  line-height: 6rem;
+  cursor: pointer;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
 }
 
-.dropdown:hover .dropdown-child {
-  display: block;
+.filter-option:hover {
+  cursor: pointer;
+  text-decoration: underline;
 }
 
-.dropdown-title {
+.filter-option.selected {
   display: none;
-  position: relative;
-  top: 1.3rem;
-  margin-right: 1.5rem;
-  font-weight: 500;
-  font-size: 2em;
 }
 
-@media screen and (min-width: 768px) {
-  .dropdown-title {
-    display: block;
-  }
+.filter-option:not(.selected) {
+  border-top: solid 0.1rem white;
+}
+
+.arrow {
+  position: relative;
+  height: 1.5rem;
+  width: 1.5rem;
+}
+
+.arrow::before,
+.arrow::after {
+  content: "";
+  position: absolute;
+  bottom: 0px;
+  width: 0.15rem;
+  height: 100%;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+}
+
+.arrow::before {
+  left: -0.5rem;
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+  background-color: white;
+}
+
+.arrow::after {
+  left: 0.5rem;
+  -webkit-transform: rotate(-45deg);
+          transform: rotate(-45deg);
+  background-color: white;
+}
+
+.open .arrow::before {
+  left: -0.5rem;
+  -webkit-transform: rotate(-45deg);
+          transform: rotate(-45deg);
+}
+
+.open .arrow::after {
+  left: 0.5rem;
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
 }
 
 .cards-media-container {
@@ -1036,7 +1125,7 @@ header .tag-list {
 
 @media screen and (min-width: 768px) {
   .cards-media-container {
-    margin-top: 5rem;
+    margin-top: 2rem;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -1052,7 +1141,7 @@ header .tag-list {
 .cards-media {
   width: 95vw;
   height: 19rem;
-  margin-top: 4.5rem;
+  margin-top: 5rem;
   color: #901c1c;
   -webkit-animation: apparition-up 0.8s ease-in-out;
           animation: apparition-up 0.8s ease-in-out;
@@ -1060,8 +1149,8 @@ header .tag-list {
 
 @media screen and (min-width: 768px) {
   .cards-media {
-    width: 300px;
-    margin: 30px;
+    width: 30rem;
+    margin: 3rem;
   }
 }
 
@@ -1087,7 +1176,7 @@ header .tag-list {
   font-size: 1.7rem;
   white-space: nowrap;
   overflow: hidden;
-  padding-right: 10px;
+  padding-right: 1rem;
   text-overflow: ellipsis;
 }
 
@@ -1136,7 +1225,7 @@ header .tag-list {
 
 .fa-play-circle {
   color: rgba(148, 148, 148, 0.541);
-  z-index: 9999;
+  z-index: 555;
   font-size: 10rem;
   position: absolute;
   display: block;

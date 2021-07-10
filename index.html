@@ -2,39 +2,44 @@
 <html lang="fr">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./styles/main.css">
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./styles/main.css" />
     <title>Accueil FishEye</title>
     <link rel="shortcut icon" href="./sources/logo/favicon.ico" type="image/x-icon" />
 </head>
 
 <body>
     <div class="content-global">
-        <header>
-            <div class="header-top">
-                <a href="./index.html" class="logo">
-                    <img src="./sources/logo/logo.svg" alt="Logo Fisheye Page d'accueil">
-                </a>
-                <a href="#" class="return-main" role="button" aria-label="Passez au contenu">
-                    <div class="return">Passez au contenu</div>
-                </a>
-                <h1 class="big-tittle">Nos photographes</h1>
-            </div>
-            <nav class="tag-list" aria-label="photographer categories"></nav>
-        </header>
+        <!-- ________ Loader ________ -->
         <div class="loader-container">
-
             <div class="loader"></div>
         </div>
 
-        <main id="main" class="photographer-container">
 
-        </main>
+        <!-- ________ Header ________ -->
+        <header>
+            <div class="header-top">
+                <a href="./index.html" class="logo">
+                    <img src="./sources/logo/logo.svg" alt="Logo Fisheye Page d'accueil" lang="en" />
+                </a>
+                <h1 class="big-tittle">Nos photographes</h1>
+            </div>
+            <nav class="tag-list" aria-label="photographer categories">
+                <!--  ________ Passez au contenu ________ -->
+                <a href="#" class="return-main" aria-label="Passez au contenu">
+                    <div class="return">Passez au contenu</div>
+                </a>
 
+            </nav>
+        </header>
 
-        <script src="./scripts/main.js" type="module"> </script>
+        <!-- ________ Main ________ -->
+
+        <main id="main" class="photographer-container"></main>
+
+        <script src="./scripts/main.js" type="module"></script>
     </div>
 </body>
 
