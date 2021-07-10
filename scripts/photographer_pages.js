@@ -335,20 +335,15 @@ function openLightbox(media, displayedMediaList) {
   const lightboxLink = document.querySelectorAll(".media-img");
   const closeMediaModal = document.querySelectorAll(".close-lightbox-media");
   const arrows = document.querySelectorAll(".lightbox-arrow");
-  const titleBox = document.querySelector(".titre-media-lightbox");
   const leftArrow = arrows[0];
   const rightArrow = arrows[1];
-  const mediaImg = document.createElement("img");
+
   const mediaContainer = document.querySelector(".media-container");
   const mediaTitle = document.querySelector(".titre-media-lightbox");
   const mediaLink = "./sources/img/2_big/" + currentMedia.link;
 
+  const mediaImg = document.createElement("img");
   const mediaVid = document.createElement("video");
-  if (media.type === "mp4") {
-    mediaContainer.append(mediaVid);
-  } else {
-    mediaContainer.append(mediaImg);
-  }
 
   mediaImg.src = mediaLink;
 
@@ -374,7 +369,7 @@ function openLightbox(media, displayedMediaList) {
       close.focus();
     }
   });
-  showContent();
+  displayContent();
 
   function nextMedia(e) {
     e.preventDefault();
@@ -387,7 +382,7 @@ function openLightbox(media, displayedMediaList) {
       currentMedia =
         displayedMediaList[displayedMediaList.indexOf(currentMedia) + 1];
     }
-    showContent();
+    displayContent();
   }
   function previousMedia(e) {
     e.preventDefault();
@@ -397,13 +392,22 @@ function openLightbox(media, displayedMediaList) {
       currentMedia =
         displayedMediaList[displayedMediaList.indexOf(currentMedia) - 1];
     }
-    showContent();
+    displayContent();
   }
 
-  function showContent() {
+  function displayContent() {
+    for (const media of displayedMediaList) {
+      if (media.type === "mp4") {
+        mediaContainer.appendChild(mediaVid);
+        console.log(media);
+      } else if (media.type === "jpg") {
+        mediaContainer.appendChild(mediaImg);
+      }
+    }
     mediaTitle.textContent = currentMedia.title;
+    mediaVid.textContent = currentMedia.title;
     mediaVid.controls = true;
-
+    mediaImg.alt = currentMedia.alt;
     mediaImg.src = "./sources/img/2_big/" + currentMedia.link;
     mediaVid.src = "./sources/img/2_big/" + currentMedia.link;
   }
