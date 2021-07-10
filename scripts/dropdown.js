@@ -3,7 +3,7 @@
  */
 
 export function displayFilterMenu(displayMediaList) {
-  const dropDownMenu = document.querySelector(".dropdownMenu");
+  const dropDownMenu = document.querySelector(".dropdownMenu ");
   const filterSelect = document.querySelector(".filter-select");
   const filterSelectTrigger = document.querySelector(".filter-select__trigger");
   const filterOptions = document.querySelectorAll(".filter-option");
@@ -44,7 +44,7 @@ export function displayFilterMenu(displayMediaList) {
   dropDownMenu.addEventListener("click", function (e) {
     e.preventDefault();
     if (filterSelect.classList.contains("open")) {
-      collapseDropdown();
+      hideDropdown();
     } else {
       displayDropdown();
     }

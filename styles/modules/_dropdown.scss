@@ -51,6 +51,7 @@
   transition: all 0.5s;
   opacity: 0;
   visibility: hidden;
+  pointer-events: none;
   z-index: 2;
   border-bottom-left-radius: $radius;
   border-bottom-right-radius: $radius;
@@ -60,6 +61,7 @@
   .filter-options-container {
     opacity: 1;
     visibility: visible;
+    pointer-events: all;
   }
 
   .filter-select__trigger {

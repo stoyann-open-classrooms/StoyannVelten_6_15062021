@@ -207,7 +207,7 @@ export function displayMediaList() {
   const filters = [];
   const cardsMediaContainer = document.querySelector(".cards-media-container");
   const sort = document
-    .querySelector(".custom-option.selected")
+    .querySelector(".filter-option.selected")
     ?.getAttribute("data-value");
 
   cardsMediaContainer.innerHTML = "";
