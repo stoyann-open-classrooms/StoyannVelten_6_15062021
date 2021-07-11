@@ -1226,17 +1226,6 @@ header .tag-list {
   position: relative;
 }
 
-.fa-play-circle {
-  color: rgba(148, 148, 148, 0.541);
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
-  z-index: 555;
-  font-size: 10rem;
-}
-
 .photographer-container {
   display: -webkit-box;
   display: -ms-flexbox;

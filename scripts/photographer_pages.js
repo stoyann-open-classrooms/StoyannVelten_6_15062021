@@ -340,7 +340,6 @@ function openLightbox(media, displayedMediaList) {
 
   const mediaContainer = document.querySelector(".media-container");
   const mediaTitle = document.querySelector(".titre-media-lightbox");
-  const mediaLink = "./sources/img/2_big/" + currentMedia.link;
 
   lightboxLink.forEach((link) =>
     link.addEventListener("click", openModalMedia)
@@ -391,22 +390,30 @@ function openLightbox(media, displayedMediaList) {
   }
 
   function displayContent() {
-    for (const media of displayedMediaList) {
-      mediaTitle.textContent = currentMedia.title;
-      if (media.type == "mp4") {
+    displayedMediaList.forEach((el) => {
+      if (el.type == "mp4") {
         const mediaVid = document.createElement("video");
-        // mediaVid.textContent = currentMedia.title;
         mediaVid.controls = true;
         mediaVid.src = "./sources/img/2_big/" + media.link;
+        mediaTitle.textContent = currentMedia.title;
         mediaContainer.append(mediaVid);
-      } else if (media.type === "jpg") {
+      } else if (currentMedia.type === "jpg") {
         const mediaImg = document.createElement("img");
-
         mediaImg.alt = media.alt;
         mediaImg.src = "./sources/img/2_big/" + media.link;
-
+        mediaTitle.textContent = currentMedia.title;
         mediaContainer.append(mediaImg);
       }
-    }
+    });
+
+    // console.log(displayedMediaList[0].type);
+    // mediaContainer.append(mediaImg);
+    // if (currentMedia.type == "mp4") {
+    //   mediaVid.controls = true;
+    //   mediaVid.src = "./sources/img/2_big/" + media.link;
+    // } else if (currentMedia.type === "jpg") {
+    //   mediaImg.alt = media.alt;
+    //   mediaImg.src = "./sources/img/2_big/" + media.link;
+    // }
   }
 }
