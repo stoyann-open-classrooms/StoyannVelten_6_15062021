@@ -249,7 +249,7 @@ export function displayMediaList() {
     cardsMediaImg.href = "#";
 
     if (media.type === "mp4") {
-      cardsMedia.append(playLogo);
+      cardsMediaImg.append(playLogo);
     }
 
     cardsMediaTitle.textContent = `${media.title}`;
@@ -342,11 +342,6 @@ function openLightbox(media, displayedMediaList) {
   const mediaTitle = document.querySelector(".titre-media-lightbox");
   const mediaLink = "./sources/img/2_big/" + currentMedia.link;
 
-  const mediaImg = document.createElement("img");
-  const mediaVid = document.createElement("video");
-
-  mediaImg.src = mediaLink;
-
   lightboxLink.forEach((link) =>
     link.addEventListener("click", openModalMedia)
   );
@@ -397,18 +392,21 @@ function openLightbox(media, displayedMediaList) {
 
   function displayContent() {
     for (const media of displayedMediaList) {
-      if (media.type === "mp4") {
-        mediaContainer.appendChild(mediaVid);
-        console.log(media);
+      mediaTitle.textContent = currentMedia.title;
+      if (media.type == "mp4") {
+        const mediaVid = document.createElement("video");
+        // mediaVid.textContent = currentMedia.title;
+        mediaVid.controls = true;
+        mediaVid.src = "./sources/img/2_big/" + media.link;
+        mediaContainer.append(mediaVid);
       } else if (media.type === "jpg") {
-        mediaContainer.appendChild(mediaImg);
+        const mediaImg = document.createElement("img");
+
+        mediaImg.alt = media.alt;
+        mediaImg.src = "./sources/img/2_big/" + media.link;
+
+        mediaContainer.append(mediaImg);
       }
     }
-    mediaTitle.textContent = currentMedia.title;
-    mediaVid.textContent = currentMedia.title;
-    mediaVid.controls = true;
-    mediaImg.alt = currentMedia.alt;
-    mediaImg.src = "./sources/img/2_big/" + currentMedia.link;
-    mediaVid.src = "./sources/img/2_big/" + currentMedia.link;
   }
 }

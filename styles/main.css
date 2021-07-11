@@ -58,14 +58,14 @@ li {
           transform: scale(1.1);
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 76.8rem) {
   .tags-link {
     font-size: 1.6rem;
     margin-right: 1.3rem;
   }
 }
 
-@media screen and (min-width: 1200px) {
+@media screen and (min-width: 120rem) {
   .tags-link {
     font-size: 1.9rem;
   }
@@ -369,13 +369,13 @@ header .header-top img {
   width: 40%;
 }
 
-@media screen and (min-width: 425px) {
+@media screen and (min-width: 42.5rem) {
   header .header-top img {
     width: 70%;
   }
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 76.8rem) {
   header .header-top img {
     width: 100%;
   }
@@ -387,19 +387,19 @@ header .header-top h1 {
   font-weight: 400;
 }
 
-@media screen and (min-width: 425px) {
+@media screen and (min-width: 42.5rem) {
   header .header-top h1 {
     font-size: 2rem;
   }
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 76.8rem) {
   header .header-top h1 {
     font-size: 2.4rem;
   }
 }
 
-@media screen and (min-width: 1200px) {
+@media screen and (min-width: 120rem) {
   header .header-top h1 {
     font-size: 3.2rem;
   }
@@ -422,7 +422,7 @@ header .tag-list {
   padding: 0 4%;
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 76.8rem) {
   .banner {
     -webkit-box-pack: center;
         -ms-flex-pack: center;
@@ -446,20 +446,20 @@ header .tag-list {
   margin-top: 1rem;
 }
 
-@media screen and (min-width: 425px) {
+@media screen and (min-width: 42.5rem) {
   .banner .banner-body {
     font-size: 1.8rem;
   }
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 76.8rem) {
   .banner .banner-body {
     font-size: 2rem;
     margin-left: 3rem;
   }
 }
 
-@media screen and (min-width: 1200px) {
+@media screen and (min-width: 120rem) {
   .banner .banner-body {
     font-size: 3rem;
   }
@@ -484,14 +484,14 @@ header .tag-list {
   padding: 1rem 0;
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 76.8rem) {
   .banner-btn {
     display: block;
     margin-top: 1.5rem;
   }
 }
 
-@media screen and (min-width: 1200px) {
+@media screen and (min-width: 120rem) {
   .banner-btn {
     font-size: 1.5rem;
   }
@@ -513,7 +513,7 @@ header .tag-list {
   margin-left: 1rem;
 }
 
-@media screen and (min-width: 425px) {
+@media screen and (min-width: 42.5rem) {
   .banner-img img {
     height: 12rem;
     width: 12rem;
@@ -521,14 +521,14 @@ header .tag-list {
   }
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 76.8rem) {
   .banner-img img {
     height: 15rem;
     width: 15rem;
   }
 }
 
-@media screen and (min-width: 1200px) {
+@media screen and (min-width: 120rem) {
   .banner-img img {
     height: 25rem;
     width: 25rem;
@@ -657,7 +657,7 @@ header .tag-list {
   position: relative;
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 76.8rem) {
   .lightbox-modal .lightbox-content {
     width: 90vw;
     height: 90vh;
@@ -749,12 +749,12 @@ header .tag-list {
   position: fixed;
   bottom: 2rem;
   left: 20%;
-  z-index: 77777;
+  z-index: 2;
   -webkit-animation: apparition-up 1s ease-in-out;
           animation: apparition-up 1s ease-in-out;
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 76.8rem) {
   .btn-modal-mobile {
     display: none;
   }
@@ -796,7 +796,7 @@ header .tag-list {
   padding: 0.5rem;
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 76.8rem) {
   .modal-content {
     width: 35rem;
     height: auto;
@@ -872,7 +872,7 @@ header .tag-list {
           transform: scale(1.1);
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 76.8rem) {
   .modal-content button {
     -ms-flex-item-align: center;
         -ms-grid-row-align: center;
@@ -930,7 +930,7 @@ header .tag-list {
   text-align: center;
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 76.8rem) {
   .total-likes-container {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -953,7 +953,7 @@ header .tag-list {
   display: none;
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 76.8rem) {
   .filter {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -1125,7 +1125,7 @@ header .tag-list {
   margin-bottom: 10rem;
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 76.8rem) {
   .cards-media-container {
     margin-top: 2rem;
     display: -webkit-box;
@@ -1149,7 +1149,7 @@ header .tag-list {
           animation: apparition-up 0.8s ease-in-out;
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 76.8rem) {
   .cards-media {
     width: 30rem;
     margin: 3rem;
@@ -1209,6 +1209,7 @@ header .tag-list {
   transition: -webkit-transform 0.5s ease-in-out;
   transition: transform 0.5s ease-in-out;
   transition: transform 0.5s ease-in-out, -webkit-transform 0.5s ease-in-out;
+  position: relative;
 }
 
 .cards-media-img:hover {
@@ -1227,12 +1228,13 @@ header .tag-list {
 
 .fa-play-circle {
   color: rgba(148, 148, 148, 0.541);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
   z-index: 555;
   font-size: 10rem;
-  position: absolute;
-  display: block;
-  left: 145px;
-  top: 505px;
 }
 
 .photographer-container {
@@ -1272,13 +1274,13 @@ header .tag-list {
           transform: scale(1.1);
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 76.8rem) {
   .photographer-cards {
     margin: 5rem;
   }
 }
 
-@media screen and (min-width: 1200px) {
+@media screen and (min-width: 120rem) {
   .photographer-cards {
     margin: 15rem;
   }
@@ -1310,7 +1312,7 @@ header .tag-list {
   font-size: 1.3rem;
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 76.8rem) {
   .cards-body {
     font-size: 1.6rem;
   }
