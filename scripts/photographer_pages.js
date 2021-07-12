@@ -265,18 +265,22 @@ export function displayMediaList() {
 
     // compteur de likes
     function compteurLikes(totalLikes) {
+      cardsMediaCompteurLike.classList.add("compteur");
+
       heartLink.addEventListener("click", () => {
         if (heart.classList.contains("fas")) {
-          media.like--;
+          media.likes--;
           heart.classList.remove("fas");
           heart.classList.add("far");
           totalLikes.push(-1);
+          cardsMediaCompteurLike.textContent = media.likes;
           getTotalLikes();
         } else {
           media.likes++;
           heart.classList.remove("far");
           heart.classList.add("fas");
           totalLikes.push(1);
+          cardsMediaCompteurLike.textContent = media.likes;
 
           getTotalLikes();
         }

@@ -124,10 +124,7 @@ function openModalForm(currentPhotographer) {
       }
     }
   });
-  //   bannerModal.addEventListener("submit", (e) => {
-  //     e.preventDefault();
 
-  // }
   function closeModal() {
     const modalClose = document.querySelector(".modal-close");
     const contactModal = document.querySelector(".contact-modal");
