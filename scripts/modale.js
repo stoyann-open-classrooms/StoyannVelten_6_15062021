@@ -13,6 +13,10 @@ function openModalForm(currentPhotographer) {
   const formEmailInp = document.querySelector(".email-inp");
   const formMsgInp = document.querySelector(".msg-inp");
   const errorMessage = document.querySelectorAll(".message-alert");
+  let verifFirst;
+  let verifLast;
+  let verifMail;
+  let verifMsg;
 
   modalTitle.innerHTML = `Contactez-Moi ${currentPhotographer.name} `;
 
@@ -34,8 +38,10 @@ function openModalForm(currentPhotographer) {
         formFirstNameInp.classList.remove("echec");
         formFirstNameInp.classList.remove("border");
       }, 500);
+      verifFirst = false;
     } else {
       errorMessage[0].style.display = "none";
+      verifFirst = true;
     }
   });
   formLastNameInp.addEventListener("input", (e) => {
@@ -48,14 +54,17 @@ function openModalForm(currentPhotographer) {
         formLastNameInp.classList.remove("echec");
         formLastNameInp.classList.remove("border");
       }, 500);
+      verifLast = false;
     } else {
       errorMessage[1].style.display = "none";
+      verifLast = true;
     }
   });
   formEmailInp.addEventListener("input", (e) => {
     const regexMail = /\S+@\S+\.\S+/;
     if (e.target.value.search(regexMail) === 0) {
       errorMessage[2].style.display = "none";
+      verifMail = true;
     } else if (e.target.value.search(regexMail) === -1) {
       errorMessage[2].style.display = "inline";
       formEmailInp.classList.add("echec");
@@ -65,6 +74,7 @@ function openModalForm(currentPhotographer) {
         formEmailInp.classList.remove("echec");
         formEmailInp.classList.remove("border");
       }, 500);
+      verifMail = false;
     }
   });
 
@@ -78,42 +88,54 @@ function openModalForm(currentPhotographer) {
         formMsgInp.classList.remove("echec");
         formMsgInp.classList.remove("border");
       }, 500);
+      verifMsg = false;
     } else {
       errorMessage[3].style.display = "none";
+      verifMsg = true;
     }
   });
 
   // submit form
-
-  bannerModal.addEventListener("submit", (e) => {
+  document.getElementById("contact").addEventListener("submit", function (e) {
     e.preventDefault();
-    const modalValidationMsg = document.createElement("div");
-    const validationTxt = document.createElement("div");
-    const contactModal = document.querySelector(".modal-content");
-    const modalTitle = document.querySelector(".modal-title");
-    validationTxt.classList.add("validation-txt");
-    const bannerModal = document.querySelector("form");
-    bannerModal.style.display = "none";
-    modalTitle.style.display = "none";
-    modalValidationMsg.classList.add("modal-validation-msg");
-    modalValidationMsg.style.display = "flex";
-    contactModal.append(modalValidationMsg);
-    modalValidationMsg.append(validationTxt);
-    validationTxt.innerHTML = `Votre message a bien étè envoyer a <br> ${currentPhotographer.name} `;
+    if (
+      verifFirst === true &&
+      verifLast === true &&
+      verifMail === true &&
+      verifMsg === true
+    ) {
+      const modalValidationMsg = document.createElement("div");
+      const validationTxt = document.createElement("div");
+      const contactModal = document.querySelector(".modal-content");
+      const modalTitle = document.querySelector(".modal-title");
+      validationTxt.classList.add("validation-txt");
+      const bannerModal = document.querySelector("form");
+      bannerModal.style.display = "none";
+      modalTitle.style.display = "none";
+      modalValidationMsg.classList.add("modal-validation-msg");
+      modalValidationMsg.style.display = "flex";
+      contactModal.append(modalValidationMsg);
+      modalValidationMsg.append(validationTxt);
+      validationTxt.innerHTML = `Votre message a bien étè envoyer a <br> ${currentPhotographer.name} `;
 
-    let datas = new FormData(bannerModal);
-    for (let i of datas.entries()) {
-      console.log(i[0], ":", i[1]);
+      let datas = new FormData(bannerModal);
+      for (let i of datas.entries()) {
+        console.log(i[0], ":", i[1]);
+      }
     }
   });
-}
-function closeModal() {
-  const modalClose = document.querySelector(".modal-close");
-  const contactModal = document.querySelector(".contact-modal");
+  //   bannerModal.addEventListener("submit", (e) => {
+  //     e.preventDefault();
 
-  modalClose.addEventListener("click", () => {
-    contactModal.style.display = "none";
-  });
+  // }
+  function closeModal() {
+    const modalClose = document.querySelector(".modal-close");
+    const contactModal = document.querySelector(".contact-modal");
+
+    modalClose.addEventListener("click", () => {
+      contactModal.style.display = "none";
+    });
+  }
 }
 
 export { openModalForm };

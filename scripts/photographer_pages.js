@@ -344,28 +344,19 @@ function openLightbox(media, displayMediaList) {
 
   const mediaTitle = document.querySelector(".titre-media-lightbox");
 
-  lightboxLink.forEach((link) =>
-    link.addEventListener("click", openModalMedia)
-  );
+  lightboxLink.forEach((link) => link.addEventListener("click", openLightbox));
   closeMediaModal.forEach((el) => el.addEventListener("click", closelightbox));
 
-  function openModalMedia() {
+  function openLightbox() {
     lightboxModal.style.display = "flex";
   }
   function closelightbox() {
     lightboxModal.style.display = "none";
   }
-  lightboxModal.firstElementChild.addEventListener("click", (e) =>
-    e.stopPropagation()
-  );
+
   rightArrow.addEventListener("click", (e) => nextMedia(e));
   leftArrow.addEventListener("click", (e) => previousMedia(e));
-  rightArrow.addEventListener("keydown", (e) => {
-    if (e.code === "Tab" && !e.shiftKey) {
-      e.preventDefault();
-      close.focus();
-    }
-  });
+
   displayContent();
 
   function nextMedia(e) {
@@ -399,6 +390,7 @@ function openLightbox(media, displayMediaList) {
     if (currentMedia.type == "jpg") {
       mediaVid.replaceWith(mediaImg);
       mediaContainer.appendChild(mediaImg);
+      mediaImg.alt = media.alt;
 
       //   const mediaVid = document.createElement("video");
       //   mediaVid.controls = true;
@@ -407,14 +399,20 @@ function openLightbox(media, displayMediaList) {
       //   mediaContainer.append(mediaVid);
       //   // mediaVid.replaceWith(img);
       //   const mediaImg = document.createElement("img");
-      //   mediaImg.alt = media.alt;
+      //
       //   mediaImg.src = "./sources/img/2_big/" + media.link;
       //   mediaContainer.append(mediaImg);
     } else if (media.type == "mp4") {
       // mediaContainer.removeChild();
       mediaImg.replaceWith(mediaVid);
+
+      mediaVid.setAttribute("alt", media.alt);
+
       mediaContainer.appendChild(mediaVid);
+
       mediaVid.controls = true;
+      mediaVid.autoplay = true;
+      mediaVid.loop = true;
 
       // console.log(displayMediaList[0].type);
       // mediaContainer.append(mediaImg);
@@ -423,6 +421,7 @@ function openLightbox(media, displayMediaList) {
       //   mediaVid.src = "./sources/img/2_big/" + media.link;
       // } else if (currentMedia.type === "jpg") {
       //   mediaImg.alt = media.alt;
+
       //   mediaImg.src = "./sources/img/2_big/" + media.link;
       // }
     }
