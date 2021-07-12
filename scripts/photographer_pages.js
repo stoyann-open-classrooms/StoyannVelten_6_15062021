@@ -339,8 +339,7 @@ function openLightbox(media, displayMediaList) {
   const mediaImg = document.createElement("img");
   const mediaVid = document.createElement("video");
   const mediaContainer = document.querySelector(".media-container");
-  mediaContainer.append(mediaImg);
-  mediaImg.src = mediaImg.src = "./sources/img/2_big/" + currentMedia.link;
+
   mediaVid.src = mediaImg.src = "./sources/img/2_big/" + currentMedia.link;
 
   const mediaTitle = document.querySelector(".titre-media-lightbox");
@@ -371,6 +370,7 @@ function openLightbox(media, displayMediaList) {
 
   function nextMedia(e) {
     e.preventDefault();
+
     if (displayMediaList.indexOf(currentMedia) + 1 >= displayMediaList.length) {
       currentMedia = displayMediaList[0];
     } else {
@@ -396,29 +396,35 @@ function openLightbox(media, displayMediaList) {
     mediaTitle.textContent = currentMedia.title;
 
     // displayMediaList.forEach((el) => {
-    if (media.type == "mp4") {
-      mediaImg.replaceWith(mediaVid);
+    if (currentMedia.type == "jpg") {
+      mediaVid.replaceWith(mediaImg);
+      mediaContainer.appendChild(mediaImg);
+
       //   const mediaVid = document.createElement("video");
       //   mediaVid.controls = true;
       //   mediaVid.src = "./sources/img/2_big/" + media.link;
       //   mediaTitle.textContent = currentMedia.title;
       //   mediaContainer.append(mediaVid);
-      // } else if (currentMedia.type === "jpg") {
       //   // mediaVid.replaceWith(img);
       //   const mediaImg = document.createElement("img");
       //   mediaImg.alt = media.alt;
       //   mediaImg.src = "./sources/img/2_big/" + media.link;
       //   mediaContainer.append(mediaImg);
-    }
+    } else if (media.type == "mp4") {
+      // mediaContainer.removeChild();
+      mediaImg.replaceWith(mediaVid);
+      mediaContainer.appendChild(mediaVid);
+      mediaVid.controls = true;
 
-    // console.log(displayMediaList[0].type);
-    // mediaContainer.append(mediaImg);
-    // if (currentMedia.type == "mp4") {
-    //   mediaVid.controls = true;
-    //   mediaVid.src = "./sources/img/2_big/" + media.link;
-    // } else if (currentMedia.type === "jpg") {
-    //   mediaImg.alt = media.alt;
-    //   mediaImg.src = "./sources/img/2_big/" + media.link;
-    // }
+      // console.log(displayMediaList[0].type);
+      // mediaContainer.append(mediaImg);
+      // if (currentMedia.type == "mp4") {
+      //   mediaVid.controls = true;
+      //   mediaVid.src = "./sources/img/2_big/" + media.link;
+      // } else if (currentMedia.type === "jpg") {
+      //   mediaImg.alt = media.alt;
+      //   mediaImg.src = "./sources/img/2_big/" + media.link;
+      // }
+    }
   }
 }
