@@ -13,6 +13,7 @@ const photographerList = new PhotographerList();
  * @description le liens vers les données Json Fisheye
  *
  */
+
 const linkToData = "./data/FishEyeDataFR.json";
 const loader = document.querySelector(".loader-container");
 window.addEventListener("load", () => {

@@ -348,6 +348,76 @@ header .tag-list, .photographer-cards .cards-photographer-link {
   }
 }
 
+@-webkit-keyframes pulse {
+  0% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+  10% {
+    -webkit-transform: scale(1.1);
+            transform: scale(1.1);
+  }
+  20% {
+    -webkit-transform: scale(0.9);
+            transform: scale(0.9);
+  }
+  30% {
+    -webkit-transform: scale(1.2);
+            transform: scale(1.2);
+  }
+  40% {
+    -webkit-transform: scale(0.9);
+            transform: scale(0.9);
+  }
+  50% {
+    -webkit-transform: scale(1.05);
+            transform: scale(1.05);
+  }
+  60% {
+    -webkit-transform: scale(0.95);
+            transform: scale(0.95);
+  }
+  70% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+}
+
+@keyframes pulse {
+  0% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+  10% {
+    -webkit-transform: scale(1.1);
+            transform: scale(1.1);
+  }
+  20% {
+    -webkit-transform: scale(0.9);
+            transform: scale(0.9);
+  }
+  30% {
+    -webkit-transform: scale(1.2);
+            transform: scale(1.2);
+  }
+  40% {
+    -webkit-transform: scale(0.9);
+            transform: scale(0.9);
+  }
+  50% {
+    -webkit-transform: scale(1.05);
+            transform: scale(1.05);
+  }
+  60% {
+    -webkit-transform: scale(0.95);
+            transform: scale(0.95);
+  }
+  70% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+}
+
 header {
   margin: auto;
   padding: 4% 2.8%;
@@ -1223,6 +1293,11 @@ header .tag-list {
   height: 100%;
   border-radius: 0.6rem;
   position: relative;
+}
+
+.heart-anim {
+  -webkit-animation: pulse 1.3s linear;
+          animation: pulse 1.3s linear;
 }
 
 .photographer-container {

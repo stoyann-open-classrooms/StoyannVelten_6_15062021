@@ -116,7 +116,7 @@ function openModalForm(currentPhotographer) {
       modalValidationMsg.style.display = "flex";
       contactModal.append(modalValidationMsg);
       modalValidationMsg.append(validationTxt);
-      validationTxt.innerHTML = `Votre message a bien étè envoyer a <br> ${currentPhotographer.name} `;
+      validationTxt.innerHTML = `Votre message a bien été envoyé à <br> ${currentPhotographer.name} `;
 
       let datas = new FormData(bannerModal);
       for (let i of datas.entries()) {

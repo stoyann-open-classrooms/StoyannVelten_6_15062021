@@ -275,12 +275,14 @@ export function displayMediaList() {
           totalLikes.push(-1);
           cardsMediaCompteurLike.textContent = media.likes;
           getTotalLikes();
+          heart.classList.remove("heart-anim");
         } else {
           media.likes++;
           heart.classList.remove("far");
           heart.classList.add("fas");
           totalLikes.push(1);
           cardsMediaCompteurLike.textContent = media.likes;
+          heart.classList.add("heart-anim");
 
           getTotalLikes();
         }
@@ -347,6 +349,7 @@ function openLightbox(media, displayMediaList) {
   mediaVid.src = mediaImg.src = "./sources/img/2_big/" + currentMedia.link;
 
   const mediaTitle = document.querySelector(".titre-media-lightbox");
+  // mediaTitle.textContent = currentMedia.title;
 
   lightboxLink.forEach((link) => link.addEventListener("click", openLightbox));
   closeMediaModal.forEach((el) => el.addEventListener("click", closelightbox));
@@ -368,9 +371,11 @@ function openLightbox(media, displayMediaList) {
 
     if (displayMediaList.indexOf(currentMedia) + 1 >= displayMediaList.length) {
       currentMedia = displayMediaList[0];
+      mediaTitle.innerHTML = currentMedia.title;
     } else {
       currentMedia =
         displayMediaList[displayMediaList.indexOf(currentMedia) + 1];
+      mediaTitle.innerHTML = currentMedia.title;
     }
     displayContent();
   }
@@ -378,9 +383,11 @@ function openLightbox(media, displayMediaList) {
     e.preventDefault();
     if (displayMediaList.indexOf(currentMedia) - 1 < 0) {
       currentMedia = displayMediaList[displayMediaList.length - 1];
+      mediaTitle.innerHTML = currentMedia.title;
     } else {
       currentMedia =
         displayMediaList[displayMediaList.indexOf(currentMedia) - 1];
+      mediaTitle.innerHTML = currentMedia.title;
     }
     displayContent();
   }
@@ -388,8 +395,6 @@ function openLightbox(media, displayMediaList) {
   console.log(displayMediaList);
 
   function displayContent() {
-    mediaTitle.textContent = currentMedia.title;
-
     // displayMediaList.forEach((el) => {
     if (currentMedia.type == "jpg") {
       mediaVid.replaceWith(mediaImg);
