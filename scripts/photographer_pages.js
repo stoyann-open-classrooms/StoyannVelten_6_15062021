@@ -246,7 +246,10 @@ export function displayMediaList() {
     heartLink.setAttribute("role", "button");
     heartLink.setAttribute("tabindex", "0");
     cardsMediaCompteurLike.setAttribute("tabindex", "0");
-    cardsMediaCompteurLike.setAttribute("aria-label", "Nombre de likes");
+    cardsMediaCompteurLike.setAttribute(
+      "aria-label",
+      `Nombre de likes ${media.likes}`
+    );
 
     heart.classList.add("heart");
     heart.classList.add("far");
