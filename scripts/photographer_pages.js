@@ -225,9 +225,9 @@ export function displayMediaList() {
     const cardsMediaTitle = document.createElement("p");
     const cardsMediaHeaderLike = document.createElement("div");
 
-    const playLogo = document.createElement("i");
-    playLogo.classList.add("fas");
-    playLogo.classList.add("fa-play-circle");
+    // const playLogo = document.createElement("i");
+    // playLogo.classList.add("fas");
+    // playLogo.classList.add("fa-play-circle");
 
     const cardsMediaCompteurLike = document.createElement("p");
     const heartLink = document.createElement("a");
@@ -242,15 +242,21 @@ export function displayMediaList() {
     cardsMediaHeaderLike.classList.add("header-like");
     cardsMediaCompteurLike.classList.add("compteur");
     heartLink.classList.add("heart-link");
+    heartLink.setAttribute("aria-label", "Liker la photo");
+    heartLink.setAttribute("role", "button");
+    heartLink.setAttribute("tabindex", "0");
+    cardsMediaCompteurLike.setAttribute("tabindex", "0");
+    cardsMediaCompteurLike.setAttribute("aria-label", "Nombre de likes");
+
     heart.classList.add("heart");
     heart.classList.add("far");
     heart.classList.add("fa-heart");
 
     cardsMediaImg.href = "#";
 
-    if (media.type === "mp4") {
-      cardsMediaImg.append(playLogo);
-    }
+    // if (media.type === "mp4") {
+    //   cardsMediaImg.append(playLogo);
+    // }
 
     cardsMediaTitle.textContent = `${media.title}`;
     cardsMediaCompteurLike.textContent = `${media.likes}`;

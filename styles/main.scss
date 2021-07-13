@@ -15,3 +15,7 @@
 @import "./modules/cards-medias";
 @import "./modules/photographer-cards";
 @import "./modules/tags";
+
+.no-scroll {
+  overflow: hidden;
+}

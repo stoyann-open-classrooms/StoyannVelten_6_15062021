@@ -6,13 +6,14 @@ function openModalForm(currentPhotographer) {
   const modalTitle = document.querySelector(".modal-title");
   const btnModalMobile = document.querySelector(".btn-modal-mobile");
   const bannerBtnTablet = document.querySelector(".banner-btn");
-  const bannerModal = document.querySelector("form");
   const contactModal = document.querySelector(".contact-modal");
   const formFirstNameInp = document.querySelector(".firstName-inp");
   const formLastNameInp = document.querySelector(".lastName-inp");
   const formEmailInp = document.querySelector(".email-inp");
   const formMsgInp = document.querySelector(".msg-inp");
   const errorMessage = document.querySelectorAll(".message-alert");
+  const modalClose = document.querySelector(".modal-close");
+
   let verifFirst;
   let verifLast;
   let verifMail;
@@ -22,12 +23,21 @@ function openModalForm(currentPhotographer) {
 
   //open modal
   btnModalMobile.addEventListener("click", () => {
+    const body = document.getElementById("body");
+    console.log(body);
+
     contactModal.style.display = "flex";
+    contactModal.setAttribute("aria-hidden", "false");
+    body.classList.add("no-scrool");
+    btnModalMobile.focus();
   });
   bannerBtnTablet.addEventListener("click", () => {
     contactModal.style.display = "flex";
+    contactModal.setAttribute("aria-hidden", "false");
+    body.classList.remove("no-scrool");
+
+    bannerBtnTablet.focus();
   });
-  closeModal();
   formFirstNameInp.addEventListener("input", (e) => {
     if (e.target.value.length <= 3) {
       errorMessage[0].style.display = "inline";
@@ -124,13 +134,15 @@ function openModalForm(currentPhotographer) {
       }
     }
   });
+  closeModal();
 
   function closeModal() {
-    const modalClose = document.querySelector(".modal-close");
     const contactModal = document.querySelector(".contact-modal");
+    modalClose.focus();
 
     modalClose.addEventListener("click", () => {
       contactModal.style.display = "none";
+      contactModal.setAttribute("aria-hidden", "true");
     });
   }
 }

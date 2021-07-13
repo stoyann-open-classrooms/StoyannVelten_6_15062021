@@ -1412,4 +1412,8 @@ header .tag-list {
       -ms-flex-pack: center;
           justify-content: center;
 }
+
+.no-scroll {
+  overflow: hidden;
+}
 /*# sourceMappingURL=main.css.map */
