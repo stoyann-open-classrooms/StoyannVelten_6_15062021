@@ -4,7 +4,12 @@
 
 import { Photographers } from "./Photographers.js";
 import { PhotographerList } from "./photographerList.js";
-
+/**
+ * name photographerList
+ * @type {array}
+ * @description Tableau contenant les objets instancier avec la class phhotographer
+ *
+ */
 const photographerList = new PhotographerList();
 
 /**
@@ -15,7 +20,9 @@ const photographerList = new PhotographerList();
  */
 
 const linkToData = "./data/FishEyeDataFR.json";
+
 const loader = document.querySelector(".loader-container");
+
 window.addEventListener("load", () => {
   fetch(linkToData)
     .then((response) => {
@@ -58,7 +65,6 @@ function createPhotographerList(data) {
   return PhotographerList;
 }
 
-// affiche les elements de la page
 function displayPage() {
   displayTags();
   displayPhotographers();
@@ -94,6 +100,12 @@ function displayTags() {
 
 function displayPhotographers() {
   const main = document.querySelector("#main");
+  /**
+   * name filters
+   * @type {array}
+   * @description tableau contenant les tags selectionner
+   *
+   */
   const filters = [];
 
   main.innerHTML = "";

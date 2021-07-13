@@ -17,6 +17,7 @@ import { openModalForm } from "./modale.js";
  *
  */
 const linkToData = "data/FishEyeDataFR.json";
+
 const urlParams = new URLSearchParams(window.location.search);
 /**
  * @name mediaList
@@ -53,12 +54,6 @@ let totalLikes = [];
  *
  */
 let totalLikesPhotographer;
-/**
- *  createContent
- * @property {function} createContent  recuperation des données Json
- *
- * @returns  {createData}
- */
 
 const loader = document.querySelector(".loader-container");
 
@@ -124,6 +119,12 @@ function createData(data) {
 function displayBanner(currentPhotographer) {
   const urlParams = new URLSearchParams(window.location.search);
 
+  /**
+   * name LinkToPhoto
+   * @type {string}
+   * @description Chemin (path) vers la photo du photographe
+   *
+   */
   const linkToPhoto =
     "./sources/img/1_small/PhotographersID/" + currentPhotographer.portrait;
 
@@ -197,13 +198,18 @@ function displayBanner(currentPhotographer) {
  */
 export function displayMediaList() {
   /**
-   * @name filters
+   * @name displayMediaList
    * @type {Array<object>}
    * @description Liste des medias filtrer selon le ou les tags sélèctioner par l'uttilisateur
    *
    */
   let displayMediaList = [];
-
+  /**
+   * @name filters
+   * @type {array}
+   * @description tableau contenant les tags selectionne par l'uttilisateur
+   *
+   */
   const filters = [];
   const cardsMediaContainer = document.querySelector(".cards-media-container");
   const sort = document
@@ -283,8 +289,8 @@ export function displayMediaList() {
           heart.classList.add("far");
           totalLikes.push(-1);
           cardsMediaCompteurLike.textContent = media.likes;
-          getTotalLikes();
           heart.classList.remove("heart-anim");
+          getTotalLikes();
         } else {
           media.likes++;
           heart.classList.remove("far");
@@ -300,32 +306,54 @@ export function displayMediaList() {
 
     cardsMediaImg.addEventListener(
       "click",
-      openLightbox(media, displayMediaList)
+      displayLightbox(media, displayMediaList)
     );
     return filters;
   });
 }
 function displayPage() {
   document.title += " - " + currentPhotographer.name;
-
   displayBanner(currentPhotographer);
   openModalForm(currentPhotographer);
   displayFilterMenu(displayMediaList);
   getTotalLikes(totalLikes);
   displayMediaList();
 }
+/**
+ * @name getLikes
+ * ajoute les likes des médias dans un tableau
+ * @param {number} likes
+ * @returns {array}
+ */
 function getLikes(likes) {
   totalLikes.push(likes);
   return totalLikes;
 }
-
+/**
+ * @name getTotalLikes
+ * Calcul le nombres total de likes du photographe courant
+ *
+ *
+ */
 function getTotalLikes() {
+  /**
+   * @name totalLikesPhotographer
+   * @type {number}
+   * @description Nombres total de likes du photographe courant
+   *
+   */
   let totalLikesPhotographer = 0;
   for (let i = 0; i < totalLikes.length; i++) {
     totalLikesPhotographer += totalLikes[i];
   }
   displayTotalLikes(totalLikesPhotographer);
 }
+
+/**
+ * @name displayTotalLikes
+ * creer et affiche le nombre total de likes du photographe sur la page
+ * @param {number} totalLikesPhotographer nombre total de likes du photographe
+ */
 function displayTotalLikes(totalLikesPhotographer) {
   const totalLikesContainer = document.createElement("div");
   const totalLikesNb = document.createElement("div");
@@ -334,6 +362,7 @@ function displayTotalLikes(totalLikesPhotographer) {
   heart.classList.add(`fas`);
   heart.classList.add(`fa-heart`);
   heart.classList.add(`heart`);
+  heart.classList.add(`heart-global`);
 
   totalLikesContainer.classList.add("total-likes-container");
   totalLikesNb.classList.add("total-likes");
@@ -343,7 +372,14 @@ function displayTotalLikes(totalLikesPhotographer) {
   totalLikesContainer.append(totalLikesNb, heart);
 }
 
-function openLightbox(media, displayMediaList) {
+/**
+ * @name displayLightbox
+ * fonctions permettant d'ouvrir /fermer la lightbox et de naviguer entre les médias
+ * @param {object} media le media courant
+ * @param {array} displayMediaList liste des medias trier
+ */
+
+function displayLightbox(media, displayMediaList) {
   let currentMedia = media;
   const lightboxModal = document.querySelector(".lightbox-modal");
   const lightboxLink = document.querySelectorAll(".media-img");
@@ -358,16 +394,28 @@ function openLightbox(media, displayMediaList) {
   mediaVid.src = mediaImg.src = "./sources/img/2_big/" + currentMedia.link;
 
   const mediaTitle = document.querySelector(".titre-media-lightbox");
-  // mediaTitle.textContent = currentMedia.title;
 
   lightboxLink.forEach((link) => link.addEventListener("click", openLightbox));
   closeMediaModal.forEach((el) => el.addEventListener("click", closelightbox));
-
+  /**
+   * @name openLightbox
+   * fonctions permettant d'ouvrir la lightbox
+   */
   function openLightbox() {
     lightboxModal.style.display = "flex";
+    lightboxModal.setAttribute("aria-hidden", "false");
+    document.body.classList.add("no-scrool");
+
+    closeMediaModal.focus;
   }
+  /**
+   * @name closeLightbox
+   * fonctions permettant de fermer la lightbox
+   */
   function closelightbox() {
     lightboxModal.style.display = "none";
+    lightboxModal.setAttribute("aria-hidden", "true");
+    document.body.classList.remove("no-scrool");
   }
 
   rightArrow.addEventListener("click", (e) => nextMedia(e));
@@ -401,47 +449,24 @@ function openLightbox(media, displayMediaList) {
     displayContent();
   }
 
-  console.log(displayMediaList);
-
+  /**
+   * @name displayContent
+   * affiche le media dans la lightbox
+   */
   function displayContent() {
     // displayMediaList.forEach((el) => {
     if (currentMedia.type == "jpg") {
       mediaVid.replaceWith(mediaImg);
       mediaContainer.appendChild(mediaImg);
       mediaImg.alt = media.alt;
-
-      //   const mediaVid = document.createElement("video");
-      //   mediaVid.controls = true;
-      //   mediaVid.src = "./sources/img/2_big/" + media.link;
-      //   mediaTitle.textContent = currentMedia.title;
-      //   mediaContainer.append(mediaVid);
-      //   // mediaVid.replaceWith(img);
-      //   const mediaImg = document.createElement("img");
-      //
-      //   mediaImg.src = "./sources/img/2_big/" + media.link;
-      //   mediaContainer.append(mediaImg);
     } else if (media.type == "mp4") {
       // mediaContainer.removeChild();
       mediaImg.replaceWith(mediaVid);
-
       mediaVid.setAttribute("alt", media.alt);
-
       mediaContainer.appendChild(mediaVid);
-
       mediaVid.controls = true;
       mediaVid.autoplay = true;
       mediaVid.loop = true;
-
-      // console.log(displayMediaList[0].type);
-      // mediaContainer.append(mediaImg);
-      // if (currentMedia.type == "mp4") {
-      //   mediaVid.controls = true;
-      //   mediaVid.src = "./sources/img/2_big/" + media.link;
-      // } else if (currentMedia.type === "jpg") {
-      //   mediaImg.alt = media.alt;
-
-      //   mediaImg.src = "./sources/img/2_big/" + media.link;
-      // }
     }
   }
 }

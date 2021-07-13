@@ -33,10 +33,10 @@
 import { Photographers } from "./Photographers.js";
 import { MediumList } from "./MediumList.js";
 import { Medium } from "./Medium.js";
-import { displayBanner } from "./bannerPhotographer.js";
+import { displayFilterMenu } from "./dropdown.js";
 import { openModalForm } from "./modale.js";
-import { openLightbox } from "./lightbox.js";
-import { sortByDate, sortByPopularity, sortByTitle } from "./dropdownMenu.js";
+
+// import { sortByDate, sortByPopularity, sortByTitle } from "./dropdownMenu.js";
 
 /**
  * name linkToData
@@ -45,6 +45,7 @@ import { sortByDate, sortByPopularity, sortByTitle } from "./dropdownMenu.js";
  *
  */
 const linkToData = "data/FishEyeDataFR.json";
+
 const urlParams = new URLSearchParams(window.location.search);
 /**
  * @name mediaList
@@ -81,26 +82,29 @@ let totalLikes = [];
  *
  */
 let totalLikesPhotographer;
-/**
- *  createContent
- * @property {function} createContent  recuperation des données Json
- *
- * @returns  {createData}
- */
-function createContent() {
+
+const loader = document.querySelector(".loader-container");
+
+window.addEventListener("load", () => {
   fetch(linkToData)
     .then((response) => {
       if (response.ok) {
         return response.json();
       } else {
-        console.log("erreur");
+        setTimeout(function loaderAnim() {
+          console.log(
+            `Une erreur est survenue type d'erreur : ${response.status} `
+          );
+          loader.className += " hidden";
+        }, 2000);
       }
     })
-
     .then((data) => createData(data))
-
     .then(displayPage);
-}
+  setTimeout(function loaderAnim() {
+    loader.className += " hidden";
+  }, 2000);
+});
 
 function createData(data) {
   data.photographers.forEach((photographer) => {
@@ -139,50 +143,157 @@ function createData(data) {
     }
   });
 }
+
+function displayBanner(currentPhotographer) {
+  const urlParams = new URLSearchParams(window.location.search);
+
+  /**
+   * name LinkToPhoto
+   * @type {string}
+   * @description Chemin (path) vers la photo du photographe
+   *
+   */
+  const linkToPhoto =
+    "./sources/img/1_small/PhotographersID/" + currentPhotographer.portrait;
+
+  //  création des elements html
+  const banerBody = document.createElement("div");
+  const banerTitle = document.createElement("h1");
+  const banerLocation = document.createElement("p");
+  const banerTagline = document.createElement("p");
+  const containerTagsBanner = document.createElement("div");
+  const containerImgBanner = document.createElement("div");
+  const bannerImg = document.createElement("img");
+  const btnModal = document.createElement("button");
+  const banner = document.querySelector(".banner");
+
+  // ajouts des classes et attributs html
+
+  banerBody.classList.add("banner-body");
+  btnModal.classList.add("banner-btn");
+  containerImgBanner.classList.add("banner-img");
+  banerTitle.classList.add("banner-body-title");
+  banerLocation.classList.add("banner-body-location");
+  banerTagline.classList.add("banner-body-tagline");
+  banerTagline.classList.add("banner-body-tagline");
+  bannerImg.src = linkToPhoto;
+  banerTitle.setAttribute("lang", "en");
+
+  // ajout du contenu html
+  banerTitle.textContent = currentPhotographer.name;
+  banerLocation.textContent =
+    currentPhotographer.city + " ," + currentPhotographer.country;
+  banerTagline.textContent = currentPhotographer.tagline;
+  btnModal.textContent = "Contacter-moi";
+
+  // ajouts des tags
+  currentPhotographer.tags.forEach((el) => {
+    const tagsLink = document.createElement("a");
+    const tagsSpan = document.createElement("span");
+    containerTagsBanner.classList.add("banner-tags-container");
+    tagsLink.classList.add("tags-link");
+    tagsSpan.classList.add("tags");
+    containerTagsBanner.appendChild(tagsLink);
+    tagsSpan.textContent = "#" + el;
+    tagsLink.appendChild(tagsSpan);
+
+    tagsLink.addEventListener("click", (e) => {
+      e.preventDefault();
+      tagsLink.classList.toggle("tag--selected");
+      displayMediaList();
+    });
+
+    if (urlParams.get("tag") &amp;&amp; urlParams.get("tag") === el) {
+      tagsLink.classList.toggle("tag--selected");
+    }
+  });
+
+  // ajout des elements dans le DOM
+  banner.append(banerBody, btnModal, containerImgBanner);
+  banerBody.append(
+    banerTitle,
+    banerLocation,
+    banerTagline,
+    containerTagsBanner
+  );
+
+  containerImgBanner.appendChild(bannerImg);
+}
 /** display mediaList
  * @property {function} displaymediaList  créer et affiche les cards medias filtrer selon le ou les tags sélèctioner par l'uttilisateur
  *
  * @returns  {filters}
  */
-function displaymediaList() {
+export function displayMediaList() {
   /**
-   * @name filters
+   * @name displayMediaList
    * @type {Array&lt;object>}
    * @description Liste des medias filtrer selon le ou les tags sélèctioner par l'uttilisateur
    *
    */
-
+  let displayMediaList = [];
+  /**
+   * @name filters
+   * @type {array}
+   * @description tableau contenant les tags selectionne par l'uttilisateur
+   *
+   */
   const filters = [];
   const cardsMediaContainer = document.querySelector(".cards-media-container");
+  const sort = document
+    .querySelector(".filter-option.selected")
+    ?.getAttribute("data-value");
 
+  cardsMediaContainer.innerHTML = "";
   document.querySelectorAll(".tag--selected").forEach((tagSelected) => {
     filters.push(tagSelected.textContent.replace("#", ""));
   });
-  displaymediaList = mediaList.getMediaList(...filters);
-  const totalLikesNb = document.querySelector(".total-likes");
 
-  displaymediaList.forEach((media) => {
+  displayMediaList = mediaList.getMediaList(sort, ...filters);
+
+  displayMediaList.forEach((media) => {
     const mediaElement = media.createImg();
     const cardsMedia = document.createElement("div");
     const cardsMediaImg = document.createElement("a");
     const cardsMediaFooter = document.createElement("div");
     const cardsMediaTitle = document.createElement("p");
     const cardsMediaHeaderLike = document.createElement("div");
+
+    // const playLogo = document.createElement("i");
+    // playLogo.classList.add("fas");
+    // playLogo.classList.add("fa-play-circle");
+
     const cardsMediaCompteurLike = document.createElement("p");
     const heartLink = document.createElement("a");
     const heart = document.createElement("i");
+    cardsMediaCompteurLike.setAttribute("aria-label", `likes`);
 
     cardsMedia.classList.add("cards-media");
     cardsMediaImg.classList.add("cards-media-img");
+
     cardsMediaFooter.classList.add("cards-media-footer");
     cardsMediaTitle.classList.add("cards-media-title");
     cardsMediaHeaderLike.classList.add("header-like");
     cardsMediaCompteurLike.classList.add("compteur");
     heartLink.classList.add("heart-link");
+    heartLink.setAttribute("aria-label", "Liker la photo");
+    heartLink.setAttribute("role", "button");
+    heartLink.setAttribute("tabindex", "0");
+    cardsMediaCompteurLike.setAttribute("tabindex", "0");
+    cardsMediaCompteurLike.setAttribute(
+      "aria-label",
+      `Nombre de likes ${media.likes}`
+    );
+
     heart.classList.add("heart");
     heart.classList.add("far");
     heart.classList.add("fa-heart");
+
     cardsMediaImg.href = "#";
+
+    // if (media.type === "mp4") {
+    //   cardsMediaImg.append(playLogo);
+    // }
 
     cardsMediaTitle.textContent = `${media.title}`;
     cardsMediaCompteurLike.textContent = `${media.likes}`;
@@ -193,55 +304,84 @@ function displaymediaList() {
     cardsMediaFooter.append(cardsMediaTitle, cardsMediaHeaderLike);
     cardsMediaHeaderLike.append(cardsMediaCompteurLike, heartLink);
     heartLink.append(heart);
+    compteurLikes(totalLikes);
 
     // compteur de likes
-    heartLink.addEventListener("click", () => {
-      if (heart.classList.contains("fas")) {
-        media.likes--;
-        heart.classList.remove("fas");
-        heart.classList.add("far");
-        cardsMediaCompteurLike.textContent = `${media.likes}`;
-        totalLikesPhotographer--;
-        totalLikesNb.textContent = `${totalLikesPhotographer} `;
-      } else {
-        media.likes++;
-        heart.classList.remove("far");
-        heart.classList.add("fas");
-        cardsMediaCompteurLike.textContent = `${media.likes}`;
-        totalLikesPhotographer++;
+    function compteurLikes(totalLikes) {
+      cardsMediaCompteurLike.classList.add("compteur");
 
-        totalLikesNb.textContent = `${totalLikesPhotographer} `;
-      }
-    });
-    cardsMediaImg.addEventListener("click", openLightbox(media));
+      heartLink.addEventListener("click", () => {
+        if (heart.classList.contains("fas")) {
+          media.likes--;
+          heart.classList.remove("fas");
+          heart.classList.add("far");
+          totalLikes.push(-1);
+          cardsMediaCompteurLike.textContent = media.likes;
+          getTotalLikes();
+          heart.classList.remove("heart-anim");
+        } else {
+          media.likes++;
+          heart.classList.remove("far");
+          heart.classList.add("fas");
+          totalLikes.push(1);
+          cardsMediaCompteurLike.textContent = media.likes;
+          heart.classList.add("heart-anim");
+          getTotalLikes();
+        }
+      });
+    }
+
+    cardsMediaImg.addEventListener(
+      "click",
+      displayLightbox(media, displayMediaList)
+    );
     return filters;
   });
 }
-
 function displayPage() {
   document.title += " - " + currentPhotographer.name;
-  const filterDate = document.querySelector(".dropdown-child-date");
-  const filterPopularity = document.querySelector(".dropdown-menu");
-  const filterTitle = document.querySelector(".dropdown-child-title");
   displayBanner(currentPhotographer);
   openModalForm(currentPhotographer);
-  sortByDate(filterDate);
-  sortByPopularity(filterPopularity);
-  sortByTitle(filterTitle);
+  displayFilterMenu(displayMediaList);
   getTotalLikes(totalLikes);
-  displaymediaList();
+  displayMediaList();
 }
-
+/**
+ * @name getLikes
+ * ajoute les likes des médias dans un tableau
+ * @param {number} likes
+ * @returns {array}
+ */
 function getLikes(likes) {
   totalLikes.push(likes);
   return totalLikes;
 }
-
-function getTotalLikes(totalLikes) {
+/**
+ * @name getTotalLikes
+ * Calcul le nombres total de likes du photographe courant
+ *
+ *
+ */
+function getTotalLikes() {
+  /**
+   * @name totalLikesPhotographer
+   * @type {number}
+   * @description Nombres total de likes du photographe courant
+   *
+   */
   let totalLikesPhotographer = 0;
   for (let i = 0; i &lt; totalLikes.length; i++) {
     totalLikesPhotographer += totalLikes[i];
   }
+  displayTotalLikes(totalLikesPhotographer);
+}
+
+/**
+ * @name displayTotalLikes
+ * creer et affiche le nombre total de likes du photographe sur la page
+ * @param {number} totalLikesPhotographer nombre total de likes du photographe
+ */
+function displayTotalLikes(totalLikesPhotographer) {
   const totalLikesContainer = document.createElement("div");
   const totalLikesNb = document.createElement("div");
   const heart = document.createElement("i");
@@ -256,11 +396,104 @@ function getTotalLikes(totalLikes) {
 
   main.append(totalLikesContainer);
   totalLikesContainer.append(totalLikesNb, heart);
-
-  return totalLikesPhotographer;
 }
 
-createContent();
+/**
+ * @name displayLightbox
+ * fonctions permettant d'ouvrir /fermer la lightbox et de naviguer entre les médias
+ * @param {object} media le media courant
+ * @param {array} displayMediaList liste des medias trier
+ */
+
+function displayLightbox(media, displayMediaList) {
+  let currentMedia = media;
+  const lightboxModal = document.querySelector(".lightbox-modal");
+  const lightboxLink = document.querySelectorAll(".media-img");
+  const closeMediaModal = document.querySelectorAll(".close-lightbox-media");
+  const arrows = document.querySelectorAll(".lightbox-arrow");
+  const leftArrow = arrows[0];
+  const rightArrow = arrows[1];
+  const mediaImg = document.createElement("img");
+  const mediaVid = document.createElement("video");
+  const mediaContainer = document.querySelector(".media-container");
+
+  mediaVid.src = mediaImg.src = "./sources/img/2_big/" + currentMedia.link;
+
+  const mediaTitle = document.querySelector(".titre-media-lightbox");
+
+  lightboxLink.forEach((link) => link.addEventListener("click", openLightbox));
+  closeMediaModal.forEach((el) => el.addEventListener("click", closelightbox));
+  /**
+   * @name openLightbox
+   * fonctions permettant d'ouvrir la lightbox
+   */
+  function openLightbox() {
+    lightboxModal.style.display = "flex";
+    lightboxModal.setAttribute("aria-hidden", "false");
+    document.body.classList.add("no-scrool");
+    closeMediaModal.focus();
+    displayContent();
+  }
+  /**
+   * @name closeLightbox
+   * fonctions permettant de fermer la lightbox
+   */
+  function closelightbox() {
+    lightboxModal.style.display = "none";
+    lightboxModal.setAttribute("aria-hidden", "true");
+    document.body.classList.remove("no-scrool");
+  }
+
+  rightArrow.addEventListener("click", (e) => nextMedia(e));
+  leftArrow.addEventListener("click", (e) => previousMedia(e));
+
+  function nextMedia(e) {
+    e.preventDefault();
+
+    if (displayMediaList.indexOf(currentMedia) + 1 >= displayMediaList.length) {
+      currentMedia = displayMediaList[0];
+      mediaTitle.innerHTML = currentMedia.title;
+    } else {
+      currentMedia =
+        displayMediaList[displayMediaList.indexOf(currentMedia) + 1];
+      mediaTitle.innerHTML = currentMedia.title;
+    }
+    displayContent();
+  }
+  function previousMedia(e) {
+    e.preventDefault();
+    if (displayMediaList.indexOf(currentMedia) - 1 &lt; 0) {
+      currentMedia = displayMediaList[displayMediaList.length - 1];
+      mediaTitle.innerHTML = currentMedia.title;
+    } else {
+      currentMedia =
+        displayMediaList[displayMediaList.indexOf(currentMedia) - 1];
+      mediaTitle.innerHTML = currentMedia.title;
+    }
+    displayContent();
+  }
+
+  /**
+   * @name displayContent
+   * affiche le media dans la lightbox
+   */
+  function displayContent() {
+    // displayMediaList.forEach((el) => {
+    if (currentMedia.type == "jpg") {
+      mediaVid.replaceWith(mediaImg);
+      mediaContainer.appendChild(mediaImg);
+      mediaImg.alt = media.alt;
+    } else if (media.type == "mp4") {
+      // mediaContainer.removeChild();
+      mediaImg.replaceWith(mediaVid);
+      mediaVid.setAttribute("alt", media.alt);
+      mediaContainer.appendChild(mediaVid);
+      mediaVid.controls = true;
+      mediaVid.autoplay = true;
+      mediaVid.loop = true;
+    }
+  }
+}
 </code></pre>
         </article>
     </section>
@@ -271,13 +504,13 @@ createContent();
 </div>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-bannerPhotographer.html">bannerPhotographer</a></li><li><a href="module-dropdownMenu.html">dropdownMenu</a></li><li><a href="module-lightbox.html">lightbox</a></li><li><a href="module-main.html">main</a></li><li><a href="module-Medium-class.html">Medium-class</a></li><li><a href="module-MediumList.html">MediumList</a></li><li><a href="module-modale.html">modale</a></li><li><a href="module-Photographer-class.html">Photographer-class</a></li><li><a href="module-Photographer-List.html">Photographer-List</a></li><li><a href="module-photographer-pages.html">photographer-pages</a></li></ul><h3>Classes</h3><ul><li><a href="module-Medium-class.Medium.html">Medium</a></li><li><a href="module-MediumList.MediumList.html">MediumList</a></li><li><a href="module-Photographer-class.Photographers.html">Photographers</a></li><li><a href="module-Photographer-List.PhotographerList.html">PhotographerList</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-dropdown.html">dropdown</a></li><li><a href="module-main.html">main</a></li><li><a href="module-Medium-class.html">Medium-class</a></li><li><a href="module-MediumList.html">MediumList</a></li><li><a href="module-modale.html">modale</a></li><li><a href="module-Photographer-class.html">Photographer-class</a></li><li><a href="module-Photographer-List.html">Photographer-List</a></li><li><a href="module-photographer-pages.html">photographer-pages</a></li></ul><h3>Classes</h3><ul><li><a href="module-Medium-class.Medium.html">Medium</a></li><li><a href="module-MediumList.MediumList.html">MediumList</a></li><li><a href="module-Photographer-class.Photographers.html">Photographers</a></li><li><a href="module-Photographer-List.PhotographerList.html">PhotographerList</a></li></ul>
 </nav>
 
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.7</a> on Fri Jul 02 2021 08:19:05 GMT+1100 (heure des îles Salomon)
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.7</a> on Tue Jul 13 2021 17:04:52 GMT+1100 (heure des îles Salomon)
 </footer>
 
 <script> prettyPrint(); </script>

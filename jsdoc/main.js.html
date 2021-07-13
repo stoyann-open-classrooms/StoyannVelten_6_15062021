@@ -32,7 +32,12 @@
 
 import { Photographers } from "./Photographers.js";
 import { PhotographerList } from "./photographerList.js";
-
+/**
+ * name photographerList
+ * @type {array}
+ * @description Tableau contenant les objets instancier avec la class phhotographer
+ *
+ */
 const photographerList = new PhotographerList();
 
 /**
@@ -41,23 +46,30 @@ const photographerList = new PhotographerList();
  * @description le liens vers les données Json Fisheye
  *
  */
-const linkToData = "./data/FishEyeDataFR.json";
-const returnMain = document.querySelector(".return-main ");
 
-window.addEventListener("scroll", () => {
-  if (window.scrollY > 40) {
-    returnMain.style.display = "block";
-  } else {
-    returnMain.style.display = "none";
-  }
+const linkToData = "./data/FishEyeDataFR.json";
+
+const loader = document.querySelector(".loader-container");
+
+window.addEventListener("load", () => {
+  fetch(linkToData)
+    .then((response) => {
+      if (response.ok) {
+        return response.json();
+      } else {
+        console.log(`Une erreur de type ${response.status}  est survenu ! `);
+        setTimeout(function loaderAnim() {
+          loader.className += " hidden";
+        }, 2000);
+      }
+    })
+    .then((data) => createPhotographerList(data))
+    .then(displayPage);
+  setTimeout(function loaderAnim() {
+    loader.className += " hidden";
+  }, 2000);
 });
 
-fetch(linkToData)
-  .then((reponse) => reponse.json())
-  .then((data) => {
-    createPhotographerList(data);
-    displayPage();
-  });
 /**
  *créer un objet pour chaque photographe et les push dans un nouveaux tableau
  * @param {string} data linkToData
@@ -81,10 +93,10 @@ function createPhotographerList(data) {
   return PhotographerList;
 }
 
-// affiche les elements de la page
 function displayPage() {
   displayTags();
   displayPhotographers();
+  displayReturnMain();
 }
 
 // creation et affichages des tags (header) plus ajout toggle au cick
@@ -95,19 +107,20 @@ function displayTags() {
     const a = document.createElement("a");
     const span = document.createElement("span");
 
-    a.href = "#";
     span.id = `${tag}`;
+    span.textContent = "#" + tag;
     span.classList.add("tags");
+
     a.classList.add("tags-link");
+    a.href = "#";
+    a.setAttribute("aria-labelledby", `${tag}`);
 
     tagList.append(a);
     a.append(span);
-    span.textContent = "#" + tag;
-
+    //ajoute la classe tag--selected si le tag est selectionner par l'uttilisateur
     a.addEventListener("click", (e) => {
       e.preventDefault();
       a.classList.toggle("tag--selected");
-
       displayPhotographers();
     });
   });
@@ -115,6 +128,12 @@ function displayTags() {
 
 function displayPhotographers() {
   const main = document.querySelector("#main");
+  /**
+   * name filters
+   * @type {array}
+   * @description tableau contenant les tags selectionner
+   *
+   */
   const filters = [];
 
   main.innerHTML = "";
@@ -147,12 +166,11 @@ function displayPhotographers() {
       tagsspan.textContent = "#" + el;
       tagsA.classList.add("tags-link");
       tagsspan.classList.add("tags");
-      tagsA.setAttribute("role", "link");
 
-      tagsA.addEventListener("click", (e) => {
-        e.preventDefault();
-        tagsA.classList.toggle("tag--selected");
-      });
+      tagsA.setAttribute("aria-labelledby", `${el}`);
+      cardTags.setAttribute("role", "navigation");
+
+      tagsA.href = linkToPage + "&amp;tag=" + el;
     });
 
     cardPhotographer.classList.add("photographer-cards");
@@ -163,14 +181,13 @@ function displayPhotographers() {
     cardTagline.classList.add("cards-tagline");
     cardPrice.classList.add("cards-price");
     modalBg.classList.add("modal");
-
     cardBody.classList.add("cards-body");
 
-    cardLink.href = linkToPage;
     cardLink.setAttribute("role", "link");
+    cardLink.href = linkToPage;
     cardImg.src = linkToPhoto;
+    cardImg.alt = "";
 
-    // cardTags.ariaLabel = mediaphotographer;
     cardTitle.textContent = photographer.name;
     cardLocation.textContent = photographer.city + ", " + photographer.country;
     cardTagline.textContent = photographer.tagline;
@@ -180,6 +197,17 @@ function displayPhotographers() {
     cardLink.append(cardImg, cardTitle);
     cardPhotographer.append(cardLink, cardBody);
     cardBody.append(cardLocation, cardTagline, cardPrice, cardTags);
+  });
+}
+
+function displayReturnMain() {
+  const returnMain = document.querySelector(".return-main ");
+  window.addEventListener("scroll", () => {
+    if (window.scrollY > 40) {
+      returnMain.style.display = "block";
+    } else {
+      returnMain.style.display = "none";
+    }
   });
 }
 </code></pre>
@@ -192,13 +220,13 @@ function displayPhotographers() {
 </div>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-bannerPhotographer.html">bannerPhotographer</a></li><li><a href="module-dropdownMenu.html">dropdownMenu</a></li><li><a href="module-lightbox.html">lightbox</a></li><li><a href="module-main.html">main</a></li><li><a href="module-Medium-class.html">Medium-class</a></li><li><a href="module-MediumList.html">MediumList</a></li><li><a href="module-modale.html">modale</a></li><li><a href="module-Photographer-class.html">Photographer-class</a></li><li><a href="module-Photographer-List.html">Photographer-List</a></li><li><a href="module-photographer-pages.html">photographer-pages</a></li></ul><h3>Classes</h3><ul><li><a href="module-Medium-class.Medium.html">Medium</a></li><li><a href="module-MediumList.MediumList.html">MediumList</a></li><li><a href="module-Photographer-class.Photographers.html">Photographers</a></li><li><a href="module-Photographer-List.PhotographerList.html">PhotographerList</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-dropdown.html">dropdown</a></li><li><a href="module-main.html">main</a></li><li><a href="module-Medium-class.html">Medium-class</a></li><li><a href="module-MediumList.html">MediumList</a></li><li><a href="module-modale.html">modale</a></li><li><a href="module-Photographer-class.html">Photographer-class</a></li><li><a href="module-Photographer-List.html">Photographer-List</a></li><li><a href="module-photographer-pages.html">photographer-pages</a></li></ul><h3>Classes</h3><ul><li><a href="module-Medium-class.Medium.html">Medium</a></li><li><a href="module-MediumList.MediumList.html">MediumList</a></li><li><a href="module-Photographer-class.Photographers.html">Photographers</a></li><li><a href="module-Photographer-List.PhotographerList.html">PhotographerList</a></li></ul>
 </nav>
 
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.7</a> on Fri Jul 02 2021 08:19:05 GMT+1100 (heure des îles Salomon)
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.7</a> on Tue Jul 13 2021 17:04:52 GMT+1100 (heure des îles Salomon)
 </footer>
 
 <script> prettyPrint(); </script>
