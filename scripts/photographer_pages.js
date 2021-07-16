@@ -388,6 +388,12 @@ function displayLightbox(media, displayMediaList) {
   const slideContainer = document.querySelector(".container-slides");
   const mediaImg = document.createElement("img");
   const mediaVid = document.createElement("video");
+  mediaImg.classList.add("slide");
+  mediaVid.classList.add("slide");
+
+  // const firstSlide = document.querySelector(".container-slides:nth-child(1)");
+  // console.log(firstSlide);
+  // slide.classList.add("active");
   // const lightboxLink = document.querySelectorAll(".media-img");
   // const closeMediaModal = document.querySelectorAll(".close-lightbox-media");
   // const arrows = document.querySelectorAll(".lightbox-arrow");
@@ -396,7 +402,8 @@ function displayLightbox(media, displayMediaList) {
   // const mediaContainer = document.querySelector(".media-container");
 
   mediaVid.src = mediaImg.src = "./sources/img/2_big/" + currentMedia.link;
-  console.log(currentMedia);
+
+  // console.log(currentMedia);
   if (currentMedia.type == "jpg") {
     mediaVid.replaceWith(mediaImg);
     slideContainer.appendChild(mediaImg);
