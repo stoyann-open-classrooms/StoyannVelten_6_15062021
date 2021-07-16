@@ -150,6 +150,7 @@ function displayBanner(currentPhotographer) {
   banerTagline.classList.add("banner-body-tagline");
   bannerImg.src = linkToPhoto;
   banerTitle.setAttribute("lang", "en");
+  bannerImg.setAttribute("alt", `${currentPhotographer.name}`);
 
   // ajout du contenu html
   banerTitle.textContent = currentPhotographer.name;
@@ -234,6 +235,7 @@ export function displayMediaList() {
     // const playLogo = document.createElement("i");
     // playLogo.classList.add("fas");
     // playLogo.classList.add("fa-play-circle");
+    cardsMediaImg.textContent = `${media.title}`;
 
     const cardsMediaCompteurLike = document.createElement("p");
     const heartLink = document.createElement("a");
@@ -262,6 +264,11 @@ export function displayMediaList() {
     heart.classList.add("fa-heart");
 
     cardsMediaImg.href = "#";
+
+    cardsMediaImg.setAttribute(
+      "aria-describedby",
+      "retour a la page d'acceuil"
+    );
 
     // if (media.type === "mp4") {
     //   cardsMediaImg.append(playLogo);
