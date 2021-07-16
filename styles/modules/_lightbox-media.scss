@@ -1,5 +1,5 @@
 .lightbox-modal {
-  display: flex;
+  display: none;
   position: fixed;
   z-index: 999999;
   left: 0;
@@ -91,7 +91,7 @@
     }
 
     .commandes button:nth-child(1) {
-      top: 50%;
+      top: 40%;
       transform: translate(-50%);
       left: 10%;
     }
@@ -99,7 +99,7 @@
       left: -10px;
     }
     .commandes button:nth-child(2) {
-      top: 50%;
+      top: 40%;
       transform: translate(50%);
       right: 7%;
     }

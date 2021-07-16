@@ -382,72 +382,93 @@ function displayTotalLikes(totalLikesPhotographer) {
 
 function displayLightbox(media, displayMediaList) {
   let currentMedia = media;
+
   // console.log(currentMedia);
   // console.log(media);
   const lightboxModal = document.querySelector(".lightbox-modal");
   const slideContainer = document.querySelector(".container-slides");
-  const mediaImg = document.createElement("img");
-  const mediaVid = document.createElement("video");
-  mediaImg.classList.add("slide");
-  mediaVid.classList.add("slide");
+  const closeBtn = document.querySelector(".close-lightbox-media");
+  const next = document.querySelector(".right");
+  const previous = document.querySelector(".left");
   const titleMedia = document.querySelector(".titre-media-lightbox");
   titleMedia.textContent = `${currentMedia.title}`;
+  console.log(next);
+  next.addEventListener("click", nextSlide);
+  closeBtn.addEventListener("click", closelightbox);
+  function nextSlide(e) {
+    e.preventDefault;
+
+    if (displayMediaList.indexOf(currentMedia) + 1 >= displayMediaList.length) {
+      currentMedia = displayMediaList[0];
+      console.log(currentMedia);
+      titleMedia.textContent = `${currentMedia.title}`;
+    } else {
+      currentMedia =
+        displayMediaList[displayMediaList.indexOf(currentMedia) + 1];
+
+      console.log(currentMedia);
+      titleMedia.textContent = `${currentMedia.title}`;
+    }
+  }
 
   // const firstSlide = document.querySelector(".container-slides:nth-child(1)");
   // console.log(firstSlide);
   // slide.classList.add("active");
-  // const lightboxLink = document.querySelectorAll(".media-img");
+  const lightboxLink = document.querySelectorAll(".media-img");
   // const closeMediaModal = document.querySelectorAll(".close-lightbox-media");
   // const arrows = document.querySelectorAll(".lightbox-arrow");
   // const leftArrow = arrows[0];
   // const rightArrow = arrows[1];
   // const mediaContainer = document.querySelector(".media-container");
 
-  mediaVid.src = mediaImg.src = "./sources/img/2_big/" + currentMedia.link;
+  // mediaVid.src = mediaImg.src = "./sources/img/2_big/" + currentMedia.link;
 
   // console.log(currentMedia);
   if (currentMedia.type == "jpg") {
-    mediaVid.replaceWith(mediaImg);
-    slideContainer.appendChild(mediaImg);
+    const mediaImg = document.createElement("img");
+
     mediaImg.alt = currentMedia.alt;
+    mediaImg.classList.add("slide");
+    slideContainer.appendChild(mediaImg);
 
     // mediaTitle.innerHTML = currentMedia.title;
     // console.log(currentMedia.title[0]);
   } else if (currentMedia.type == "mp4") {
+    const mediaVid = document.createElement("video");
+    mediaVid.classList.add("slide");
+
     // mediaContainer.removeChild();
-    mediaImg.replaceWith(mediaVid);
-    mediaVid.setAttribute("alt", currentMedia.alt);
-    slideContainer.appendChild(mediaVid);
+
+    // mediaVid.setAttribute("alt", currentMedia.alt);
     mediaVid.controls = true;
     mediaVid.autoplay = true;
     mediaVid.loop = true;
+    slideContainer.appendChild(mediaVid);
     // mediaTitle.innerHTML = currentMedia.title;
   }
 
   // const mediaTitle = document.querySelector(".titre-media-lightbox");
 
-  // lightboxLink.forEach((link) => link.addEventListener("click", openLightbox));
+  lightboxLink.forEach((link) => link.addEventListener("click", openLightbox));
   // closeMediaModal.forEach((el) => el.addEventListener("click", closelightbox));
   // /**
   //  * @name openLightbox
   //  * fonctions permettant d'ouvrir la lightbox
   //  */
-  // function openLightbox() {
-  //   lightboxModal.style.display = "flex";
-  //   lightboxModal.setAttribute("aria-hidden", "false");
-  //   document.body.classList.add("no-scrool");
-
-  //   closeMediaModal.focus;
-  // }
+  function openLightbox() {
+    lightboxModal.style.display = "flex";
+    lightboxModal.setAttribute("aria-hidden", "false");
+    document.body.classList.add("no-scrool");
+  }
   // /**
   //  * @name closeLightbox
   //  * fonctions permettant de fermer la lightbox
   //  */
-  // function closelightbox() {
-  //   lightboxModal.style.display = "none";
-  //   lightboxModal.setAttribute("aria-hidden", "true");
-  //   document.body.classList.remove("no-scrool");
-  // }
+  function closelightbox() {
+    lightboxModal.style.display = "none";
+    lightboxModal.setAttribute("aria-hidden", "true");
+    document.body.classList.remove("no-scrool");
+  }
 
   // rightArrow.addEventListener("click", (e) => nextMedia(e));
   // leftArrow.addEventListener("click", (e) => previousMedia(e));

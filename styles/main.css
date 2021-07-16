@@ -672,9 +672,7 @@ header .tag-list {
 }
 
 .lightbox-modal {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
+  display: none;
   position: fixed;
   z-index: 999999;
   left: 0;
@@ -788,7 +786,7 @@ header .tag-list {
 }
 
 .lightbox-modal .lightbox-content .commandes button:nth-child(1) {
-  top: 50%;
+  top: 40%;
   -webkit-transform: translate(-50%);
           transform: translate(-50%);
   left: 10%;
@@ -799,7 +797,7 @@ header .tag-list {
 }
 
 .lightbox-modal .lightbox-content .commandes button:nth-child(2) {
-  top: 50%;
+  top: 40%;
   -webkit-transform: translate(50%);
           transform: translate(50%);
   right: 7%;
