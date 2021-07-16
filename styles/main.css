@@ -91,8 +91,8 @@ header .tag-list, .photographer-cards .cards-photographer-link {
 @-webkit-keyframes apparition {
   from {
     opacity: 0;
-    -webkit-transform: translateX(-10rem);
-            transform: translateX(-10rem);
+    -webkit-transform: translateX(-3rem);
+            transform: translateX(-3rem);
   }
   to {
     opacity: 1;
@@ -104,8 +104,8 @@ header .tag-list, .photographer-cards .cards-photographer-link {
 @keyframes apparition {
   from {
     opacity: 0;
-    -webkit-transform: translateX(-10rem);
-            transform: translateX(-10rem);
+    -webkit-transform: translateX(-3rem);
+            transform: translateX(-3rem);
   }
   to {
     opacity: 1;
@@ -117,8 +117,8 @@ header .tag-list, .photographer-cards .cards-photographer-link {
 @-webkit-keyframes apparition-right {
   from {
     opacity: 0;
-    -webkit-transform: translateX(10rem);
-            transform: translateX(10rem);
+    -webkit-transform: translateX(-3rem);
+            transform: translateX(-3rem);
   }
   to {
     opacity: 1;
@@ -130,8 +130,8 @@ header .tag-list, .photographer-cards .cards-photographer-link {
 @keyframes apparition-right {
   from {
     opacity: 0;
-    -webkit-transform: translateX(10rem);
-            transform: translateX(10rem);
+    -webkit-transform: translateX(-3rem);
+            transform: translateX(-3rem);
   }
   to {
     opacity: 1;
@@ -684,11 +684,12 @@ header .tag-list {
 
 .lightbox-modal .close-lightbox-media {
   position: absolute;
-  font-size: 4rem;
-  top: 3%;
+  font-size: 2rem;
+  top: 2%;
   right: 7%;
   font-size: x-large;
   cursor: pointer;
+  color: #901c1c;
 }
 
 .lightbox-modal .lightbox-content {
@@ -761,7 +762,8 @@ header .tag-list {
   position: absolute;
 }
 
-.lightbox-modal .lightbox-content .commandes button {
+.lightbox-modal .lightbox-content .commandes .right,
+.lightbox-modal .lightbox-content .commandes .left {
   position: absolute;
   width: 60px;
   height: 100px;
@@ -779,7 +781,8 @@ header .tag-list {
   cursor: pointer;
 }
 
-.lightbox-modal .lightbox-content .commandes button i {
+.lightbox-modal .lightbox-content .commandes .right i,
+.lightbox-modal .lightbox-content .commandes .left i {
   font-size: 40px;
   position: relative;
   color: #901c1c;
@@ -813,7 +816,7 @@ header .tag-list {
   bottom: 3%;
   left: 15%;
   margin: auto;
-  font-size: 1.5rem;
+  font-size: 2rem;
 }
 
 .return-main {

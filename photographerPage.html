@@ -13,17 +13,13 @@
 </head>
 
 <body id="body">
-
     <!-- ________ Loader ________ -->
     <div class="loader-container">
         <div class="loader"></div>
     </div>
 
-
-
     <!-- ________ header ________ -->
     <header>
-
         <div class="header-top">
             <a href="./index.html" class="logo">
                 <img src="./sources/logo/logo.svg" />
@@ -35,7 +31,7 @@
     <main class="main">
         <!-- ------ Contact modal ------ -->
         <section class="contact-modal" role="dialog" aria-hidden="true" aria-describedby="contact-modal">
-            <div class=" modal-content">
+            <div class="modal-content">
                 <div class="modal-header">
                     <h3 class="modal-title"></h3>
                     <i class="modal-close fas fa-times"></i>
@@ -43,48 +39,49 @@
                 <form class="modal-form" id="contact">
                     <label for="prenom">Prénom</label>
                     <input class="firstName-inp" id="prenom" type="text" maxlenght="24" name="first-Name"
-                        aria-labelledby="Entrez votre prénom" required>
+                        aria-labelledby="Entrez votre prénom" required />
                     <span class="message-alert">Vous devez entrer votre prénom !</span>
                     <label for="nom">Nom</label>
                     <input class="lastName-inp" id="nom" type="text" maxlenght="24" name="last-Name"
-                        aria-labelledby="Entrez votre nom" required>
+                        aria-labelledby="Entrez votre nom" required />
                     <span class="message-alert">Vous devez entrer votre nom !</span>
-                    <label for="email">Email<br></label>
+                    <label for="email">Email<br /></label>
                     <input class="email-inp" id="email" type="email" name="email"
                         aria-labelledby="Entrez votre adresse Email" required
-                        data-error="Vous devez entrer un Email valide !">
-                    <span class="message-alert">Vous devez entrer un Email valide ! </span>
-                    <label for="msg">Votre Message<br></label>
+                        data-error="Vous devez entrer un Email valide !" />
+                    <span class="message-alert">Vous devez entrer un Email valide !
+                    </span>
+                    <label for="msg">Votre Message<br /></label>
                     <textarea class="msg-inp" id="msg" type="text" name="message" aria-labelledby="Entrez votre méssage"
                         maxlenght="300" required></textarea>
                     <span class="message-alert">Votre devez entrer un message ! </span>
-                    <button type="submit" value="Envoyer" name="Email" aria-label="Envoyer le message">Envoyer</button>
+                    <button type="submit" value="Envoyer" name="Email" aria-label="Envoyer le message">
+                        Envoyer
+                    </button>
                 </form>
             </div>
         </section>
         <!-- ------ Lightbox modal ------ -->
         <div class="lightbox-modal" role="dialog" aria-hidden="true" aria-describedby="lightbox modal">
-            <div class="lightbox-content">
+            <div class="lightbox-content" role="slider">
                 <div class="container-slides"></div>
                 <div class="commandes">
-                    <button class="left">
-                        <i class="fas fa-chevron-left" aria-labelledby="media precedent"></i>
+                    <button class="left" role="button" aria-labelledby="media precedent">
+                        <i class="fas fa-chevron-left"></i>
                     </button>
-                    <button class="right">
-                        <i class="fas fa-chevron-right" aria-labelledby="media suivant"></i>
+                    <button class="right" role="button" aria-labelledby="media suivant">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                    <button class="close" role="button" aria-labelledby="Fermer">
+                        <i class="fas fa-times close-lightbox-media"></i>
+                    </button>
 
-                    </button>
-                    <buton class="close">
-                        <i class="fas fa-times close-lightbox-media" aria-labelledby="Fermer"></i>
-                    </buton>
                     <p class="titre-media-lightbox">Ici le titre du média</p>
                 </div>
-
             </div>
         </div>
         <!-- ------ Banner photographe ------ -->
         <section class="banner" role="banner"></section>
-
 
         <!-- ------ Dropdown Menu ------ -->
         <section class="filter">
