@@ -70,6 +70,15 @@ export class Photo extends Medium {
     cardsMediaImg.classList.add("media-img");
     return cardsMediaImg;
   }
+  // displaySlideImg() {
+  //   const mediaImg = document.createElement("img");
+  //   mediaImg.alt = this.alt;
+  //   mediaImg.classList.add("slide");
+  //   slideContainer.appendChild(mediaImg);
+  //   return mediaImg;
+  //   // mediaTitle.innerHTML = currentMedia.title;
+  //   // console.log(currentMedia.title[0]);
+  // }
 }
 
 export class Video extends Medium {
@@ -87,4 +96,14 @@ export class Video extends Medium {
 
     return cardsMediaVideo;
   }
+  // displaySlideVid() {
+  //   const mediaVid = document.createElement("video");
+  //   mediaVid.classList.add("slide");
+  //   mediaVid.alt = this.alt;
+  //   mediaVid.controls = true;
+  //   mediaVid.autoplay = true;
+  //   mediaVid.loop = true;
+  //   slideContainer.appendChild(mediaVid);
+  //   return mediaVid;
+  // }
 }
