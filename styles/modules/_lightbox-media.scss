@@ -1,6 +1,5 @@
 .lightbox-modal {
   display: flex;
-  // flex-direction: row;
   position: fixed;
   z-index: 999999;
   left: 0;
@@ -12,15 +11,9 @@
   .close-lightbox-media {
     position: absolute;
     font-size: 4rem;
-    align-self: flex-start;
-    justify-self: flex-end;
-    display: block;
-    padding: 1rem;
-    right: -2rem;
+    top: 3%;
+    right: 7%;
     font-size: x-large;
-    display: block;
-    width: auto;
-    margin: 0 10%;
     cursor: pointer;
   }
   .lightbox-content {
@@ -43,16 +36,18 @@
       border-radius: $radius;
       background-color: rgb(255, 255, 255);
       overflow: hidden;
+      .active {
+        opacity: 1 !important ;
+      }
 
       img {
         margin: auto;
-        height: 80%;
+        height: 85%;
         width: 70%;
         position: absolute;
         border-radius: $radius;
         background-color: rgb(134, 134, 134);
         object-fit: cover;
-
         // opacity: 0;
         // transition: opacity 0.2s ease-in-out;
       }
@@ -60,7 +55,7 @@
         display: flex;
         margin: auto;
         position: absolute;
-        height: 80%;
+        height: 85%;
         width: 70%;
         border-radius: $radius;
         background-color: rgb(134, 134, 134);
@@ -90,6 +85,7 @@
         i {
           font-size: 40px;
           position: relative;
+          color: $primary;
         }
       }
     }
@@ -110,19 +106,12 @@
     .commandes button:nth-child(2) i {
       right: 7%;
     }
-    // .lightbox-arrow {
-    //   font-size: x-large;
-    //   display: block;
-    //   width: auto;
-    //   margin: 0 10%;
-    //   cursor: pointer;
-    // }
   }
 }
 .titre-media-lightbox {
   position: absolute;
   margin-right: 10%;
-  bottom: 5%;
+  bottom: 3%;
   left: 15%;
   margin: auto;
   font-size: 1.5rem;

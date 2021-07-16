@@ -390,6 +390,8 @@ function displayLightbox(media, displayMediaList) {
   const mediaVid = document.createElement("video");
   mediaImg.classList.add("slide");
   mediaVid.classList.add("slide");
+  const titleMedia = document.querySelector(".titre-media-lightbox");
+  titleMedia.textContent = `${currentMedia.title}`;
 
   // const firstSlide = document.querySelector(".container-slides:nth-child(1)");
   // console.log(firstSlide);
