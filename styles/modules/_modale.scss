@@ -4,14 +4,15 @@
   align-items: center;
   justify-content: center;
   width: 60%;
-  margin: auto;
+  max-width: 300px;
   padding: 1rem;
   font-size: 1.5rem;
   position: fixed;
   bottom: 2rem;
-  left: 20%;
+  left: 50%;
+  transform: translate(-50%);
   z-index: 2;
-  animation: apparition-up 1s ease-in-out;
+
   @include tablet-and-higher {
     display: none;
   }
