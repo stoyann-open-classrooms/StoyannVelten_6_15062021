@@ -1,5 +1,5 @@
 .lightbox-modal {
-  display: none;
+  display: flex;
   flex-direction: row;
   position: fixed;
   z-index: 9999;
@@ -40,7 +40,7 @@
       width: 90vw;
       height: 90vh;
     }
-    .media-container {
+    .container-slides {
       width: 90%;
       margin: auto;
       height: 80vh;

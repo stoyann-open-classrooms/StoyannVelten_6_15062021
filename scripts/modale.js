@@ -33,7 +33,7 @@ function openModalForm(currentPhotographer) {
   });
   bannerBtnTablet.addEventListener("click", () => {
     contactModal.style.display = "flex";
-    contactModal.setAttribute("aria-hidden", "false");
+    contactModal.setAttribute("aria-hidden", "true");
     body.classList.remove("no-scrool");
 
     bannerBtnTablet.focus();

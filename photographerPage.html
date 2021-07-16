@@ -65,12 +65,21 @@
         <!-- ------ Lightbox modal ------ -->
         <div class="lightbox-modal" role="dialog" aria-hidden="true" aria-describedby="lightbox modal">
             <div class="lightbox-content">
-                <i class="fas fa-times close-lightbox-media" aria-labelledby="Fermer"></i>
-                <i class="fas fa-chevron-left lightbox-arrow" aria-labelledby="media precedent"></i>
-                <div class="media-container">
+                <div class="container-slides"></div>
+                <div class="commandes">
+                    <button class="left">
+                        <i class="fas fa-chevron-left" aria-labelledby="media precedent"></i>
+                    </button>
+                    <button class="right">
+                        <i class="fas fa-chevron-right" aria-labelledby="media suivant"></i>
 
+                    </button>
+                    <buton class="close">
+                        <i class="fas fa-times close-lightbox-media" aria-labelledby="Fermer"></i>
+
+                    </buton>
                 </div>
-                <i class="fas fa-chevron-right lightbox-arrow" aria-labelledby="media suivant"></i>
+
                 <p class="titre-media-lightbox">Ici le titre du média</p>
             </div>
         </div>

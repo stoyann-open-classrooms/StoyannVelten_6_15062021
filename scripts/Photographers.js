@@ -53,4 +53,12 @@ export class Photographers {
      */
     this.portrait = portrait;
   }
+
+  /**
+   *@name getFolderName
+   * @returns le nom du dossier pour les photos  chaque photographes
+   */
+  getFolderName() {
+    return this.name.toLowerCase().replace(" ", "");
+  }
 }
