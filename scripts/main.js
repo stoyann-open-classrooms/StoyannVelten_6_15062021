@@ -177,8 +177,10 @@ function displayReturnMain() {
   window.addEventListener("scroll", () => {
     if (window.scrollY > 40) {
       returnMain.style.display = "block";
+      returnMain.style.opacity = "1";
     } else {
       returnMain.style.display = "none";
+      returnMain.style.opacity = "0";
     }
   });
 }

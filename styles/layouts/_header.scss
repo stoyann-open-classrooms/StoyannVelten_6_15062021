@@ -7,6 +7,7 @@ header {
     align-items: center;
     img {
       width: 40%;
+      height: auto;
       @include bigPhone-and-higher {
         width: 70%;
       }

@@ -16,6 +16,9 @@
 @import "./modules/photographer-cards";
 @import "./modules/tags";
 
+body {
+  color: $tertiary;
+}
 .no-scroll {
   overflow: hidden;
 }

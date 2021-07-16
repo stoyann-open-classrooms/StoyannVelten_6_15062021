@@ -437,6 +437,7 @@ header .header-top {
 
 header .header-top img {
   width: 40%;
+  height: auto;
 }
 
 @media screen and (min-width: 42.5rem) {
@@ -824,13 +825,17 @@ header .tag-list {
   position: fixed;
   top: 0;
   text-align: center;
-  left: 43%;
+  left: 50%;
+  -webkit-transform: translate(-50%);
+          transform: translate(-50%);
   background-color: #db8876;
   border-radius: 0 0 0.6rem 0.6rem;
   padding: 0.8rem 0.8rem;
   font-size: 1.2rem;
   -webkit-transition: all 0.5s ease-in-out;
   transition: all 0.5s ease-in-out;
+  color: black;
+  z-index: 9999;
 }
 
 .return-main:hover {
@@ -1426,10 +1431,10 @@ header .tag-list {
 }
 
 .cards-location {
-  color: #d3573c;
+  color: #901c1c;
   margin-top: 0.5rem;
-  font-size: 1.6rem;
-  font-weight: 600;
+  font-size: 1.8rem;
+  font-weight: 800;
 }
 
 .cards-tagline {
@@ -1448,6 +1453,10 @@ header .tag-list {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+}
+
+body {
+  color: #525252;
 }
 
 .no-scroll {
