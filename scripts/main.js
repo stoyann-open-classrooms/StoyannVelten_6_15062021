@@ -80,7 +80,8 @@ function displayTags() {
     const span = document.createElement("span");
 
     span.id = `${tag}`;
-    span.textContent = "#" + tag;
+    span.textContent = tag;
+    a.textContent = "#";
     span.classList.add("tags");
 
     a.classList.add("tags-link");
@@ -132,7 +133,6 @@ function displayPhotographers() {
       const tagsA = document.createElement("a");
       const tagsspan = document.createElement("span");
       cardTags.classList.add("cards-tags");
-      tagsspan.textContent = photographer.tags;
       cardTags.append(tagsA);
       tagsA.append(tagsspan);
       tagsspan.textContent = "#" + el;

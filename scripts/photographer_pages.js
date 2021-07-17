@@ -167,7 +167,8 @@ function displayBanner(currentPhotographer) {
     tagsLink.classList.add("tags-link");
     tagsSpan.classList.add("tags");
     containerTagsBanner.appendChild(tagsLink);
-    tagsSpan.textContent = "#" + el;
+    tagsLink.textContent = "#";
+    tagsSpan.textContent = el;
     tagsLink.appendChild(tagsSpan);
 
     tagsLink.addEventListener("click", (e) => {
@@ -241,6 +242,7 @@ export function displayMediaList() {
     const heartLink = document.createElement("a");
     const heart = document.createElement("i");
     cardsMediaCompteurLike.setAttribute("aria-label", `likes`);
+    const heartBig = document.querySelector(".heart-global");
 
     cardsMedia.classList.add("cards-media");
     cardsMediaImg.classList.add("cards-media-img");
@@ -318,21 +320,6 @@ export function displayMediaList() {
     return filters;
   });
 }
-
-// tagsLink.addEventListener("click", (e) => {
-//   e.preventDefault();
-//   tagsLink.classList.toggle("tag--selected");
-//   displayMediaList();
-// });
-
-// const mediaLink = document.getElementsByClassName(".cards-media-img");
-// console.log(mediaLink.length);
-// for (let media of mediaLink) {
-//   media.addEventListener("click", (e) => {
-//     e.preventDefault();
-//     displayLightbox(media, displayMediaList);
-//   });
-// }
 
 function displayPage() {
   document.title += " - " + currentPhotographer.name;

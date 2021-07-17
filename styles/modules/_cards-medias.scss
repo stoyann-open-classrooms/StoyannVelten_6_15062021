@@ -3,7 +3,7 @@
   flex-wrap: wrap;
   justify-content: center;
   margin-bottom: 10rem;
-  @include tablet-and-higher {
+  @include bigPhone-and-higher {
     margin-top: 2rem;
     display: flex;
     flex-wrap: wrap;
@@ -17,7 +17,7 @@
   margin-top: 5rem;
   color: $primary;
   animation: apparition-up 0.8s ease-in-out;
-  @include tablet-and-higher {
+  @include bigPhone-and-higher {
     width: 30rem;
     margin: 3rem;
   }
@@ -59,9 +59,10 @@
   border-radius: $radius;
   transition: transform 0.5s ease-in-out;
   position: relative;
-}
-.cards-media-img:hover {
-  transform: scale(1.1);
+
+  &:hover {
+    transform: scale(1.1);
+  }
 }
 
 .cards-Img {
@@ -74,4 +75,7 @@
 
 .heart-anim {
   animation: pulse 1.3s linear;
+}
+.cards-media-img {
+  color: white;
 }

@@ -11,13 +11,14 @@
   height: auto;
   width: auto;
   border-radius: $radius $radius 0 0;
+  color: black;
 
   .heart {
     font-weight: bold;
     font-size: large;
     text-align: center;
   }
-  @include tablet-and-higher {
+  @include bigPhone-and-higher {
     display: flex;
   }
 }
@@ -29,4 +30,7 @@
 }
 .heart-link {
   cursor: pointer;
+}
+.heart-anim-big {
+  animation: pulse 2s linear;
 }

@@ -503,7 +503,6 @@ header .tag-list {
             align-items: center;
     background-color: #fafafa;
     border-radius: 0.6rem;
-    padding: 1rem;
     width: 95vw;
     margin: auto;
   }
@@ -526,7 +525,6 @@ header .tag-list {
 @media screen and (min-width: 76.8rem) {
   .banner .banner-body {
     font-size: 2rem;
-    margin-left: 3rem;
   }
 }
 
@@ -546,19 +544,21 @@ header .tag-list {
 
 .banner-btn {
   display: none;
+  position: absolute;
   font-size: 1em;
   width: 45%;
   font-weight: bold;
-  height: 22%;
   margin-right: 10%;
   border-radius: 0.6rem;
   padding: 1rem 0;
+  max-width: 20rem;
 }
 
-@media screen and (min-width: 76.8rem) {
+@media screen and (min-width: 42.5rem) {
   .banner-btn {
     display: block;
-    margin-top: 1.5rem;
+    left: 35%;
+    top: 20%;
   }
 }
 
@@ -865,7 +865,7 @@ header .tag-list {
   z-index: 2;
 }
 
-@media screen and (min-width: 76.8rem) {
+@media screen and (min-width: 42.5rem) {
   .btn-modal-mobile {
     display: none;
   }
@@ -1033,6 +1033,7 @@ header .tag-list {
   height: auto;
   width: auto;
   border-radius: 0.6rem 0.6rem 0 0;
+  color: black;
 }
 
 .total-likes-container .heart {
@@ -1041,7 +1042,7 @@ header .tag-list {
   text-align: center;
 }
 
-@media screen and (min-width: 76.8rem) {
+@media screen and (min-width: 42.5rem) {
   .total-likes-container {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -1060,11 +1061,16 @@ header .tag-list {
   cursor: pointer;
 }
 
+.heart-anim-big {
+  -webkit-animation: pulse 2s linear;
+          animation: pulse 2s linear;
+}
+
 .filter {
   display: none;
 }
 
-@media screen and (min-width: 76.8rem) {
+@media screen and (min-width: 42.5rem) {
   .filter {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -1079,7 +1085,7 @@ header .tag-list {
     -webkit-box-pack: start;
         -ms-flex-pack: start;
             justify-content: start;
-    margin: 2rem 3%;
+    margin: 3rem 3%;
     font-weight: 500;
   }
   .filter span {
@@ -1114,11 +1120,11 @@ header .tag-list {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  padding: 0 2.2rem;
-  font-size: 2rem;
+  padding: 0 1.2rem;
+  font-size: 1rem;
   font-weight: 300;
   color: white;
-  height: 6rem;
+  height: 4.5rem;
   line-height: 6rem;
   background: #901c1c;
   cursor: pointer;
@@ -1236,7 +1242,7 @@ header .tag-list {
   margin-bottom: 10rem;
 }
 
-@media screen and (min-width: 76.8rem) {
+@media screen and (min-width: 42.5rem) {
   .cards-media-container {
     margin-top: 2rem;
     display: -webkit-box;
@@ -1260,7 +1266,7 @@ header .tag-list {
           animation: apparition-up 0.8s ease-in-out;
 }
 
-@media screen and (min-width: 76.8rem) {
+@media screen and (min-width: 42.5rem) {
   .cards-media {
     width: 30rem;
     margin: 3rem;
@@ -1323,7 +1329,7 @@ header .tag-list {
   position: relative;
 }
 
-.cards-media-img:hover {
+.media-img:hover {
   -webkit-transform: scale(1.1);
           transform: scale(1.1);
 }
@@ -1340,6 +1346,10 @@ header .tag-list {
 .heart-anim {
   -webkit-animation: pulse 1.3s linear;
           animation: pulse 1.3s linear;
+}
+
+.cards-media-img {
+  color: white;
 }
 
 .photographer-container {

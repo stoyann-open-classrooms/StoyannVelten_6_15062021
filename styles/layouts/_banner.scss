@@ -7,7 +7,6 @@
     align-items: center;
     background-color: $quadrary;
     border-radius: $radius;
-    padding: 1rem;
     width: 95vw;
     margin: auto;
   }
@@ -22,7 +21,6 @@
     }
     @include tablet-and-higher {
       font-size: 2rem;
-      margin-left: 3rem;
     }
     @include desktop-and-higher {
       font-size: 3rem;
@@ -38,18 +36,19 @@
 .banner-btn {
   @extend %btn;
   display: none;
+  position: absolute;
   font-size: 1em;
   width: 45%;
   font-weight: bold;
-  height: 22%;
-
   margin-right: 10%;
   border-radius: $radius;
   padding: 1rem 0;
+  max-width: 20rem;
 
-  @include tablet-and-higher {
+  @include bigPhone-and-higher {
     display: block;
-    margin-top: 1.5rem;
+    left: 35%;
+    top: 20%;
   }
   @include desktop-and-higher {
     font-size: 1.5rem;
