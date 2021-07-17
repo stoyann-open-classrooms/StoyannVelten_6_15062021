@@ -125,7 +125,7 @@ function displayPhotographers() {
     const cardImg = document.createElement("img");
     const cardTitle = document.createElement("h2");
     const cardBody = document.createElement("div");
-    const cardLocation = document.createElement("p");
+    const cardLocation = document.createElement("h3");
     const cardTagline = document.createElement("p");
     const cardPrice = document.createElement("p");
     const cardTags = document.createElement("nav");
