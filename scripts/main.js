@@ -119,6 +119,8 @@ function displayPhotographers() {
     const linkToPhoto =
       "./sources/img/PhotographersID/" + photographer.portrait;
     const cardPhotographer = document.createElement("section");
+    const cardPhotographerHeader = document.createElement("header");
+    const cardPhotographerFooter = document.createElement("footer");
     const cardLink = document.createElement("a");
     const cardImg = document.createElement("img");
     const cardTitle = document.createElement("h2");
@@ -166,9 +168,16 @@ function displayPhotographers() {
     cardPrice.textContent = photographer.price + "€/Jour";
 
     main.append(cardPhotographer);
+    cardPhotographer.append(
+      cardPhotographerHeader,
+      cardBody,
+      cardPhotographerFooter
+    );
+    cardPhotographerHeader.append(cardLink);
+    cardPhotographerFooter.append(cardTags);
     cardLink.append(cardImg, cardTitle);
-    cardPhotographer.append(cardLink, cardBody);
-    cardBody.append(cardLocation, cardTagline, cardPrice, cardTags);
+
+    cardBody.append(cardLocation, cardTagline, cardPrice);
   });
 }
 
