@@ -117,7 +117,7 @@ function displayPhotographers() {
   photographerList.getPhotographerList(...filters).forEach((photographer) => {
     const linkToPage = "photographerPage.html?id=" + photographer.id;
     const linkToPhoto =
-      "./sources/img/PhotographersID/" + photographer.portrait;
+      "./sources/img/1_small/PhotographersID/" + photographer.portrait;
     const cardPhotographer = document.createElement("section");
     const cardPhotographerHeader = document.createElement("header");
     const cardPhotographerFooter = document.createElement("footer");

@@ -96,7 +96,7 @@ function createData(data) {
 
   data.media.forEach((media) => {
     if (media.photographerId === currentPhotographer.id) {
-      getLikes(media.likes);
+      media.getLikes;
 
       mediaList.addMedia(
         mediaFactory.createMedia(
@@ -226,7 +226,7 @@ export function displayMediaList() {
   displayMediaList = mediaList.getMediaList(sort, ...filters);
 
   displayMediaList.forEach((media) => {
-    const mediaElement = media.createImg();
+    const mediaElement = media.createImg(currentPhotographer.getFolderName());
     const cardsMedia = document.createElement("div");
     const cardsMediaImg = document.createElement("a");
     const cardsMediaFooter = document.createElement("div");
@@ -242,7 +242,6 @@ export function displayMediaList() {
     const heartLink = document.createElement("a");
     const heart = document.createElement("i");
     cardsMediaCompteurLike.setAttribute("aria-label", `likes`);
-    const heartBig = document.querySelector(".heart-global");
 
     cardsMedia.classList.add("cards-media");
     cardsMediaImg.classList.add("cards-media-img");
@@ -266,15 +265,11 @@ export function displayMediaList() {
     heart.classList.add("fa-heart");
 
     cardsMediaImg.href = "#";
-
+    cardsMediaImg.setAttribute("title", media.title);
     cardsMediaImg.setAttribute(
       "aria-describedby",
       "retour a la page d'acceuil"
     );
-
-    // if (media.type === "mp4") {
-    //   cardsMediaImg.append(playLogo);
-    // }
 
     cardsMediaTitle.textContent = `${media.title}`;
     cardsMediaCompteurLike.textContent = `${media.likes}`;
@@ -288,7 +283,7 @@ export function displayMediaList() {
     compteurLikes(totalLikes);
 
     // compteur de likes
-    function compteurLikes(totalLikes) {
+    function compteurLikes() {
       cardsMediaCompteurLike.classList.add("compteur");
 
       heartLink.addEventListener("click", () => {
@@ -296,25 +291,23 @@ export function displayMediaList() {
           media.likes--;
           heart.classList.remove("fas");
           heart.classList.add("far");
-          totalLikes.push(-1);
           cardsMediaCompteurLike.textContent = media.likes;
           heart.classList.remove("heart-anim");
-          getTotalLikes();
+          media.getLikes;
+          displayTotalLikes();
         } else {
           media.likes++;
           heart.classList.remove("far");
           heart.classList.add("fas");
-          totalLikes.push(1);
           cardsMediaCompteurLike.textContent = media.likes;
           heart.classList.add("heart-anim");
-
-          getTotalLikes();
+          media.getLikes;
+          displayTotalLikes();
         }
       });
     }
-
-    cardsMediaImg.addEventListener(
-      "click",
+    cardsMediaImg.addEventListener("click", (e) => e.preventDefault());
+    cardsMediaImg.addEventListener("click", () =>
       displayLightbox(media, displayMediaList)
     );
     return filters;
@@ -327,7 +320,7 @@ function displayPage() {
   displayBanner(currentPhotographer);
   openModalForm(currentPhotographer);
   displayFilterMenu(displayMediaList);
-  getTotalLikes(totalLikes);
+  displayTotalLikes(displayMediaList);
   displayMediaList();
 }
 /**
@@ -336,36 +329,33 @@ function displayPage() {
  * @param {number} likes
  * @returns {array}
  */
-function getLikes(likes) {
-  totalLikes.push(likes);
-  return totalLikes;
-}
+
 /**
  * @name getTotalLikes
  * Calcul le nombres total de likes du photographe courant
  *
  *
  */
-function getTotalLikes() {
-  /**
-   * @name totalLikesPhotographer
-   * @type {number}
-   * @description Nombres total de likes du photographe courant
-   *
-   */
-  let totalLikesPhotographer = 0;
-  for (let i = 0; i < totalLikes.length; i++) {
-    totalLikesPhotographer += totalLikes[i];
-  }
-  displayTotalLikes(totalLikesPhotographer);
-}
+// function getTotalLikes() {
+//   /**
+//    * @name totalLikesPhotographer
+//    * @type {number}
+//    * @description Nombres total de likes du photographe courant
+//    *
+//    */
+//   let totalLikesPhotographer = 0;
+//   for (let i = 0; i < totalLikes.length; i++) {
+//     totalLikesPhotographer += totalLikes[i];
+//   }
+//   displayTotalLikes(totalLikesPhotographer);
+// }
 
 /**
  * @name displayTotalLikes
  * creer et affiche le nombre total de likes du photographe sur la page
  * @param {number} totalLikesPhotographer nombre total de likes du photographe
  */
-function displayTotalLikes(totalLikesPhotographer) {
+function displayTotalLikes(media) {
   const totalLikesContainer = document.createElement("div");
   const totalLikesNb = document.createElement("div");
   const heart = document.createElement("i");
@@ -377,7 +367,7 @@ function displayTotalLikes(totalLikesPhotographer) {
 
   totalLikesContainer.classList.add("total-likes-container");
   totalLikesNb.classList.add("total-likes");
-  totalLikesNb.textContent = `${totalLikesPhotographer}`;
+  totalLikesNb.textContent = `${media.getLikes}`;
 
   main.append(totalLikesContainer);
   totalLikesContainer.append(totalLikesNb, heart);
@@ -457,14 +447,17 @@ function displayLightbox(media, displayMediaList) {
   function displayContent() {
     if (currentMedia.type === "jpg") {
       mediaVid.replaceWith(mediaImg);
-      mediaImg.src = `sources/img/2_big/${currentMedia.link}`;
+      mediaImg.src = `sources/img/2_medium/${currentPhotographer.getFolderName()}/${
+        currentMedia.link
+      }`;
       mediaImg.alt = currentMedia.alt;
       slideContainer.appendChild(mediaImg);
     } else if (currentMedia.type === "mp4") {
-      mediaVid.src = `sources/img/2_big/${currentMedia.link}`;
+      mediaVid.src = `sources/img/2_medium/${currentPhotographer.getFolderName()}/${
+        currentMedia.link
+      }`;
       mediaImg.replaceWith(mediaVid);
       mediaVid.setAttribute("alt", currentMedia.alt);
-      mediaVid.controls = true;
       mediaVid.autoplay = true;
       mediaVid.loop = true;
       slideContainer.appendChild(mediaVid);

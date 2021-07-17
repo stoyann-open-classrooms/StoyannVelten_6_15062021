@@ -49,4 +49,12 @@ export class MediumList {
 
     return returnedList;
   }
+
+  getLikes() {
+    let sum = 0;
+    this.mediaList.forEach((media) => {
+      sum += media.likes;
+    });
+    return sum;
+  }
 }

@@ -19,18 +19,7 @@ export class Medium {
    * @param {string} path Chemin vers le média
    * @returns {object}
    */
-  createMedia(
-    type,
-    alt,
-    date,
-    id,
-    link,
-    likes,
-    photographerId,
-    tags,
-    title,
-    path
-  ) {
+  createMedia(type, alt, date, id, link, likes, photographerId, tags, path) {
     if (type == "jpg") {
       const photo = new Photo();
       photo.type = type;
@@ -41,7 +30,7 @@ export class Medium {
       photo.likes = likes;
       photo.photographerId = photographerId;
       photo.tags = tags;
-      photo.title = title;
+      photo.title = link.replace(".jpg", "").replaceAll("_", " ");
       photo.path = path + link;
 
       return photo;
@@ -55,38 +44,28 @@ export class Medium {
       video.likes = likes;
       video.photographerId = photographerId;
       video.tags = tags;
-      video.title = title;
+      video.title = link.replace(".mp4", "").replaceAll("_", " ");
       return video;
     }
   }
 }
 
 export class Photo extends Medium {
-  createImg() {
-    const linkToSmalPhoto = `./sources/img/1_small/`;
+  createImg(photographer) {
+    const linkToSmalPhoto = `./sources/img/1_small/${photographer}/`;
     const cardsMediaImg = document.createElement("img");
     cardsMediaImg.src = linkToSmalPhoto + this.link;
     cardsMediaImg.alt = this.alt;
     cardsMediaImg.classList.add("media-img");
+
     return cardsMediaImg;
   }
-  // displaySlideImg() {
-  //   const mediaImg = document.createElement("img");
-  //   mediaImg.alt = this.alt;
-  //   mediaImg.classList.add("slide");
-  //   slideContainer.appendChild(mediaImg);
-  //   return mediaImg;
-  //   // mediaTitle.innerHTML = currentMedia.title;
-  //   // console.log(currentMedia.title[0]);
-  // }
 }
 
 export class Video extends Medium {
-  createImg(controls = false) {
-    const linkToSmalPhoto = `./sources/img/1_small/`;
+  createImg(photographer) {
+    const linkToSmalPhoto = `./sources/img/1_small/${photographer}/`;
     const cardsMediaVideo = document.createElement("video");
-
-    cardsMediaVideo.controls = controls;
     cardsMediaVideo.loop = true;
     cardsMediaVideo.muted = true;
 
@@ -96,14 +75,4 @@ export class Video extends Medium {
 
     return cardsMediaVideo;
   }
-  // displaySlideVid() {
-  //   const mediaVid = document.createElement("video");
-  //   mediaVid.classList.add("slide");
-  //   mediaVid.alt = this.alt;
-  //   mediaVid.controls = true;
-  //   mediaVid.autoplay = true;
-  //   mediaVid.loop = true;
-  //   slideContainer.appendChild(mediaVid);
-  //   return mediaVid;
-  // }
 }
