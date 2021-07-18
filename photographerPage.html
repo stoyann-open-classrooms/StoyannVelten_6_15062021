@@ -22,8 +22,8 @@
     <!-- ________ header ________ -->
     <header>
         <div class="header-top">
-            <a href="./index.html" class="logo" title="Liens vers la page d'accueil">
-                <img src="./sources/logo/logo.svg" alt="Logo Fisheye" aria-describedby="retour a la page d'acceuil" />
+            <a href="./index.html" class="logo" role="link" title="recharger la page" id="retour">
+                <img src="./sources/logo/logo.svg" alt="Logo fisheye" aria-labelledby="retour" />
             </a>
             <h1 class="big-tittle">Nos photographes</h1>
         </div>
@@ -35,9 +35,9 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h3 class="modal-title"></h3>
-                    <button class="close-btn"><i class="modal-close fas fa-times"></i></button>
+                    <button role="button" class="close-btn"><i class="modal-close fas fa-times"></i></button>
                 </div>
-                <form class="modal-form" id="contact">
+                <form class="modal-form" id="contact" role="document">
                     <label for="prenom">Prénom</label>
                     <input class="firstName-inp" id="prenom" type="text" maxlenght="24" name="first-Name"
                         aria-labelledby="Entrez votre prénom" required />
@@ -78,7 +78,7 @@
                         <i class="fas fa-times close-lightbox-media"></i>
                     </button>
 
-                    <p class="titre-media-lightbox">Ici le titre du média</p>
+                    <h2 class="titre-media-lightbox">Ici le titre du média</h2>
                 </div>
             </div>
         </div>
