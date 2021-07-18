@@ -34,10 +34,11 @@
 .modal-content {
   display: block;
   background-color: $secondary-light;
-  margin: 0;
+  margin: auto;
   border: 0.1rem solid #888;
   padding: 2rem;
   height: 100%;
+  max-width: 480px;
   border-radius: $radius;
   animation: apparition-down 0.8s ease-in-out;
   color: black;
@@ -48,8 +49,7 @@
     outline: none;
     padding: 0.5rem;
   }
-  @include tablet-and-higher {
-    width: 35rem;
+  @include bigPhone-and-higher {
     height: auto;
     margin: auto;
   }
@@ -57,11 +57,13 @@
   .close-btn {
     background-color: transparent;
     border: none;
+
     i {
       font-size: 3rem;
-      margin-top: 0.5rem;
       color: white;
       cursor: pointer;
+      position: relative;
+      top: -45%;
     }
   }
 
@@ -131,4 +133,8 @@
 }
 .border {
   border: 0.3rem solid $primary !important;
+}
+.modal-title {
+  font-size: 3.3rem;
+  width: 70%;
 }

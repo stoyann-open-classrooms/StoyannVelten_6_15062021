@@ -893,10 +893,11 @@ header .tag-list {
 .modal-content {
   display: block;
   background-color: #db8876;
-  margin: 0;
+  margin: auto;
   border: 0.1rem solid #888;
   padding: 2rem;
   height: 100%;
+  max-width: 480px;
   border-radius: 0.6rem;
   -webkit-animation: apparition-down 0.8s ease-in-out;
           animation: apparition-down 0.8s ease-in-out;
@@ -911,9 +912,8 @@ header .tag-list {
   padding: 0.5rem;
 }
 
-@media screen and (min-width: 76.8rem) {
+@media screen and (min-width: 42.5rem) {
   .modal-content {
-    width: 35rem;
     height: auto;
     margin: auto;
   }
@@ -926,9 +926,10 @@ header .tag-list {
 
 .modal-content .close-btn i {
   font-size: 3rem;
-  margin-top: 0.5rem;
   color: white;
   cursor: pointer;
+  position: relative;
+  top: -45%;
 }
 
 .modal-content div {
@@ -1023,6 +1024,11 @@ header .tag-list {
 
 .border {
   border: 0.3rem solid #901c1c !important;
+}
+
+.modal-title {
+  font-size: 3.3rem;
+  width: 70%;
 }
 
 .total-likes-container {
