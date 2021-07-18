@@ -268,10 +268,7 @@ export function displayMediaList() {
 
     cardsMediaImg.href = "#";
     cardsMediaImg.setAttribute("title", media.title);
-    cardsMediaImg.setAttribute(
-      "aria-describedby",
-      "retour a la page d'acceuil"
-    );
+    cardsMediaImg.setAttribute("aria-describedby", "ouvrir le slider");
 
     cardsMediaTitle.textContent = `${media.title}`;
     cardsMediaCompteurLike.textContent = `${media.likes}`;
@@ -433,7 +430,7 @@ function displayLightbox(media, displayMediaList) {
   function openLightbox() {
     lightboxModal.style.display = "flex";
     lightboxModal.setAttribute("aria-hidden", "false");
-    document.body.classList.add("no-scrool");
+    document.body.setAttribute("aria-hidden", "true");
   }
   // /**
   //  * @name closeLightbox
@@ -442,7 +439,7 @@ function displayLightbox(media, displayMediaList) {
   function closelightbox() {
     lightboxModal.style.display = "none";
     lightboxModal.setAttribute("aria-hidden", "true");
-    document.body.classList.remove("no-scrool");
+    document.body.setAttribute("aria-hidden", "false");
   }
 
   displayContent();

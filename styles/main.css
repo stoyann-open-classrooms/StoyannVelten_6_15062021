@@ -683,16 +683,6 @@ header .tag-list {
   background: rgba(219, 219, 219, 0.7);
 }
 
-.lightbox-modal .close-lightbox-media {
-  position: absolute;
-  font-size: 2rem;
-  top: 2%;
-  right: 7%;
-  font-size: x-large;
-  cursor: pointer;
-  color: #901c1c;
-}
-
 .lightbox-modal .lightbox-content {
   color: #901c1c;
   width: 100%;
@@ -763,6 +753,18 @@ header .tag-list {
   position: absolute;
 }
 
+.lightbox-modal .lightbox-content .commandes .close {
+  position: absolute;
+  border: none;
+  background-color: transparent;
+  font-size: 2rem;
+  top: 2%;
+  right: 7%;
+  font-size: x-large;
+  cursor: pointer;
+  color: #901c1c;
+}
+
 .lightbox-modal .lightbox-content .commandes .right,
 .lightbox-modal .lightbox-content .commandes .left {
   position: absolute;
@@ -814,10 +816,11 @@ header .tag-list {
 .titre-media-lightbox {
   position: absolute;
   margin-right: 10%;
-  bottom: 3%;
+  bottom: 2%;
   left: 15%;
   margin: auto;
   font-size: 2rem;
+  font-weight: 500;
 }
 
 .return-main {

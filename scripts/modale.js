@@ -24,19 +24,17 @@ function openModalForm(currentPhotographer) {
   //open modal
   btnModalMobile.addEventListener("click", () => {
     const body = document.getElementById("body");
-    console.log(body);
-
+    body.setAttribute("aria-hiden", "true");
     contactModal.style.display = "flex";
     contactModal.setAttribute("aria-hidden", "false");
-    body.classList.add("no-scrool");
-    btnModalMobile.focus();
+
+    modalClose.focus();
   });
   bannerBtnTablet.addEventListener("click", () => {
     contactModal.style.display = "flex";
     contactModal.setAttribute("aria-hidden", "true");
     body.classList.remove("no-scrool");
-
-    bannerBtnTablet.focus();
+    modalClose.focus();
   });
   formFirstNameInp.addEventListener("input", (e) => {
     if (e.target.value.length <= 3) {
@@ -138,11 +136,11 @@ function openModalForm(currentPhotographer) {
 
   function closeModal() {
     const contactModal = document.querySelector(".contact-modal");
-    modalClose.focus();
 
     modalClose.addEventListener("click", () => {
       contactModal.style.display = "none";
       contactModal.setAttribute("aria-hidden", "true");
+      body.setAttribute("aria-hiden", "true");
     });
   }
 }
