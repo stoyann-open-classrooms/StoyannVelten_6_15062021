@@ -292,7 +292,6 @@ export function displayMediaList() {
           heart.classList.add("far");
           cardsMediaCompteurLike.textContent = media.likes;
           heart.classList.remove("heart-anim");
-          media.getLikes;
           displayTotalLikes();
         } else {
           media.likes++;
@@ -300,7 +299,6 @@ export function displayMediaList() {
           heart.classList.add("fas");
           cardsMediaCompteurLike.textContent = media.likes;
           heart.classList.add("heart-anim");
-          media.getLikes;
           displayTotalLikes();
         }
       });
@@ -354,8 +352,11 @@ function displayPage() {
  * creer et affiche le nombre total de likes du photographe sur la page
  * @param {number} totalLikesPhotographer nombre total de likes du photographe
  */
-function displayTotalLikes(media) {
+function displayTotalLikes() {
   const totalLikesContainer = document.createElement("div");
+  const priceContainer = document.createElement("div");
+  const price = document.createElement("p");
+
   const totalLikesNb = document.createElement("div");
   const heart = document.createElement("i");
 
@@ -364,12 +365,17 @@ function displayTotalLikes(media) {
   heart.classList.add(`heart`);
   heart.classList.add(`heart-global`);
 
+  priceContainer.classList.add("price-container");
+  price.classList.add("price");
   totalLikesContainer.classList.add("total-likes-container");
   totalLikesNb.classList.add("total-likes");
-  totalLikesNb.textContent = `${media.getLikes}`;
+  totalLikesNb.textContent = `${mediaList.getLikes()}`;
+  price.textContent = `${currentPhotographer.price}€/ jour`;
 
   main.append(totalLikesContainer);
-  totalLikesContainer.append(totalLikesNb, heart);
+  totalLikesNb.append(heart);
+  priceContainer.append(price);
+  totalLikesContainer.append(totalLikesNb, priceContainer);
 }
 
 /**

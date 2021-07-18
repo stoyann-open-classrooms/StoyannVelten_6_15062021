@@ -1033,18 +1033,17 @@ header .tag-list {
 
 .total-likes-container {
   display: none;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
   margin: auto;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
   position: fixed;
+  padding: 0.5rem 1rem;
   bottom: 0;
-  right: 15%;
+  right: 5%;
   background-color: #db8876;
-  padding: 0.7rem 1rem;
   height: auto;
   width: auto;
   border-radius: 0.6rem 0.6rem 0 0;
@@ -1055,6 +1054,7 @@ header .tag-list {
   font-weight: bold;
   font-size: large;
   text-align: center;
+  padding: 0.5rem;
 }
 
 @media screen and (min-width: 42.5rem) {
@@ -1065,9 +1065,13 @@ header .tag-list {
   }
 }
 
-.total-likes {
-  margin-right: 1rem;
-  font-weight: bold;
+.price-container {
+  margin-left: 5px;
+}
+
+.total-likes,
+.price {
+  font-weight: 500;
   font-size: large;
   text-align: center;
 }

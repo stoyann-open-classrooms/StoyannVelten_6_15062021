@@ -1,13 +1,14 @@
 .total-likes-container {
   display: none;
-  justify-content: center;
+  justify-content: space-around;
   margin: auto;
   align-items: center;
   position: fixed;
+  padding: 0.5rem 1rem;
   bottom: 0;
-  right: 15%;
+  right: 5%;
   background-color: $secondary-light;
-  padding: 0.7rem 1rem;
+
   height: auto;
   width: auto;
   border-radius: $radius $radius 0 0;
@@ -17,14 +18,18 @@
     font-weight: bold;
     font-size: large;
     text-align: center;
+    padding: 0.5rem;
   }
   @include bigPhone-and-higher {
     display: flex;
   }
 }
-.total-likes {
-  margin-right: 1rem;
-  font-weight: bold;
+.price-container {
+  margin-left: 5px;
+}
+.total-likes,
+.price {
+  font-weight: 500;
   font-size: large;
   text-align: center;
 }
