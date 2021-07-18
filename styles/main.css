@@ -897,6 +897,7 @@ header .tag-list {
   border-radius: 0.6rem;
   -webkit-animation: apparition-down 0.8s ease-in-out;
           animation: apparition-down 0.8s ease-in-out;
+  color: black;
 }
 
 .modal-content input {
@@ -915,7 +916,12 @@ header .tag-list {
   }
 }
 
-.modal-content .fa-times {
+.modal-content .close-btn {
+  background-color: transparent;
+  border: none;
+}
+
+.modal-content .close-btn i {
   font-size: 3rem;
   margin-top: 0.5rem;
   color: white;
@@ -963,7 +969,7 @@ header .tag-list {
   padding: 0.5rem;
 }
 
-.modal-content button {
+.modal-content .submit-form {
   background-color: #901c1c;
   color: white;
   padding: 1rem;
@@ -978,13 +984,13 @@ header .tag-list {
   transition: all 0.3s ease-in-out;
 }
 
-.modal-content button:hover {
+.modal-content .submit-form:hover {
   -webkit-transform: scale(1.1);
           transform: scale(1.1);
 }
 
 @media screen and (min-width: 76.8rem) {
-  .modal-content button {
+  .modal-content .submit-form {
     -ms-flex-item-align: center;
         -ms-grid-row-align: center;
         align-self: center;

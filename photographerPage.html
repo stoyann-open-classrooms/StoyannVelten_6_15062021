@@ -35,7 +35,7 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h3 class="modal-title"></h3>
-                    <i class="modal-close fas fa-times"></i>
+                    <button class="close-btn"><i class="modal-close fas fa-times"></i></button>
                 </div>
                 <form class="modal-form" id="contact">
                     <label for="prenom">Prénom</label>
@@ -54,9 +54,10 @@
                     </span>
                     <label for="msg">Votre Message<br /></label>
                     <textarea class="msg-inp" id="msg" type="text" name="message" aria-labelledby="Entrez votre méssage"
-                        maxlenght="300" required></textarea>
+                        required></textarea>
                     <span class="message-alert">Votre devez entrer un message ! </span>
-                    <button type="submit" value="Envoyer" name="Email" aria-label="Envoyer le message">
+                    <button class="submit-form" type="submit" value="Envoyer" name="Email"
+                        aria-label="Envoyer le message">
                         Envoyer
                     </button>
                 </form>
