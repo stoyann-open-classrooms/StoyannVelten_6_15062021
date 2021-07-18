@@ -132,17 +132,22 @@ function openModalForm(currentPhotographer) {
       }
     }
   });
-  closeModal();
 
   function closeModal() {
     const contactModal = document.querySelector(".contact-modal");
-
-    modalClose.addEventListener("click", () => {
-      contactModal.style.display = "none";
-      contactModal.setAttribute("aria-hidden", "true");
-      body.setAttribute("aria-hiden", "true");
-    });
+    contactModal.style.display = "none";
+    contactModal.setAttribute("aria-hidden", "true");
+    body.setAttribute("aria-hiden", "true");
   }
+
+  modalClose.addEventListener("click", () => {
+    closeModal();
+  });
+  contactModal.addEventListener("keydown", (e) => {
+    if (e.code === "Escape") {
+      closeModal(e);
+    }
+  });
 }
 
 export { openModalForm };

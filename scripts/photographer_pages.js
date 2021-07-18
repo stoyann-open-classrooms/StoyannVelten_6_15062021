@@ -402,6 +402,18 @@ function displayLightbox(media, displayMediaList) {
   previous.addEventListener("click", previousSlide);
   closeBtn.addEventListener("click", closelightbox);
 
+  lightboxModal.addEventListener("keydown", (e) => {
+    if (e.code === "Escape") {
+      closelightbox(e, media);
+    }
+    if (e.code === "ArrowRight") {
+      nextSlide(e);
+    }
+    if (e.code === "ArrowLeft") {
+      previousSlide(e);
+    }
+  });
+
   titleMedia.textContent = `${currentMedia.title}`;
   function nextSlide(e) {
     e.preventDefault;
