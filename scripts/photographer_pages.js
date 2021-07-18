@@ -227,7 +227,7 @@ export function displayMediaList() {
 
   displayMediaList.forEach((media) => {
     const mediaElement = media.createImg(currentPhotographer.getFolderName());
-    const cardsMedia = document.createElement("section");
+    const cardsMedia = document.createElement("article");
     const cardsMediaImg = document.createElement("a");
     const cardsMediaFooter = document.createElement("div");
     const cardsMediaTitle = document.createElement("p");
@@ -242,7 +242,7 @@ export function displayMediaList() {
     const heartLink = document.createElement("a");
     const heart = document.createElement("i");
     cardsMediaCompteurLike.setAttribute("aria-label", `likes`);
-
+    cardsMedia.setAttribute("role", "article");
     cardsMedia.classList.add("cards-media");
     cardsMediaImg.classList.add("cards-media-img");
     cardsMediaImg.setAttribute("title", "ouvrir la lightbox");
