@@ -227,7 +227,7 @@ export function displayMediaList() {
 
   displayMediaList.forEach((media) => {
     const mediaElement = media.createImg(currentPhotographer.getFolderName());
-    const cardsMedia = document.createElement("div");
+    const cardsMedia = document.createElement("section");
     const cardsMediaImg = document.createElement("a");
     const cardsMediaFooter = document.createElement("div");
     const cardsMediaTitle = document.createElement("p");
@@ -245,6 +245,7 @@ export function displayMediaList() {
 
     cardsMedia.classList.add("cards-media");
     cardsMediaImg.classList.add("cards-media-img");
+    cardsMediaImg.setAttribute("title", "ouvrir la lightbox");
 
     cardsMediaFooter.classList.add("cards-media-footer");
     cardsMediaTitle.classList.add("cards-media-title");
@@ -255,6 +256,7 @@ export function displayMediaList() {
     heartLink.setAttribute("role", "button");
     heartLink.setAttribute("tabindex", "0");
     cardsMediaCompteurLike.setAttribute("tabindex", "0");
+
     cardsMediaCompteurLike.setAttribute(
       "aria-label",
       `Nombre de likes ${media.likes}`
