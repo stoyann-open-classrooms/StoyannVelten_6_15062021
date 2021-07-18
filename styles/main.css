@@ -487,9 +487,9 @@ header .tag-list {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: space-betwewen;
-      -ms-flex-pack: space-betwewen;
-          justify-content: space-betwewen;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   padding: 0 4%;
 }
 
@@ -544,27 +544,19 @@ header .tag-list {
 
 .banner-btn {
   display: none;
-  position: absolute;
-  font-size: 1em;
-  width: 45%;
+  font-size: 1.5rem;
+  text-align: center;
   font-weight: bold;
-  margin-right: 10%;
   border-radius: 0.6rem;
-  padding: 1rem 0;
   max-width: 20rem;
+  min-width: 20rem;
+  height: 3rem;
+  margin-right: 20%;
 }
 
 @media screen and (min-width: 42.5rem) {
   .banner-btn {
     display: block;
-    left: 35%;
-    top: 20%;
-  }
-}
-
-@media screen and (min-width: 120rem) {
-  .banner-btn {
-    font-size: 1.5rem;
   }
 }
 
