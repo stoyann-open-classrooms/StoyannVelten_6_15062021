@@ -236,7 +236,7 @@ export function displayMediaList() {
     // const playLogo = document.createElement("i");
     // playLogo.classList.add("fas");
     // playLogo.classList.add("fa-play-circle");
-    cardsMediaImg.textContent = `${media.title}`;
+    // cardsMediaImg.textContent = `${media.title}`;
 
     const cardsMediaCompteurLike = document.createElement("p");
     const heartLink = document.createElement("a");
